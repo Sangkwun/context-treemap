@@ -137,44 +137,44 @@ function renderMcpTreemap(snapshot) {
 
     if (areaRatio > 0.04) {
       // Large block: full detail
-      const fs = Math.min(18, Math.max(10, Math.pow(areaRatio, 0.4) * 42));
+      const fs = Math.min(28, Math.max(14, Math.pow(areaRatio, 0.35) * 60));
 
       // Name (top-left)
       setFont(ctx, fs, 'bold');
       ctx.fillStyle = STYLE.textPrimary;
       ctx.textAlign = 'left';
-      ctx.fillText(d.name, x + 10, y + 10 + fs);
+      ctx.fillText(d.name, x + 12, y + 12 + fs);
 
       // Tokens + tools
-      setFont(ctx, fs * 0.6);
+      setFont(ctx, fs * 0.55);
       ctx.fillStyle = STYLE.textSecondary;
-      ctx.fillText(`${d.tokens.toLocaleString()} tokens · ${d.tools} tools`, x + 10, y + 10 + fs + fs * 0.8);
+      ctx.fillText(`${d.tokens.toLocaleString()} tokens · ${d.tools} tools`, x + 12, y + 12 + fs + fs * 0.75);
 
       // Version
       if (d.version) {
-        setFont(ctx, fs * 0.55);
+        setFont(ctx, fs * 0.45);
         ctx.fillStyle = STYLE.textMuted;
-        ctx.fillText(`v${d.version}`, x + 10, y + 10 + fs + fs * 0.8 + fs * 0.7);
+        ctx.fillText(`v${d.version}`, x + 12, y + 12 + fs + fs * 0.75 + fs * 0.6);
       }
 
       // Change badge (top-right)
       if (changePct !== 0) {
         const arrow = changePct > 0 ? `▲ +${changePct}%` : `▼ ${changePct}%`;
-        setFont(ctx, fs * 0.7, 'bold');
+        setFont(ctx, fs * 0.6, 'bold');
         ctx.fillStyle = changeBadgeColor(changePct);
         ctx.textAlign = 'right';
-        ctx.fillText(arrow, x + w - 10, y + 10 + fs);
+        ctx.fillText(arrow, x + w - 12, y + 12 + fs);
         ctx.textAlign = 'left';
       }
     } else if (areaRatio > 0.008) {
       // Medium block
-      const fs = Math.max(8, Math.pow(areaRatio, 0.5) * 35);
+      const fs = Math.max(11, Math.pow(areaRatio, 0.45) * 50);
       setFont(ctx, fs, 'semibold');
       ctx.fillStyle = STYLE.textPrimary;
       ctx.textAlign = 'center';
       ctx.fillText(d.name, x + w / 2, y + h / 2 - 4);
 
-      setFont(ctx, fs * 0.7);
+      setFont(ctx, fs * 0.65);
       const changeTxt = changePct !== 0
         ? (changePct > 0 ? `▲+${changePct}%` : `▼${changePct}%`)
         : '';
@@ -183,7 +183,7 @@ function renderMcpTreemap(snapshot) {
       ctx.textAlign = 'left';
     } else if (areaRatio > 0.003) {
       // Small block: name only
-      const fs = Math.max(7, Math.pow(areaRatio, 0.5) * 30);
+      const fs = Math.max(9, Math.pow(areaRatio, 0.45) * 40);
       setFont(ctx, fs);
       ctx.fillStyle = STYLE.textMuted;
       ctx.textAlign = 'center';
@@ -197,12 +197,12 @@ function renderMcpTreemap(snapshot) {
   ctx.fillRect(0, 0, W, HEADER);
 
   // Title
-  setFont(ctx, 26, 'bold');
+  setFont(ctx, 30, 'bold');
   ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText('MCP Context Index', 16, 40);
+  ctx.fillText('MCP Context Index', 16, 42);
 
   // Subtitle
-  setFont(ctx, 11);
+  setFont(ctx, 13);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
     `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
@@ -301,26 +301,26 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     const pct = (d.tokens / TOTAL * 100).toFixed(1);
 
     if (areaRatio > 0.02) {
-      const fs = Math.min(18, Math.max(9, Math.pow(areaRatio, 0.4) * 40));
+      const fs = Math.min(28, Math.max(12, Math.pow(areaRatio, 0.35) * 55));
       setFont(ctx, fs, isFree ? 'bold' : 'semibold');
       ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
       ctx.textAlign = 'left';
-      ctx.fillText(d.name, x + 10, y + 10 + fs);
+      ctx.fillText(d.name, x + 12, y + 12 + fs);
 
-      setFont(ctx, fs * 0.6);
+      setFont(ctx, fs * 0.55);
       ctx.fillStyle = isFree ? '#22c55e88' : STYLE.textSecondary;
-      ctx.fillText(`${formatTokens(d.tokens)} (${pct}%)`, x + 10, y + 10 + fs + fs * 0.8);
+      ctx.fillText(`${formatTokens(d.tokens)} (${pct}%)`, x + 12, y + 12 + fs + fs * 0.75);
 
       if (d.change && d.change !== 0) {
         const arrow = d.change > 0 ? `▲ +${d.change}%` : `▼ ${d.change}%`;
-        setFont(ctx, fs * 0.65, 'bold');
+        setFont(ctx, fs * 0.55, 'bold');
         ctx.fillStyle = changeBadgeColor(d.change);
         ctx.textAlign = 'right';
-        ctx.fillText(arrow, x + w - 10, y + 10 + fs);
+        ctx.fillText(arrow, x + w - 12, y + 12 + fs);
         ctx.textAlign = 'left';
       }
     } else if (areaRatio > 0.005) {
-      const fs = Math.max(7, Math.pow(areaRatio, 0.5) * 30);
+      const fs = Math.max(10, Math.pow(areaRatio, 0.45) * 40);
       setFont(ctx, fs);
       ctx.fillStyle = isFree ? STYLE.green : STYLE.textMuted;
       ctx.textAlign = 'center';
@@ -336,11 +336,11 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   ctx.fillRect(0, 0, W, HEADER);
 
   const freePct = (free / TOTAL * 100).toFixed(1);
-  setFont(ctx, 24, 'bold');
+  setFont(ctx, 28, 'bold');
   ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText(`${agentName} — Context Window (${totalLabel})`, 16, 38);
+  ctx.fillText(`${agentName} — Context Window (${totalLabel})`, 16, 42);
 
-  setFont(ctx, 11);
+  setFont(ctx, 13);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
     `System: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
