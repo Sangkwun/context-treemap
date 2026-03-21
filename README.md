@@ -16,7 +16,7 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 
 ### Skill Index
 
-> Always-on context cost of skill packs (description metadata only — block size = what you pay just by installing).
+> Skill packs visualized with two regions: **dark** = always-on cost (description metadata, loaded just by installing), **light** = on-invoke cost (full body, loaded only when called). The divider shows how much is "free until you use it."
 
 ![Skill Index](images/skill-index-latest.png)
 
