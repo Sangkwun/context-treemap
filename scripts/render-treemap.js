@@ -255,9 +255,7 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     if (latest.builtinTools) {
       items.push({ name: `Built-in Tools`, tokens: latest.builtinTools, color: '#4c1d95', change: 0, category: 'system' });
     }
-    if (latest.responseBuffer) {
-      items.push({ name: 'Response Buffer', tokens: latest.responseBuffer, color: '#1e293b', change: 0, category: 'buffer' });
-    }
+    // Response buffer excluded — managed internally by the agent
     if (latest.systemPrompt) {
       items.push({ name: 'System Prompt', tokens: latest.systemPrompt, color: '#312e81', change: 0, category: 'system' });
     }
