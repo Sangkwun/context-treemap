@@ -61,6 +61,29 @@ function setFont(ctx, size, weight = 'normal') {
   ctx.font = `${w} ${size}px "Inter", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif`;
 }
 
+/**
+ * Calculate font size that makes text fill ~targetRatio of the block width.
+ * Uses canvas measureText for accuracy.
+ */
+function fitFontSize(ctx, text, blockW, blockH, weight = 'bold', targetRatio = 0.85, maxLines = 3) {
+  const maxByHeight = blockH / (maxLines * 1.6);
+  let fs = Math.min(blockW * 0.15, maxByHeight, 48);
+
+  // Binary search for best fit
+  let lo = 8, hi = fs;
+  for (let i = 0; i < 10; i++) {
+    const mid = (lo + hi) / 2;
+    setFont(ctx, mid, weight);
+    const measured = ctx.measureText(text).width;
+    if (measured < blockW * targetRatio) {
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+  return Math.max(10, Math.floor(lo));
+}
+
 // ── Load Data ────────────────────────────────────────────
 
 function loadLatestSnapshot() {
@@ -133,63 +156,46 @@ function renderMcpTreemap(snapshot) {
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.stroke();
 
-    const areaRatio = (w * h) / (W * H);
+    // Stock-style centered label: NAME big + sub-info below
+    const pad = 6;
+    const innerW = w - pad * 2;
+    const innerH = h - pad * 2;
+    if (innerW < 15 || innerH < 12) continue;
 
-    if (areaRatio > 0.04) {
-      // Large block: full detail
-      const fs = Math.min(28, Math.max(14, Math.pow(areaRatio, 0.35) * 60));
+    ctx.textAlign = 'center';
+    const cx = x + w / 2;
+    const cy = y + h / 2;
 
-      // Name (top-left)
-      setFont(ctx, fs, 'bold');
-      ctx.fillStyle = STYLE.textPrimary;
-      ctx.textAlign = 'left';
-      ctx.fillText(d.name, x + 12, y + 12 + fs);
+    // Short name for fitting
+    const shortName = d.name.replace(' MCP', '').replace(' Server', '');
 
-      // Tokens + tools
-      setFont(ctx, fs * 0.55);
-      ctx.fillStyle = STYLE.textSecondary;
-      ctx.fillText(`${d.tokens.toLocaleString()} tokens · ${d.tools} tools`, x + 12, y + 12 + fs + fs * 0.75);
+    // Line 1: Name (big, bold) — fit to block width
+    const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
 
-      // Version
-      if (d.version) {
-        setFont(ctx, fs * 0.45);
-        ctx.fillStyle = STYLE.textMuted;
-        ctx.fillText(`v${d.version}`, x + 12, y + 12 + fs + fs * 0.75 + fs * 0.6);
-      }
+    // Line 2: sub info — tokens or change
+    const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
+    const subText = innerH > nameFs * 2
+      ? `${formatTokens(d.tokens)}  ${changeTxt}`
+      : changeTxt || formatTokens(d.tokens);
+    const subFs = Math.max(8, nameFs * 0.5);
 
-      // Change badge (top-right)
-      if (changePct !== 0) {
-        const arrow = changePct > 0 ? `▲ +${changePct}%` : `▼ ${changePct}%`;
-        setFont(ctx, fs * 0.6, 'bold');
-        ctx.fillStyle = changeBadgeColor(changePct);
-        ctx.textAlign = 'right';
-        ctx.fillText(arrow, x + w - 12, y + 12 + fs);
-        ctx.textAlign = 'left';
-      }
-    } else if (areaRatio > 0.008) {
-      // Medium block
-      const fs = Math.max(11, Math.pow(areaRatio, 0.45) * 50);
-      setFont(ctx, fs, 'semibold');
-      ctx.fillStyle = STYLE.textPrimary;
-      ctx.textAlign = 'center';
-      ctx.fillText(d.name, x + w / 2, y + h / 2 - 4);
+    // Calculate vertical centering
+    const totalTextH = innerH > nameFs * 1.8 ? nameFs + subFs * 1.2 : nameFs;
+    const startY = cy - totalTextH / 2;
 
-      setFont(ctx, fs * 0.65);
-      const changeTxt = changePct !== 0
-        ? (changePct > 0 ? `▲+${changePct}%` : `▼${changePct}%`)
-        : '';
+    // Draw name
+    setFont(ctx, nameFs, 'bold');
+    ctx.fillStyle = STYLE.textPrimary;
+    ctx.fillText(shortName, cx, startY + nameFs * 0.85);
+
+    // Draw sub-info if space
+    if (innerH > nameFs * 1.8) {
+      setFont(ctx, subFs);
       ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
-      ctx.fillText(`${formatTokens(d.tokens)}  ${changeTxt}`, x + w / 2, y + h / 2 + fs * 0.7);
-      ctx.textAlign = 'left';
-    } else if (areaRatio > 0.003) {
-      // Small block: name only
-      const fs = Math.max(9, Math.pow(areaRatio, 0.45) * 40);
-      setFont(ctx, fs);
-      ctx.fillStyle = STYLE.textMuted;
-      ctx.textAlign = 'center';
-      ctx.fillText(d.name.split(' ')[0], x + w / 2, y + h / 2 + 3);
-      ctx.textAlign = 'left';
+      ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
     }
+
+    ctx.textAlign = 'left';
   }
 
   // ── Header ──
@@ -296,39 +302,35 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.stroke();
 
-    const areaRatio = (w * h) / (W * H);
     const isFree = d.category === 'free';
     const pct = (d.tokens / TOTAL * 100).toFixed(1);
+    const pad = 6;
+    const innerW = w - pad * 2;
+    const innerH = h - pad * 2;
+    if (innerW < 15 || innerH < 12) continue;
 
-    if (areaRatio > 0.02) {
-      const fs = Math.min(28, Math.max(12, Math.pow(areaRatio, 0.35) * 55));
-      setFont(ctx, fs, isFree ? 'bold' : 'semibold');
-      ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
-      ctx.textAlign = 'left';
-      ctx.fillText(d.name, x + 12, y + 12 + fs);
+    ctx.textAlign = 'center';
+    const cx = x + w / 2;
+    const cy = y + h / 2;
 
-      setFont(ctx, fs * 0.55);
-      ctx.fillStyle = isFree ? '#22c55e88' : STYLE.textSecondary;
-      ctx.fillText(`${formatTokens(d.tokens)} (${pct}%)`, x + 12, y + 12 + fs + fs * 0.75);
+    const shortName = d.name.replace(' MCP', '').replace(' Server', '').replace(' Buffer', '\nBuffer');
+    const nameFs = fitFontSize(ctx, shortName.split('\n')[0], innerW, innerH, 'bold', 0.85, 2);
+    const subText = `${formatTokens(d.tokens)} (${pct}%)`;
+    const subFs = Math.max(8, nameFs * 0.5);
+    const totalTextH = innerH > nameFs * 1.8 ? nameFs + subFs * 1.2 : nameFs;
+    const startY = cy - totalTextH / 2;
 
-      if (d.change && d.change !== 0) {
-        const arrow = d.change > 0 ? `▲ +${d.change}%` : `▼ ${d.change}%`;
-        setFont(ctx, fs * 0.55, 'bold');
-        ctx.fillStyle = changeBadgeColor(d.change);
-        ctx.textAlign = 'right';
-        ctx.fillText(arrow, x + w - 12, y + 12 + fs);
-        ctx.textAlign = 'left';
-      }
-    } else if (areaRatio > 0.005) {
-      const fs = Math.max(10, Math.pow(areaRatio, 0.45) * 40);
-      setFont(ctx, fs);
-      ctx.fillStyle = isFree ? STYLE.green : STYLE.textMuted;
-      ctx.textAlign = 'center';
-      ctx.fillText(d.name, x + w / 2, y + h / 2);
-      setFont(ctx, fs * 0.8);
-      ctx.fillText(formatTokens(d.tokens), x + w / 2, y + h / 2 + fs);
-      ctx.textAlign = 'left';
+    setFont(ctx, nameFs, 'bold');
+    ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
+    ctx.fillText(shortName.split('\n')[0], cx, startY + nameFs * 0.85);
+
+    if (innerH > nameFs * 1.8) {
+      setFont(ctx, subFs);
+      ctx.fillStyle = isFree ? '#22c55eaa' : STYLE.textSecondary;
+      ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
     }
+
+    ctx.textAlign = 'left';
   }
 
   // Header

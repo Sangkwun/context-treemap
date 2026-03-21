@@ -2,7 +2,7 @@
   "name": "Codex",
   "provider": "OpenAI",
   "model": "gpt-5.4",
-  "contextWindow": 272000,
+  "contextWindow": 1000000,
   "versions": [
     {
       "version": "0.1.0",
