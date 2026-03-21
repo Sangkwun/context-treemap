@@ -266,16 +266,17 @@ function renderSkillIndex() {
   const skills = loadSkillData().filter(s => s.alwaysOnTokens > 0);
   if (skills.length === 0) return null;
 
-  // Use alwaysOnTokens for block size (metadata only)
+  // Block size = alwaysOn + fullBody (total cost)
   const items = skills.map(s => ({
     ...s,
     displayName: s.name,
-    value: s.alwaysOnTokens,
-    tokens: s.alwaysOnTokens,
+    value: s.alwaysOnTokens + (s.fullBodyTokens || 0),
+    tokens: s.alwaysOnTokens + (s.fullBodyTokens || 0),
     change: { pct: 0 },
   }));
 
   const totalAlwaysOn = items.reduce((s, x) => s + x.alwaysOnTokens, 0);
+  const totalFull = items.reduce((s, x) => s + (x.fullBodyTokens || 0), 0);
   const totalSkills = items.reduce((s, x) => s + (x.skillCount || 0), 0);
 
   const root = hierarchy({ children: items }).sum(d => d.value);
@@ -283,12 +284,77 @@ function renderSkillIndex() {
 
   for (const leaf of root.leaves()) {
     const d = leaf.data;
-    const onInvoke = d.fullBodyTokens ? ` · ${formatTokens(d.fullBodyTokens)} on invoke` : '';
-    const subText = `${formatTokens(d.alwaysOnTokens)} always-on${onInvoke} · ${d.skillCount || 0} skills`;
-    renderBlock(ctx, leaf, HEADER, W, H, {
-      color: '#164e63',
-      subText,
-    });
+    const x = leaf.x0, y = leaf.y0 + HEADER;
+    const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
+
+    const totalTokens = d.alwaysOnTokens + (d.fullBodyTokens || 0);
+    const alwaysRatio = totalTokens > 0 ? d.alwaysOnTokens / totalTokens : 1;
+
+    // On-invoke area (lighter, full block)
+    ctx.fillStyle = '#0e3a47';
+    roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
+    ctx.fill();
+
+    // Always-on area (darker, left portion)
+    const alwaysW = Math.max(4, (w - 2) * alwaysRatio);
+    ctx.fillStyle = '#164e63';
+    roundRect(ctx, x + 1, y + 1, alwaysW, h - 2, 4);
+    ctx.fill();
+
+    // Divider line
+    if (alwaysW < w - 10 && alwaysW > 6) {
+      ctx.strokeStyle = '#0d1117';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x + 1 + alwaysW, y + 4);
+      ctx.lineTo(x + 1 + alwaysW, y + h - 4);
+      ctx.stroke();
+    }
+
+    // Border
+    ctx.strokeStyle = STYLE.border;
+    ctx.lineWidth = 1;
+    roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
+    ctx.stroke();
+
+    // Labels
+    const pad = 6;
+    const innerW = w - pad * 2;
+    const innerH = h - pad * 2;
+    if (innerW < 15 || innerH < 10) continue;
+
+    ctx.textAlign = 'center';
+    const cx = x + w / 2;
+    const cy = y + h / 2;
+
+    const shortName = d.displayName;
+    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke · ${d.skillCount || 0} skills`;
+
+    if (innerH >= 28) {
+      const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
+      const showSub = innerH > nameFs * 1.6;
+      const subFs = Math.max(8, nameFs * 0.5);
+      const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
+      const startY = cy - totalH / 2;
+
+      setFont(ctx, nameFs, 'bold');
+      ctx.fillStyle = STYLE.textPrimary;
+      ctx.fillText(shortName, cx, startY + nameFs * 0.85);
+
+      if (showSub) {
+        setFont(ctx, subFs);
+        ctx.fillStyle = STYLE.textSecondary;
+        ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
+      }
+    } else {
+      const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
+      if (fs >= 7) {
+        setFont(ctx, fs, 'bold');
+        ctx.fillStyle = STYLE.textPrimary;
+        ctx.fillText(shortName, cx, cy + fs * 0.35);
+      }
+    }
+    ctx.textAlign = 'left';
   }
 
   // Header
@@ -302,9 +368,21 @@ function renderSkillIndex() {
   setFont(ctx, 13);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
-    `Always-on total: ${totalAlwaysOn.toLocaleString()} tokens  ·  ${items.length} skill packs  ·  ${totalSkills} skills  ·  description metadata only`,
+    `Always-on: ${totalAlwaysOn.toLocaleString()} tokens  ·  On invoke: ${totalFull.toLocaleString()} tokens  ·  ${items.length} skill packs  ·  ${totalSkills} skills`,
     16, 62
   );
+
+  // Legend
+  const legX = W - 250;
+  [['#164e63', 'Always-on'], ['#0e3a47', 'On invoke']].forEach(([c, l], i) => {
+    const lx = legX + i * 110;
+    ctx.fillStyle = c;
+    roundRect(ctx, lx, 30, 12, 12, 2);
+    ctx.fill();
+    setFont(ctx, 9);
+    ctx.fillStyle = STYLE.textSecondary;
+    ctx.fillText(l, lx + 16, 40);
+  });
 
   return canvas;
 }
