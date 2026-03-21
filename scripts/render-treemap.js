@@ -205,7 +205,7 @@ function renderMcpTreemap(snapshot) {
   setFont(ctx, 11);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
-    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 200000 * 100).toFixed(1)}% of 200K)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
+    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
     16, 62
   );
 
@@ -234,7 +234,8 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   const W = 1600, H = 900;
   const HEADER = 90;
   const PAD = 3;
-  const TOTAL = 200000;
+  const TOTAL = agentData?.contextWindow || 1000000;
+  const totalLabel = TOTAL >= 1000000 ? '1M' : `${(TOTAL / 1000).toFixed(0)}K`;
 
   const canvas = createCanvas(W, H + HEADER);
   const ctx = canvas.getContext('2d');
@@ -339,12 +340,12 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   const freePct = (free / TOTAL * 100).toFixed(1);
   setFont(ctx, 24, 'bold');
   ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText(`${agentName} — Context Window (200K)`, 16, 38);
+  ctx.fillText(`${agentName} — Context Window (${totalLabel})`, 16, 38);
 
   setFont(ctx, 11);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
-    `System: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.date || ''}`,
+    `System: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
     16, 60
   );
 

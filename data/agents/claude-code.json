@@ -1,6 +1,8 @@
 {
   "name": "Claude Code",
   "provider": "Anthropic",
+  "model": "claude-opus-4-6",
+  "contextWindow": 1000000,
   "versions": [
     {
       "version": "2.1.81",

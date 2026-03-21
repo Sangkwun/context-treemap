@@ -102,7 +102,7 @@ async function main() {
   const totalTokens = snapshot.servers.reduce((sum, s) => sum + s.tokens, 0);
   const totalTools = snapshot.servers.reduce((sum, s) => sum + s.tools, 0);
   console.log(`\n📋 Summary: ${snapshot.servers.length} servers, ${totalTools} tools, ${totalTokens.toLocaleString()} tokens`);
-  console.log(`   200K context: ${(totalTokens / 200000 * 100).toFixed(1)}% consumed by MCP alone\n`);
+  console.log(`   1M context: ${(totalTokens / 1000000 * 100).toFixed(1)}% consumed by MCP alone\n`);
 }
 
 main().catch(console.error);
