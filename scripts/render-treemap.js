@@ -62,16 +62,17 @@ function setFont(ctx, size, weight = 'normal') {
 }
 
 /**
- * Calculate font size that makes text fill ~targetRatio of the block width.
- * Uses canvas measureText for accuracy.
+ * Calculate font size that fits text within block dimensions.
+ * Constrained by both width and height.
  */
-function fitFontSize(ctx, text, blockW, blockH, weight = 'bold', targetRatio = 0.85, maxLines = 3) {
-  const maxByHeight = blockH / (maxLines * 1.6);
-  let fs = Math.min(blockW * 0.15, maxByHeight, 48);
+function fitFontSize(ctx, text, blockW, blockH, weight = 'bold', targetRatio = 0.85, maxLines = 2) {
+  // Height constraint: name + sub-text must fit in block
+  const maxByHeight = blockH / (maxLines * 1.4);
+  let hi = Math.min(blockW * 0.2, maxByHeight, 56);
 
-  // Binary search for best fit
-  let lo = 8, hi = fs;
-  for (let i = 0; i < 10; i++) {
+  // Binary search for width fit
+  let lo = 6;
+  for (let i = 0; i < 12; i++) {
     const mid = (lo + hi) / 2;
     setFont(ctx, mid, weight);
     const measured = ctx.measureText(text).width;
@@ -81,7 +82,7 @@ function fitFontSize(ctx, text, blockW, blockH, weight = 'bold', targetRatio = 0
       hi = mid;
     }
   }
-  return Math.max(10, Math.floor(lo));
+  return Math.max(8, Math.floor(lo));
 }
 
 // ── Load Data ────────────────────────────────────────────
@@ -106,6 +107,25 @@ function loadMcpHistory() {
     history[id] = JSON.parse(readFileSync(join(mcpDir, file), 'utf-8'));
   }
   return history;
+}
+
+function loadSkillData() {
+  const skillDir = join(DATA_DIR, 'skills');
+  if (!existsSync(skillDir)) return [];
+
+  const results = [];
+  for (const file of readdirSync(skillDir).filter(f => f.endsWith('.json'))) {
+    const data = JSON.parse(readFileSync(join(skillDir, file), 'utf-8'));
+    const latest = data.versions?.[data.versions.length - 1];
+    if (latest && latest.alwaysOnTokens > 0) {
+      results.push({
+        name: data.name,
+        tokens: latest.alwaysOnTokens,
+        skillCount: latest.skillCount,
+      });
+    }
+  }
+  return results;
 }
 
 // ── Render MCP Treemap ───────────────────────────────────
@@ -156,43 +176,45 @@ function renderMcpTreemap(snapshot) {
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.stroke();
 
-    // Stock-style centered label: NAME big + sub-info below
+    // Stock-style centered label
     const pad = 6;
     const innerW = w - pad * 2;
     const innerH = h - pad * 2;
-    if (innerW < 15 || innerH < 12) continue;
+    if (innerW < 15 || innerH < 10) continue;
 
     ctx.textAlign = 'center';
     const cx = x + w / 2;
     const cy = y + h / 2;
 
-    // Short name for fitting
     const shortName = d.name.replace(' MCP', '').replace(' Server', '');
-
-    // Line 1: Name (big, bold) — fit to block width
-    const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
-
-    // Line 2: sub info — tokens or change
     const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
-    const subText = innerH > nameFs * 2
-      ? `${formatTokens(d.tokens)}  ${changeTxt}`
-      : changeTxt || formatTokens(d.tokens);
-    const subFs = Math.max(8, nameFs * 0.5);
 
-    // Calculate vertical centering
-    const totalTextH = innerH > nameFs * 1.8 ? nameFs + subFs * 1.2 : nameFs;
-    const startY = cy - totalTextH / 2;
+    if (innerH >= 28) {
+      // Enough height for name + sub
+      const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
+      const showSub = innerH > nameFs * 1.6;
+      const subFs = Math.max(8, nameFs * 0.5);
+      const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
+      const startY = cy - totalH / 2;
 
-    // Draw name
-    setFont(ctx, nameFs, 'bold');
-    ctx.fillStyle = STYLE.textPrimary;
-    ctx.fillText(shortName, cx, startY + nameFs * 0.85);
+      setFont(ctx, nameFs, 'bold');
+      ctx.fillStyle = STYLE.textPrimary;
+      ctx.fillText(shortName, cx, startY + nameFs * 0.85);
 
-    // Draw sub-info if space
-    if (innerH > nameFs * 1.8) {
-      setFont(ctx, subFs);
-      ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
-      ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
+      if (showSub) {
+        const subText = `${formatTokens(d.tokens)}  ${changeTxt}`;
+        setFont(ctx, subFs);
+        ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
+        ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
+      }
+    } else {
+      // Very thin: single line, clamp to height
+      const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
+      if (fs >= 7) {
+        setFont(ctx, fs, 'bold');
+        ctx.fillStyle = STYLE.textPrimary;
+        ctx.fillText(shortName, cx, cy + fs * 0.35);
+      }
     }
 
     ctx.textAlign = 'left';
@@ -280,6 +302,18 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     }
   }
 
+  // Skills (always-on description tokens)
+  const skills = loadSkillData();
+  for (const skill of skills) {
+    items.push({
+      name: skill.name,
+      tokens: skill.tokens,
+      color: '#164e63',
+      change: 0,
+      category: 'skill',
+    });
+  }
+
   // Free space
   const used = items.reduce((s, x) => s + x.tokens, 0);
   const free = Math.max(0, TOTAL - used);
@@ -307,27 +341,37 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     const pad = 6;
     const innerW = w - pad * 2;
     const innerH = h - pad * 2;
-    if (innerW < 15 || innerH < 12) continue;
+    if (innerW < 15 || innerH < 10) continue;
 
     ctx.textAlign = 'center';
     const cx = x + w / 2;
     const cy = y + h / 2;
 
-    const shortName = d.name.replace(' MCP', '').replace(' Server', '').replace(' Buffer', '\nBuffer');
-    const nameFs = fitFontSize(ctx, shortName.split('\n')[0], innerW, innerH, 'bold', 0.85, 2);
-    const subText = `${formatTokens(d.tokens)} (${pct}%)`;
-    const subFs = Math.max(8, nameFs * 0.5);
-    const totalTextH = innerH > nameFs * 1.8 ? nameFs + subFs * 1.2 : nameFs;
-    const startY = cy - totalTextH / 2;
+    const shortName = d.name.replace(' MCP', '').replace(' Server', '');
 
-    setFont(ctx, nameFs, 'bold');
-    ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
-    ctx.fillText(shortName.split('\n')[0], cx, startY + nameFs * 0.85);
+    if (innerH >= 28) {
+      const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
+      const showSub = innerH > nameFs * 1.6;
+      const subFs = Math.max(8, nameFs * 0.5);
+      const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
+      const startY = cy - totalH / 2;
 
-    if (innerH > nameFs * 1.8) {
-      setFont(ctx, subFs);
-      ctx.fillStyle = isFree ? '#22c55eaa' : STYLE.textSecondary;
-      ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
+      setFont(ctx, nameFs, 'bold');
+      ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
+      ctx.fillText(shortName, cx, startY + nameFs * 0.85);
+
+      if (showSub) {
+        setFont(ctx, subFs);
+        ctx.fillStyle = isFree ? '#22c55eaa' : STYLE.textSecondary;
+        ctx.fillText(`${formatTokens(d.tokens)} (${pct}%)`, cx, startY + nameFs * 0.85 + subFs * 1.4);
+      }
+    } else {
+      const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
+      if (fs >= 7) {
+        setFont(ctx, fs, 'bold');
+        ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
+        ctx.fillText(shortName, cx, cy + fs * 0.35);
+      }
     }
 
     ctx.textAlign = 'left';
@@ -352,9 +396,9 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   // Category legend
   const cats = [
     ['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#7f1d1d', 'MCP ▲'],
-    ['#1e293b', 'Buffer'], ['#0f2e1a', 'Free'],
+    ['#164e63', 'Skills'], ['#1e293b', 'Buffer'], ['#0f2e1a', 'Free'],
   ];
-  const legX = W - 400;
+  const legX = W - 480;
   cats.forEach(([c, l], i) => {
     const lx = legX + i * 75;
     ctx.fillStyle = c;
