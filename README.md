@@ -1,8 +1,8 @@
 # context-treemap
 
-Track and visualize the context window cost of MCP servers and coding agents.
+Track and visualize the context window cost of MCP servers, skills, and coding agents.
 
-Your 200K context window isn't as big as you think. Before you type a single message, system prompts, built-in tools, MCP servers, and buffers have already consumed a significant portion.
+Your 1M context window isn't unlimited. Before you type a single message, system prompts, built-in tools, MCP servers, and skills have already consumed a portion — and it adds up fast.
 
 **context-treemap** tracks how much each component costs and visualizes it as a treemap — updated weekly, with version-by-version change tracking like a stock ticker.
 
@@ -14,13 +14,13 @@ Your 200K context window isn't as big as you think. Before you type a single mes
 
 ![MCP Treemap](images/mcp-treemap-latest.png)
 
-### Claude Code — Full Context (200K)
+### Claude Code — Context Window (1M)
 
-> System prompt + tools + MCP + buffers — what's left for your conversation?
+> System prompt + tools + MCP — what's left for your conversation?
 
 ![Claude Code Context](images/claude-code-latest.png)
 
-### Codex — Full Context (200K)
+### Codex — Context Window (1M)
 
 ![Codex Context](images/codex-latest.png)
 
@@ -30,20 +30,30 @@ Your 200K context window isn't as big as you think. Before you type a single mes
 
 Tool schema token costs — the same regardless of which coding agent you use.
 
-| Server | Tools | Tokens | % of 200K |
-|--------|-------|--------|-----------|
-| GitHub | 84 | 20,444 | 10.2% |
-| Playwright | 56 | ~15,000 | 7.5% |
-| Supabase | 30 | ~10,000 | 5.0% |
-| Notion | 22 | ~10,000 | 5.0% |
-| *[14 more...](config/servers.json)* | | | |
+| Server | Tools | Tokens | % of 1M |
+|--------|-------|--------|---------|
+| GitHub | 84 | 20,444 | 2.0% |
+| Playwright | 56 | ~15,000 | 1.5% |
+| Supabase | 30 | ~10,000 | 1.0% |
+| Notion | 22 | ~10,000 | 1.0% |
+| Firecrawl | 14 | ~6,000 | 0.6% |
+| Slack | 8 | ~5,000 | 0.5% |
+| Sentry | 16 | ~5,000 | 0.5% |
+| Linear | 5 | ~2,000 | 0.2% |
+| Filesystem | 13 | 1,841 | 0.2% |
+| Context7 | 2 | ~1,500 | 0.2% |
+| Figma | 2 | ~1,500 | 0.2% |
+| Seq. Thinking | 1 | 976 | 0.1% |
+| Memory | 9 | 975 | 0.1% |
+| PostgreSQL | 1 | ~800 | 0.1% |
+| **Total** | **263** | **~81K** | **8.1%** |
 
 ### Agent System Overhead
 
-| Agent | System Prompt | Tools | Buffer | Total |
-|-------|--------------|-------|--------|-------|
-| Claude Code | 3,000 | 16,821 | 41,000 | 60,821 (30.4%) |
-| Codex | 2,500 | 8,000 | 8,000 | 18,500 (9.3%) |
+| Agent | Model | Context | System Prompt | Built-in Tools | Autocompact Buffer | Total |
+|-------|-------|---------|--------------|----------------|-------------------|-------|
+| Claude Code | Opus 4.6 | 1M | 3,000 | 16,821 | 33,000 | 52,821 (5.3%) |
+| Codex | GPT-5.4 | 1M | 2,500 | 8,000 | — | 10,500 (1.1%) |
 
 ## How It Works
 
