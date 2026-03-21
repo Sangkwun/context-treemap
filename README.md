@@ -1,5 +1,7 @@
 # context-treemap
 
+[한국어](docs/README.ko.md) | [日本語](docs/README.ja.md) | [中文](docs/README.zh.md)
+
 Track and visualize the context window cost of MCP servers, skill packs, and coding agents.
 
 Your 1M context window isn't unlimited. Before you type a single message, system prompts, built-in tools, MCP servers, and skills have already consumed a portion — and it adds up fast.
