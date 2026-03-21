@@ -128,9 +128,9 @@ function loadSkillData() {
   return results;
 }
 
-// ── Render MCP Treemap ───────────────────────────────────
+// ── Render Context Index (MCP + Skills) ──────────────────
 
-function renderMcpTreemap(snapshot) {
+function renderContextIndex(snapshot) {
   const W = 1600, H = 900;
   const HEADER = 90;
   const PAD = 3;
@@ -138,24 +138,46 @@ function renderMcpTreemap(snapshot) {
   const canvas = createCanvas(W, H + HEADER);
   const ctx = canvas.getContext('2d');
 
-  // Background
   ctx.fillStyle = STYLE.bg;
   ctx.fillRect(0, 0, W, H + HEADER);
 
-  const servers = snapshot.servers.sort((a, b) => b.tokens - a.tokens);
-  const totalTokens = servers.reduce((s, x) => s + x.tokens, 0);
-  const totalTools = servers.reduce((s, x) => s + x.tools, 0);
+  // Combine MCP servers + skill packs
+  const items = [];
+
+  // MCP servers
+  for (const s of snapshot.servers) {
+    items.push({
+      ...s,
+      type: 'mcp',
+      displayName: s.name.replace(' MCP', '').replace(' Server', ''),
+    });
+  }
+
+  // Skill packs
+  const skills = loadSkillData();
+  for (const skill of skills) {
+    items.push({
+      name: skill.name,
+      displayName: skill.name,
+      tokens: skill.tokens,
+      tools: skill.skillCount,
+      type: 'skill',
+      change: { pct: 0 },
+    });
+  }
+
+  items.sort((a, b) => b.tokens - a.tokens);
+
+  const totalTokens = items.reduce((s, x) => s + x.tokens, 0);
+  const mcpCount = items.filter(x => x.type === 'mcp').length;
+  const skillCount = items.filter(x => x.type === 'skill').length;
 
   // D3 treemap layout
   const root = hierarchy({
-    children: servers.map(s => ({ ...s, value: s.tokens })),
+    children: items.map(s => ({ ...s, value: s.tokens })),
   }).sum(d => d.value);
 
-  treemap()
-    .size([W, H])
-    .padding(PAD)
-    .tile(treemapSquarify)
-    (root);
+  treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
 
   // Draw blocks
   for (const leaf of root.leaves()) {
@@ -165,18 +187,18 @@ function renderMcpTreemap(snapshot) {
 
     const changePct = d.change?.pct || 0;
 
-    // Block background
-    ctx.fillStyle = changeColor(changePct);
+    // Color: skills get teal, MCP gets red/green based on change
+    const bgColor = d.type === 'skill' ? '#164e63' : changeColor(changePct);
+    ctx.fillStyle = bgColor;
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.fill();
 
-    // Border
     ctx.strokeStyle = STYLE.border;
     ctx.lineWidth = 1;
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.stroke();
 
-    // Stock-style centered label
+    // Label
     const pad = 6;
     const innerW = w - pad * 2;
     const innerH = h - pad * 2;
@@ -186,11 +208,13 @@ function renderMcpTreemap(snapshot) {
     const cx = x + w / 2;
     const cy = y + h / 2;
 
-    const shortName = d.name.replace(' MCP', '').replace(' Server', '');
+    const shortName = d.displayName;
     const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
 
+    // Sub text: tokens for skills show skill count, MCP shows tool count
+    const typeLabel = d.type === 'skill' ? `${d.tools} skills` : '';
+
     if (innerH >= 28) {
-      // Enough height for name + sub
       const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
       const showSub = innerH > nameFs * 1.6;
       const subFs = Math.max(8, nameFs * 0.5);
@@ -202,13 +226,16 @@ function renderMcpTreemap(snapshot) {
       ctx.fillText(shortName, cx, startY + nameFs * 0.85);
 
       if (showSub) {
-        const subText = `${formatTokens(d.tokens)}  ${changeTxt}`;
+        const parts = [formatTokens(d.tokens)];
+        if (typeLabel) parts.push(typeLabel);
+        if (changeTxt) parts.push(changeTxt);
+        const subText = parts.join('  ');
+
         setFont(ctx, subFs);
         ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
         ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
       }
     } else {
-      // Very thin: single line, clamp to height
       const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
       if (fs >= 7) {
         setFont(ctx, fs, 'bold');
@@ -224,27 +251,26 @@ function renderMcpTreemap(snapshot) {
   ctx.fillStyle = STYLE.bg;
   ctx.fillRect(0, 0, W, HEADER);
 
-  // Title
   setFont(ctx, 30, 'bold');
   ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText('MCP Context Index', 16, 42);
+  ctx.fillText('Context Index', 16, 42);
 
-  // Subtitle
   setFont(ctx, 13);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
-    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
+    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${mcpCount} MCP servers  ·  ${skillCount} skill packs  ·  ${snapshot.date}`,
     16, 62
   );
 
   // Legend
-  const legendX = W - 380;
+  const legendX = W - 500;
   const legends = [
     ['#7f1d1d', '▲ 5%+'], ['#451a1a', '▲ 0~5%'],
     ['#1e293b', 'No change'], ['#14532d', '▼ Decrease'],
+    ['#164e63', 'Skill Pack'],
   ];
   legends.forEach(([color, label], i) => {
-    const lx = legendX + i * 90;
+    const lx = legendX + i * 95;
     ctx.fillStyle = color;
     roundRect(ctx, lx, 30, 12, 12, 2);
     ctx.fill();
@@ -428,12 +454,12 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   const { mkdirSync: mkdirSyncFn } = await import('fs');
   if (!existsSync(archiveDir)) mkdirSyncFn(archiveDir, { recursive: true });
 
-  // 1. MCP Treemap
-  console.log('  Rendering MCP treemap...');
-  const mcpCanvas = renderMcpTreemap(snapshot);
-  const mcpBuf = mcpCanvas.toBuffer('image/png');
-  writeFileSync(join(IMAGES_DIR, 'mcp-treemap-latest.png'), mcpBuf);
-  writeFileSync(join(archiveDir, 'mcp-treemap.png'), mcpBuf);
+  // 1. Context Index (MCP + Skills)
+  console.log('  Rendering Context Index...');
+  const indexCanvas = renderContextIndex(snapshot);
+  const indexBuf = indexCanvas.toBuffer('image/png');
+  writeFileSync(join(IMAGES_DIR, 'context-index-latest.png'), indexBuf);
+  writeFileSync(join(archiveDir, 'context-index.png'), indexBuf);
 
   // 2. Claude Code
   const claudeDataPath = join(DATA_DIR, 'agents', 'claude-code.json');
