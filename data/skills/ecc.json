@@ -11,704 +11,821 @@
           "name": "agent-eval",
           "alwaysOnTokens": 36,
           "descriptionChars": 142,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1136
         },
         {
           "name": "agent-harness-construction",
           "alwaysOnTokens": 30,
           "descriptionChars": 117,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 936
         },
         {
           "name": "agentic-engineering",
           "alwaysOnTokens": 26,
           "descriptionChars": 103,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 824
         },
         {
           "name": "ai-first-engineering",
           "alwaysOnTokens": 26,
           "descriptionChars": 102,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 816
         },
         {
           "name": "ai-regression-testing",
           "alwaysOnTokens": 57,
           "descriptionChars": 228,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1824
         },
         {
           "name": "android-clean-architecture",
           "alwaysOnTokens": 40,
           "descriptionChars": 160,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1280
         },
         {
           "name": "api-design",
           "alwaysOnTokens": 39,
           "descriptionChars": 156,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1248
         },
         {
           "name": "architecture-decision-records",
           "alwaysOnTokens": 67,
           "descriptionChars": 267,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2136
         },
         {
           "name": "article-writing",
           "alwaysOnTokens": 78,
           "descriptionChars": 310,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2480
         },
         {
           "name": "autonomous-loops",
           "alwaysOnTokens": 34,
           "descriptionChars": 133,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1064
         },
         {
           "name": "backend-patterns",
           "alwaysOnTokens": 36,
           "descriptionChars": 142,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1136
         },
         {
           "name": "blueprint",
           "alwaysOnTokens": 1,
           "descriptionChars": 2,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 16
         },
         {
           "name": "bun-runtime",
           "alwaysOnTokens": 31,
           "descriptionChars": 123,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 984
         },
         {
           "name": "carrier-relationship-management",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "claude-api",
           "alwaysOnTokens": 61,
           "descriptionChars": 242,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1936
         },
         {
           "name": "claude-devfleet",
           "alwaysOnTokens": 42,
           "descriptionChars": 168,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1344
         },
         {
           "name": "clickhouse-io",
           "alwaysOnTokens": 35,
           "descriptionChars": 139,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1112
         },
         {
           "name": "codebase-onboarding",
           "alwaysOnTokens": 60,
           "descriptionChars": 239,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1912
         },
         {
           "name": "coding-standards",
           "alwaysOnTokens": 29,
           "descriptionChars": 116,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 928
         },
         {
           "name": "compose-multiplatform-patterns",
           "alwaysOnTokens": 37,
           "descriptionChars": 147,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1176
         },
         {
           "name": "configure-ecc",
           "alwaysOnTokens": 54,
           "descriptionChars": 215,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1720
         },
         {
           "name": "content-engine",
           "alwaysOnTokens": 64,
           "descriptionChars": 255,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2040
         },
         {
           "name": "content-hash-cache-pattern",
           "alwaysOnTokens": 35,
           "descriptionChars": 138,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1104
         },
         {
           "name": "context-budget",
           "alwaysOnTokens": 47,
           "descriptionChars": 188,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1504
         },
         {
           "name": "continuous-agent-loop",
           "alwaysOnTokens": 24,
           "descriptionChars": 96,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 768
         },
         {
           "name": "continuous-learning-v2",
           "alwaysOnTokens": 59,
           "descriptionChars": 235,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1880
         },
         {
           "name": "continuous-learning",
           "alwaysOnTokens": 29,
           "descriptionChars": 113,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 904
         },
         {
           "name": "cost-aware-llm-pipeline",
           "alwaysOnTokens": 33,
           "descriptionChars": 130,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1040
         },
         {
           "name": "cpp-coding-standards",
           "alwaysOnTokens": 44,
           "descriptionChars": 176,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1408
         },
         {
           "name": "cpp-testing",
           "alwaysOnTokens": 36,
           "descriptionChars": 144,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1152
         },
         {
           "name": "crosspost",
           "alwaysOnTokens": 64,
           "descriptionChars": 253,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2024
         },
         {
           "name": "customs-trade-compliance",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "data-scraper-agent",
           "alwaysOnTokens": 99,
           "descriptionChars": 393,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 3144
         },
         {
           "name": "database-migrations",
           "alwaysOnTokens": 52,
           "descriptionChars": 205,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1640
         },
         {
           "name": "deep-research",
           "alwaysOnTokens": 58,
           "descriptionChars": 232,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1856
         },
         {
           "name": "deployment-patterns",
           "alwaysOnTokens": 42,
           "descriptionChars": 165,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1320
         },
         {
           "name": "django-patterns",
           "alwaysOnTokens": 35,
           "descriptionChars": 139,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1112
         },
         {
           "name": "django-security",
           "alwaysOnTokens": 40,
           "descriptionChars": 159,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1272
         },
         {
           "name": "django-tdd",
           "alwaysOnTokens": 34,
           "descriptionChars": 134,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1072
         },
         {
           "name": "django-verification",
           "alwaysOnTokens": 38,
           "descriptionChars": 150,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1200
         },
         {
           "name": "dmux-workflows",
           "alwaysOnTokens": 68,
           "descriptionChars": 271,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2168
         },
         {
           "name": "docker-patterns",
           "alwaysOnTokens": 36,
           "descriptionChars": 141,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1128
         },
         {
           "name": "documentation-lookup",
           "alwaysOnTokens": 53,
           "descriptionChars": 212,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1696
         },
         {
           "name": "e2e-testing",
           "alwaysOnTokens": 34,
           "descriptionChars": 133,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1064
         },
         {
           "name": "energy-procurement",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "enterprise-agent-ops",
           "alwaysOnTokens": 26,
           "descriptionChars": 101,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 808
         },
         {
           "name": "eval-harness",
           "alwaysOnTokens": 27,
           "descriptionChars": 106,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 848
         },
         {
           "name": "exa-search",
           "alwaysOnTokens": 51,
           "descriptionChars": 204,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1632
         },
         {
           "name": "fal-ai-media",
           "alwaysOnTokens": 69,
           "descriptionChars": 276,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2208
         },
         {
           "name": "flutter-dart-code-review",
           "alwaysOnTokens": 59,
           "descriptionChars": 233,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1864
         },
         {
           "name": "foundation-models-on-device",
           "alwaysOnTokens": 39,
           "descriptionChars": 153,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1224
         },
         {
           "name": "frontend-patterns",
           "alwaysOnTokens": 29,
           "descriptionChars": 116,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 928
         },
         {
           "name": "frontend-slides",
           "alwaysOnTokens": 78,
           "descriptionChars": 311,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2488
         },
         {
           "name": "golang-patterns",
           "alwaysOnTokens": 30,
           "descriptionChars": 120,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 960
         },
         {
           "name": "golang-testing",
           "alwaysOnTokens": 38,
           "descriptionChars": 152,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1216
         },
         {
           "name": "inventory-demand-planning",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "investor-materials",
           "alwaysOnTokens": 80,
           "descriptionChars": 317,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2536
         },
         {
           "name": "investor-outreach",
           "alwaysOnTokens": 64,
           "descriptionChars": 255,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2040
         },
         {
           "name": "iterative-retrieval",
           "alwaysOnTokens": 23,
           "descriptionChars": 90,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 720
         },
         {
           "name": "java-coding-standards",
           "alwaysOnTokens": 34,
           "descriptionChars": 136,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1088
         },
         {
           "name": "jpa-patterns",
           "alwaysOnTokens": 38,
           "descriptionChars": 150,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1200
         },
         {
           "name": "kotlin-coroutines-flows",
           "alwaysOnTokens": 35,
           "descriptionChars": 137,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1096
         },
         {
           "name": "kotlin-exposed-patterns",
           "alwaysOnTokens": 38,
           "descriptionChars": 152,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1216
         },
         {
           "name": "kotlin-ktor-patterns",
           "alwaysOnTokens": 36,
           "descriptionChars": 141,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1128
         },
         {
           "name": "kotlin-patterns",
           "alwaysOnTokens": 44,
           "descriptionChars": 175,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1400
         },
         {
           "name": "kotlin-testing",
           "alwaysOnTokens": 41,
           "descriptionChars": 163,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1304
         },
         {
           "name": "laravel-patterns",
           "alwaysOnTokens": 37,
           "descriptionChars": 145,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1160
         },
         {
           "name": "laravel-security",
           "alwaysOnTokens": 36,
           "descriptionChars": 144,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1152
         },
         {
           "name": "laravel-tdd",
           "alwaysOnTokens": 29,
           "descriptionChars": 116,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 928
         },
         {
           "name": "laravel-verification",
           "alwaysOnTokens": 35,
           "descriptionChars": 140,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1120
         },
         {
           "name": "liquid-glass-design",
           "alwaysOnTokens": 36,
           "descriptionChars": 141,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1128
         },
         {
           "name": "logistics-exception-management",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "market-research",
           "alwaysOnTokens": 74,
           "descriptionChars": 294,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2352
         },
         {
           "name": "mcp-server-patterns",
           "alwaysOnTokens": 41,
           "descriptionChars": 163,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1304
         },
         {
           "name": "nanoclaw-repl",
           "alwaysOnTokens": 23,
           "descriptionChars": 92,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 736
         },
         {
           "name": "nextjs-turbopack",
           "alwaysOnTokens": 28,
           "descriptionChars": 110,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 880
         },
         {
           "name": "nutrient-document-processing",
           "alwaysOnTokens": 37,
           "descriptionChars": 145,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1160
         },
         {
           "name": "nuxt4-patterns",
           "alwaysOnTokens": 35,
           "descriptionChars": 140,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1120
         },
         {
           "name": "perl-patterns",
           "alwaysOnTokens": 28,
           "descriptionChars": 110,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 880
         },
         {
           "name": "perl-security",
           "alwaysOnTokens": 46,
           "descriptionChars": 181,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1448
         },
         {
           "name": "perl-testing",
           "alwaysOnTokens": 31,
           "descriptionChars": 122,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 976
         },
         {
           "name": "plankton-code-quality",
           "alwaysOnTokens": 34,
           "descriptionChars": 133,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1064
         },
         {
           "name": "postgres-patterns",
           "alwaysOnTokens": 32,
           "descriptionChars": 125,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1000
         },
         {
           "name": "production-scheduling",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "project-guidelines-example",
           "alwaysOnTokens": 20,
           "descriptionChars": 79,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 632
         },
         {
           "name": "prompt-optimizer",
           "alwaysOnTokens": 1,
           "descriptionChars": 2,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 16
         },
         {
           "name": "python-patterns",
           "alwaysOnTokens": 34,
           "descriptionChars": 134,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1072
         },
         {
           "name": "python-testing",
           "alwaysOnTokens": 30,
           "descriptionChars": 119,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 952
         },
         {
           "name": "pytorch-patterns",
           "alwaysOnTokens": 40,
           "descriptionChars": 157,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1256
         },
         {
           "name": "quality-nonconformance",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "ralphinho-rfc-pipeline",
           "alwaysOnTokens": 27,
           "descriptionChars": 107,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 856
         },
         {
           "name": "regex-vs-llm-structured-text",
           "alwaysOnTokens": 37,
           "descriptionChars": 146,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1168
         },
         {
           "name": "returns-reverse-logistics",
           "alwaysOnTokens": 1,
           "descriptionChars": 1,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 8
         },
         {
           "name": "rules-distill",
           "alwaysOnTokens": 30,
           "descriptionChars": 118,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 944
         },
         {
           "name": "rust-patterns",
           "alwaysOnTokens": 34,
           "descriptionChars": 135,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1080
         },
         {
           "name": "rust-testing",
           "alwaysOnTokens": 38,
           "descriptionChars": 149,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1192
         },
         {
           "name": "search-first",
           "alwaysOnTokens": 36,
           "descriptionChars": 141,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1128
         },
         {
           "name": "security-review",
           "alwaysOnTokens": 53,
           "descriptionChars": 209,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1672
         },
         {
           "name": "security-scan",
           "alwaysOnTokens": 55,
           "descriptionChars": 220,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1760
         },
         {
           "name": "skill-stocktake",
           "alwaysOnTokens": 42,
           "descriptionChars": 167,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1336
         },
         {
           "name": "springboot-patterns",
           "alwaysOnTokens": 41,
           "descriptionChars": 161,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1288
         },
         {
           "name": "springboot-security",
           "alwaysOnTokens": 38,
           "descriptionChars": 152,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1216
         },
         {
           "name": "springboot-tdd",
           "alwaysOnTokens": 39,
           "descriptionChars": 155,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1240
         },
         {
           "name": "springboot-verification",
           "alwaysOnTokens": 36,
           "descriptionChars": 142,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1136
         },
         {
           "name": "strategic-compact",
           "alwaysOnTokens": 34,
           "descriptionChars": 134,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1072
         },
         {
           "name": "swift-actor-persistence",
           "alwaysOnTokens": 32,
           "descriptionChars": 128,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1024
         },
         {
           "name": "swift-concurrency-6-2",
           "alwaysOnTokens": 39,
           "descriptionChars": 156,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1248
         },
         {
           "name": "swift-protocol-di-testing",
           "alwaysOnTokens": 38,
           "descriptionChars": 149,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1192
         },
         {
           "name": "swiftui-patterns",
           "alwaysOnTokens": 41,
           "descriptionChars": 161,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1288
         },
         {
           "name": "tdd-workflow",
           "alwaysOnTokens": 43,
           "descriptionChars": 171,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1368
         },
         {
           "name": "team-builder",
           "alwaysOnTokens": 18,
           "descriptionChars": 69,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 552
         },
         {
           "name": "verification-loop",
           "alwaysOnTokens": 16,
           "descriptionChars": 61,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 488
         },
         {
           "name": "video-editing",
           "alwaysOnTokens": 77,
           "descriptionChars": 308,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2464
         },
         {
           "name": "videodb",
           "alwaysOnTokens": 146,
           "descriptionChars": 583,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 4664
         },
         {
           "name": "visa-doc-translate",
           "alwaysOnTokens": 29,
           "descriptionChars": 113,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 904
         },
         {
           "name": "x-api",
           "alwaysOnTokens": 59,
           "descriptionChars": 235,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1880
         }
       ],
       "change": {
         "tokens": 0,
         "pct": 0,
         "skills": 0
-      }
+      },
+      "fullBodyTokens": 142968
     }
   ]
 }

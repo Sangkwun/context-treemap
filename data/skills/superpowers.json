@@ -11,32 +11,37 @@
           "name": "finding-duplicate-functions",
           "alwaysOnTokens": 63,
           "descriptionChars": 252,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 2016
         },
         {
           "name": "mcp-cli",
           "alwaysOnTokens": 37,
           "descriptionChars": 146,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1168
         },
         {
           "name": "slack-messaging",
           "alwaysOnTokens": 38,
           "descriptionChars": 151,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1208
         },
         {
           "name": "using-tmux-for-interactive-commands",
           "alwaysOnTokens": 58,
           "descriptionChars": 230,
-          "hasDisableModelInvocation": false
+          "hasDisableModelInvocation": false,
+          "fullTokens": 1840
         }
       ],
       "change": {
         "tokens": 0,
         "pct": 0,
         "skills": 0
-      }
+      },
+      "fullBodyTokens": 6232
     }
   ]
 }
