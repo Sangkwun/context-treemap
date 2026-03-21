@@ -130,9 +130,69 @@ function loadSkillData() {
   return results;
 }
 
-// ── Render Context Index (MCP + Skills) ──────────────────
+// ── Shared block renderer ────────────────────────────────
 
-function renderContextIndex(snapshot) {
+function renderBlock(ctx, leaf, HEADER, W, H, opts = {}) {
+  const d = leaf.data;
+  const x = leaf.x0, y = leaf.y0 + HEADER;
+  const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
+  const changePct = d.change?.pct || 0;
+
+  // Background
+  ctx.fillStyle = opts.color || changeColor(changePct);
+  roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
+  ctx.fill();
+
+  // Border
+  ctx.strokeStyle = STYLE.border;
+  ctx.lineWidth = 1;
+  roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
+  ctx.stroke();
+
+  // Label
+  const pad = 6;
+  const innerW = w - pad * 2;
+  const innerH = h - pad * 2;
+  if (innerW < 15 || innerH < 10) return;
+
+  ctx.textAlign = 'center';
+  const cx = x + w / 2;
+  const cy = y + h / 2;
+
+  const shortName = d.displayName || d.name;
+  const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
+
+  if (innerH >= 28) {
+    const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
+    const showSub = innerH > nameFs * 1.6;
+    const subFs = Math.max(8, nameFs * 0.5);
+    const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
+    const startY = cy - totalH / 2;
+
+    setFont(ctx, nameFs, 'bold');
+    ctx.fillStyle = opts.textColor || STYLE.textPrimary;
+    ctx.fillText(shortName, cx, startY + nameFs * 0.85);
+
+    if (showSub && opts.subText) {
+      setFont(ctx, subFs);
+      ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
+      ctx.fillText(opts.subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
+    }
+  } else {
+    const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
+    if (fs >= 7) {
+      setFont(ctx, fs, 'bold');
+      ctx.fillStyle = opts.textColor || STYLE.textPrimary;
+      ctx.fillText(shortName, cx, cy + fs * 0.35);
+    }
+  }
+
+  ctx.textAlign = 'left';
+}
+
+// ── Render MCP Index ─────────────────────────────────────
+
+function renderMcpIndex(snapshot) {
   const W = 1600, H = 900;
   const HEADER = 90;
   const PAD = 3;
@@ -143,166 +203,42 @@ function renderContextIndex(snapshot) {
   ctx.fillStyle = STYLE.bg;
   ctx.fillRect(0, 0, W, H + HEADER);
 
-  // Combine MCP servers + skill packs
-  const items = [];
+  const servers = snapshot.servers
+    .map(s => ({ ...s, displayName: s.name.replace(' MCP', '').replace(' Server', '') }))
+    .sort((a, b) => b.tokens - a.tokens);
 
-  // MCP servers
-  for (const s of snapshot.servers) {
-    items.push({
-      ...s,
-      type: 'mcp',
-      displayName: s.name.replace(' MCP', '').replace(' Server', ''),
-    });
-  }
+  const totalTokens = servers.reduce((s, x) => s + x.tokens, 0);
+  const totalTools = servers.reduce((s, x) => s + x.tools, 0);
 
-  // Skill packs
-  const skills = loadSkillData();
-  for (const skill of skills) {
-    items.push({
-      name: skill.name,
-      displayName: skill.name,
-      tokens: skill.tokens,
-      alwaysOnTokens: skill.alwaysOnTokens,
-      fullBodyTokens: skill.fullBodyTokens,
-      tools: skill.skillCount,
-      type: 'skill',
-      change: { pct: 0 },
-    });
-  }
-
-  items.sort((a, b) => b.tokens - a.tokens);
-
-  const totalTokens = items.reduce((s, x) => s + x.tokens, 0);
-  const mcpCount = items.filter(x => x.type === 'mcp').length;
-  const skillCount = items.filter(x => x.type === 'skill').length;
-
-  // D3 treemap layout
-  const root = hierarchy({
-    children: items.map(s => ({ ...s, value: s.tokens })),
-  }).sum(d => d.value);
-
+  const root = hierarchy({ children: servers.map(s => ({ ...s, value: s.tokens })) }).sum(d => d.value);
   treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
 
-  // Draw blocks
   for (const leaf of root.leaves()) {
     const d = leaf.data;
-    const x = leaf.x0, y = leaf.y0 + HEADER;
-    const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
-
     const changePct = d.change?.pct || 0;
-
-    // Skills: split block into always-on (dark) + on-invoke (lighter)
-    if (d.type === 'skill' && d.alwaysOnTokens > 0 && d.fullBodyTokens > 0) {
-      const totalSkillTokens = d.alwaysOnTokens + d.fullBodyTokens;
-      const alwaysRatio = d.alwaysOnTokens / totalSkillTokens;
-
-      // Draw on-invoke area (lighter, full block)
-      ctx.fillStyle = '#0e3a47';
-      roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
-      ctx.fill();
-
-      // Draw always-on area (darker, left portion)
-      const alwaysW = Math.max(8, (w - 2) * alwaysRatio);
-      ctx.fillStyle = '#164e63';
-      roundRect(ctx, x + 1, y + 1, alwaysW, h - 2, 4);
-      ctx.fill();
-
-      // Divider line
-      if (alwaysW < w - 10) {
-        ctx.strokeStyle = '#0d1117';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(x + 1 + alwaysW, y + 1);
-        ctx.lineTo(x + 1 + alwaysW, y + h - 1);
-        ctx.stroke();
-      }
-    } else {
-      const bgColor = d.type === 'skill' ? '#164e63' : changeColor(changePct);
-      ctx.fillStyle = bgColor;
-      roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
-      ctx.fill();
-    }
-
-    ctx.strokeStyle = STYLE.border;
-    ctx.lineWidth = 1;
-    roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
-    ctx.stroke();
-
-    // Label
-    const pad = 6;
-    const innerW = w - pad * 2;
-    const innerH = h - pad * 2;
-    if (innerW < 15 || innerH < 10) continue;
-
-    ctx.textAlign = 'center';
-    const cx = x + w / 2;
-    const cy = y + h / 2;
-
-    const shortName = d.displayName;
     const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
-
-    if (innerH >= 28) {
-      const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
-      const showSub = innerH > nameFs * 1.6;
-      const subFs = Math.max(8, nameFs * 0.5);
-      const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
-      const startY = cy - totalH / 2;
-
-      setFont(ctx, nameFs, 'bold');
-      ctx.fillStyle = STYLE.textPrimary;
-      ctx.fillText(shortName, cx, startY + nameFs * 0.85);
-
-      if (showSub) {
-        let subText;
-        if (d.type === 'skill' && d.alwaysOnTokens > 0) {
-          // Show always-on vs on-invoke breakdown
-          subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke`;
-        } else {
-          const parts = [formatTokens(d.tokens)];
-          if (changeTxt) parts.push(changeTxt);
-          subText = parts.join('  ');
-        }
-
-        setFont(ctx, subFs);
-        ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
-        ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
-      }
-    } else {
-      const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
-      if (fs >= 7) {
-        setFont(ctx, fs, 'bold');
-        ctx.fillStyle = STYLE.textPrimary;
-        ctx.fillText(shortName, cx, cy + fs * 0.35);
-      }
-    }
-
-    ctx.textAlign = 'left';
+    const subText = `${formatTokens(d.tokens)}  ${changeTxt}`;
+    renderBlock(ctx, leaf, HEADER, W, H, { subText });
   }
 
-  // ── Header ──
+  // Header
   ctx.fillStyle = STYLE.bg;
   ctx.fillRect(0, 0, W, HEADER);
 
   setFont(ctx, 30, 'bold');
   ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText('Context Index', 16, 42);
+  ctx.fillText('MCP Index', 16, 42);
 
   setFont(ctx, 13);
   ctx.fillStyle = STYLE.textSecondary;
   ctx.fillText(
-    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${mcpCount} MCP servers  ·  ${skillCount} skill packs  ·  ${snapshot.date}`,
+    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
     16, 62
   );
 
-  // Legend
-  const legendX = W - 500;
-  const legends = [
-    ['#7f1d1d', '▲ 5%+'], ['#451a1a', '▲ 0~5%'],
-    ['#1e293b', 'No change'], ['#14532d', '▼ Decrease'],
-    ['#164e63', 'Skill Pack'],
-  ];
-  legends.forEach(([color, label], i) => {
-    const lx = legendX + i * 95;
+  const legendX = W - 380;
+  [['#7f1d1d', '▲ 5%+'], ['#451a1a', '▲ 0~5%'], ['#1e293b', 'No change'], ['#14532d', '▼ Decrease']].forEach(([color, label], i) => {
+    const lx = legendX + i * 90;
     ctx.fillStyle = color;
     roundRect(ctx, lx, 30, 12, 12, 2);
     ctx.fill();
@@ -310,6 +246,64 @@ function renderContextIndex(snapshot) {
     ctx.fillStyle = STYLE.textSecondary;
     ctx.fillText(label, lx + 16, 40);
   });
+
+  return canvas;
+}
+
+// ── Render Skill Index ───────────────────────────────────
+
+function renderSkillIndex() {
+  const W = 1600, H = 900;
+  const HEADER = 90;
+  const PAD = 3;
+
+  const canvas = createCanvas(W, H + HEADER);
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = STYLE.bg;
+  ctx.fillRect(0, 0, W, H + HEADER);
+
+  const skills = loadSkillData().filter(s => s.alwaysOnTokens > 0);
+  if (skills.length === 0) return null;
+
+  // Use alwaysOnTokens for block size (metadata only)
+  const items = skills.map(s => ({
+    ...s,
+    displayName: s.name,
+    value: s.alwaysOnTokens,
+    tokens: s.alwaysOnTokens,
+    change: { pct: 0 },
+  }));
+
+  const totalAlwaysOn = items.reduce((s, x) => s + x.alwaysOnTokens, 0);
+  const totalSkills = items.reduce((s, x) => s + (x.skillCount || 0), 0);
+
+  const root = hierarchy({ children: items }).sum(d => d.value);
+  treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
+
+  for (const leaf of root.leaves()) {
+    const d = leaf.data;
+    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${d.skillCount || 0} skills`;
+    renderBlock(ctx, leaf, HEADER, W, H, {
+      color: '#164e63',
+      subText,
+    });
+  }
+
+  // Header
+  ctx.fillStyle = STYLE.bg;
+  ctx.fillRect(0, 0, W, HEADER);
+
+  setFont(ctx, 30, 'bold');
+  ctx.fillStyle = STYLE.textPrimary;
+  ctx.fillText('Skill Index', 16, 42);
+
+  setFont(ctx, 13);
+  ctx.fillStyle = STYLE.textSecondary;
+  ctx.fillText(
+    `Always-on total: ${totalAlwaysOn.toLocaleString()} tokens  ·  ${items.length} skill packs  ·  ${totalSkills} skills  ·  description metadata only`,
+    16, 62
+  );
 
   return canvas;
 }
@@ -360,16 +354,18 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     }
   }
 
-  // Skills (always-on description tokens)
+  // Skills (always-on metadata only)
   const skills = loadSkillData();
   for (const skill of skills) {
-    items.push({
-      name: skill.name,
-      tokens: skill.tokens,
-      color: '#164e63',
-      change: 0,
-      category: 'skill',
-    });
+    if (skill.alwaysOnTokens > 0) {
+      items.push({
+        name: skill.name,
+        tokens: skill.alwaysOnTokens,
+        color: '#164e63',
+        change: 0,
+        category: 'skill',
+      });
+    }
   }
 
   // Free space
@@ -486,12 +482,21 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   const { mkdirSync: mkdirSyncFn } = await import('fs');
   if (!existsSync(archiveDir)) mkdirSyncFn(archiveDir, { recursive: true });
 
-  // 1. Context Index (MCP + Skills)
-  console.log('  Rendering Context Index...');
-  const indexCanvas = renderContextIndex(snapshot);
-  const indexBuf = indexCanvas.toBuffer('image/png');
-  writeFileSync(join(IMAGES_DIR, 'context-index-latest.png'), indexBuf);
-  writeFileSync(join(archiveDir, 'context-index.png'), indexBuf);
+  // 1. MCP Index
+  console.log('  Rendering MCP Index...');
+  const mcpCanvas = renderMcpIndex(snapshot);
+  const mcpBuf = mcpCanvas.toBuffer('image/png');
+  writeFileSync(join(IMAGES_DIR, 'mcp-index-latest.png'), mcpBuf);
+  writeFileSync(join(archiveDir, 'mcp-index.png'), mcpBuf);
+
+  // 2. Skill Index
+  console.log('  Rendering Skill Index...');
+  const skillCanvas = renderSkillIndex();
+  if (skillCanvas) {
+    const skillBuf = skillCanvas.toBuffer('image/png');
+    writeFileSync(join(IMAGES_DIR, 'skill-index-latest.png'), skillBuf);
+    writeFileSync(join(archiveDir, 'skill-index.png'), skillBuf);
+  }
 
   // 2. Claude Code
   const claudeDataPath = join(DATA_DIR, 'agents', 'claude-code.json');

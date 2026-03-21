@@ -8,11 +8,17 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 
 ## Latest Snapshot
 
-### Context Index
+### MCP Index
 
-> How much context do MCP servers and skill packs consume?
+> How much context do popular MCP servers consume?
 
-![Context Index](images/context-index-latest.png)
+![MCP Index](images/mcp-index-latest.png)
+
+### Skill Index
+
+> How much always-on context do skill packs cost? (description metadata only)
+
+![Skill Index](images/skill-index-latest.png)
 
 ### Claude Code — Context Window (1M)
 
