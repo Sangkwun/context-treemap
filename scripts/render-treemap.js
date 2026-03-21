@@ -117,10 +117,12 @@ function loadSkillData() {
   for (const file of readdirSync(skillDir).filter(f => f.endsWith('.json'))) {
     const data = JSON.parse(readFileSync(join(skillDir, file), 'utf-8'));
     const latest = data.versions?.[data.versions.length - 1];
-    if (latest && latest.alwaysOnTokens > 0) {
+    if (latest && (latest.alwaysOnTokens > 0 || latest.fullBodyTokens > 0)) {
       results.push({
         name: data.name,
-        tokens: latest.alwaysOnTokens,
+        alwaysOnTokens: latest.alwaysOnTokens || 0,
+        fullBodyTokens: latest.fullBodyTokens || 0,
+        tokens: (latest.alwaysOnTokens || 0) + (latest.fullBodyTokens || 0),
         skillCount: latest.skillCount,
       });
     }
@@ -160,6 +162,8 @@ function renderContextIndex(snapshot) {
       name: skill.name,
       displayName: skill.name,
       tokens: skill.tokens,
+      alwaysOnTokens: skill.alwaysOnTokens,
+      fullBodyTokens: skill.fullBodyTokens,
       tools: skill.skillCount,
       type: 'skill',
       change: { pct: 0 },
@@ -187,11 +191,37 @@ function renderContextIndex(snapshot) {
 
     const changePct = d.change?.pct || 0;
 
-    // Color: skills get teal, MCP gets red/green based on change
-    const bgColor = d.type === 'skill' ? '#164e63' : changeColor(changePct);
-    ctx.fillStyle = bgColor;
-    roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
-    ctx.fill();
+    // Skills: split block into always-on (dark) + on-invoke (lighter)
+    if (d.type === 'skill' && d.alwaysOnTokens > 0 && d.fullBodyTokens > 0) {
+      const totalSkillTokens = d.alwaysOnTokens + d.fullBodyTokens;
+      const alwaysRatio = d.alwaysOnTokens / totalSkillTokens;
+
+      // Draw on-invoke area (lighter, full block)
+      ctx.fillStyle = '#0e3a47';
+      roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
+      ctx.fill();
+
+      // Draw always-on area (darker, left portion)
+      const alwaysW = Math.max(8, (w - 2) * alwaysRatio);
+      ctx.fillStyle = '#164e63';
+      roundRect(ctx, x + 1, y + 1, alwaysW, h - 2, 4);
+      ctx.fill();
+
+      // Divider line
+      if (alwaysW < w - 10) {
+        ctx.strokeStyle = '#0d1117';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x + 1 + alwaysW, y + 1);
+        ctx.lineTo(x + 1 + alwaysW, y + h - 1);
+        ctx.stroke();
+      }
+    } else {
+      const bgColor = d.type === 'skill' ? '#164e63' : changeColor(changePct);
+      ctx.fillStyle = bgColor;
+      roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
+      ctx.fill();
+    }
 
     ctx.strokeStyle = STYLE.border;
     ctx.lineWidth = 1;
@@ -211,9 +241,6 @@ function renderContextIndex(snapshot) {
     const shortName = d.displayName;
     const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
 
-    // Sub text: tokens for skills show skill count, MCP shows tool count
-    const typeLabel = d.type === 'skill' ? `${d.tools} skills` : '';
-
     if (innerH >= 28) {
       const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
       const showSub = innerH > nameFs * 1.6;
@@ -226,10 +253,15 @@ function renderContextIndex(snapshot) {
       ctx.fillText(shortName, cx, startY + nameFs * 0.85);
 
       if (showSub) {
-        const parts = [formatTokens(d.tokens)];
-        if (typeLabel) parts.push(typeLabel);
-        if (changeTxt) parts.push(changeTxt);
-        const subText = parts.join('  ');
+        let subText;
+        if (d.type === 'skill' && d.alwaysOnTokens > 0) {
+          // Show always-on vs on-invoke breakdown
+          subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke`;
+        } else {
+          const parts = [formatTokens(d.tokens)];
+          if (changeTxt) parts.push(changeTxt);
+          subText = parts.join('  ');
+        }
 
         setFont(ctx, subFs);
         ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;

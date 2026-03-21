@@ -384,6 +384,145 @@
         "pct": 0,
         "skills": 60
       }
+    },
+    {
+      "date": "2026-03-21",
+      "skillCount": 18,
+      "alwaysOnTokens": 1214,
+      "fullBodyTokens": 45286,
+      "skills": [
+        {
+          "name": "agentic-actions-auditor",
+          "alwaysOnTokens": 143,
+          "fullTokens": 5216,
+          "descriptionChars": 571,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ask-questions-if-underspecified",
+          "alwaysOnTokens": 18,
+          "fullTokens": 964,
+          "descriptionChars": 72,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "audit-context-building",
+          "alwaysOnTokens": 31,
+          "fullTokens": 2400,
+          "descriptionChars": 123,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "algorand-vulnerability-scanner",
+          "alwaysOnTokens": 56,
+          "fullTokens": 2140,
+          "descriptionChars": 221,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "audit-prep-assistant",
+          "alwaysOnTokens": 66,
+          "fullTokens": 2333,
+          "descriptionChars": 262,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cairo-vulnerability-scanner",
+          "alwaysOnTokens": 55,
+          "fullTokens": 2347,
+          "descriptionChars": 218,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-maturity-assessor",
+          "alwaysOnTokens": 84,
+          "fullTokens": 1672,
+          "descriptionChars": 333,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cosmos-vulnerability-scanner",
+          "alwaysOnTokens": 51,
+          "fullTokens": 2426,
+          "descriptionChars": 204,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "guidelines-advisor",
+          "alwaysOnTokens": 79,
+          "fullTokens": 2030,
+          "descriptionChars": 316,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "secure-workflow-guide",
+          "alwaysOnTokens": 74,
+          "fullTokens": 1547,
+          "descriptionChars": 293,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "solana-vulnerability-scanner",
+          "alwaysOnTokens": 50,
+          "fullTokens": 2741,
+          "descriptionChars": 198,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "substrate-vulnerability-scanner",
+          "alwaysOnTokens": 51,
+          "fullTokens": 2314,
+          "descriptionChars": 202,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "token-integration-analyzer",
+          "alwaysOnTokens": 103,
+          "fullTokens": 2999,
+          "descriptionChars": 409,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ton-vulnerability-scanner",
+          "alwaysOnTokens": 52,
+          "fullTokens": 2864,
+          "descriptionChars": 205,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "burpsuite-project-parser",
+          "alwaysOnTokens": 69,
+          "fullTokens": 3031,
+          "descriptionChars": 274,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-in-chrome-troubleshooting",
+          "alwaysOnTokens": 46,
+          "fullTokens": 2508,
+          "descriptionChars": 182,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "constant-time-analysis",
+          "alwaysOnTokens": 77,
+          "fullTokens": 2389,
+          "descriptionChars": 306,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "interpreting-culture-index",
+          "alwaysOnTokens": 109,
+          "fullTokens": 3365,
+          "descriptionChars": 436,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": -1256,
+        "pct": -50.9,
+        "skills": -42
+      }
     }
   ]
 }

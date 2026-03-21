@@ -159,6 +159,7 @@ async function main() {
       }
 
       let totalAlwaysOn = 0;
+      let totalFullBody = 0;
       const skillDetails = [];
 
       for (const { name: skillName, path: skillPath } of skillPaths) {
@@ -166,9 +167,11 @@ async function main() {
 
         if (result) {
           totalAlwaysOn += result.alwaysOnTokens;
+          totalFullBody += result.fullTokens || 0;
           skillDetails.push({
             name: result.name || skillName,
             alwaysOnTokens: result.alwaysOnTokens,
+            fullTokens: result.fullTokens || 0,
             descriptionChars: result.descriptionChars,
             hasDisableModelInvocation: result.hasDisableModelInvocation,
           });
@@ -192,6 +195,7 @@ async function main() {
         date: today,
         skillCount: skillDetails.length,
         alwaysOnTokens: totalAlwaysOn,
+        fullBodyTokens: totalFullBody,
         skills: skillDetails,
         change,
       };
