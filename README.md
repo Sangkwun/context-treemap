@@ -1,28 +1,28 @@
 # context-treemap
 
-Track and visualize the context window cost of MCP servers, skills, and coding agents.
+Track and visualize the context window cost of MCP servers, skill packs, and coding agents.
 
 Your 1M context window isn't unlimited. Before you type a single message, system prompts, built-in tools, MCP servers, and skills have already consumed a portion — and it adds up fast.
 
-**context-treemap** tracks how much each component costs and visualizes it as a treemap — updated weekly, with version-by-version change tracking like a stock ticker.
+**context-treemap** tracks how much each component costs and visualizes it as a treemap — updated daily, with version-by-version change tracking like a stock ticker.
 
 ## Latest Snapshot
 
 ### MCP Index
 
-> How much context do popular MCP servers consume?
+> Tool schema token costs — the same regardless of which coding agent you use.
 
 ![MCP Index](images/mcp-index-latest.png)
 
 ### Skill Index
 
-> How much always-on context do skill packs cost? (description metadata only)
+> Always-on context cost of skill packs (description metadata only — block size = what you pay just by installing).
 
 ![Skill Index](images/skill-index-latest.png)
 
 ### Claude Code — Context Window (1M)
 
-> System prompt + tools + MCP — what's left for your conversation?
+> System + tools + MCP + skills — what's left for your conversation?
 
 ![Claude Code Context](images/claude-code-latest.png)
 
@@ -33,8 +33,6 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 ## What's Tracked
 
 ### MCP Servers (agent-agnostic)
-
-Tool schema token costs — the same regardless of which coding agent you use.
 
 | Server | Tools | Tokens | % of 1M |
 |--------|-------|--------|---------|
@@ -54,6 +52,18 @@ Tool schema token costs — the same regardless of which coding agent you use.
 | PostgreSQL | 1 | ~800 | 0.1% |
 | **Total** | **263** | **~81K** | **8.1%** |
 
+### Skill Packs (Claude Code)
+
+Skills have two cost layers:
+- **Always-on** (description metadata): loaded into system context just by installing — this is the treemap block size
+- **On invoke** (full SKILL.md body): loaded only when the skill is called — shown in sub-text for reference
+
+| Skill Pack | Skills | Always-on | On Invoke |
+|-----------|--------|-----------|-----------|
+| Everything Claude Code | 116 | 4,515 | ~143K |
+| Trail of Bits Security | 60 | 2,470 | ~82K |
+| Superpowers Lab | 4 | 196 | ~6K |
+
 ### Agent System Overhead
 
 | Agent | Model | Context | System Prompt | Built-in Tools | Autocompact Buffer | Total |
@@ -63,10 +73,13 @@ Tool schema token costs — the same regardless of which coding agent you use.
 
 ## How It Works
 
-1. **Crawl**: GitHub Actions installs each MCP server's npm package weekly and extracts tool schemas
-2. **Measure**: Token counts via [Anthropic's count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting) (free, accurate)
-3. **Render**: D3.js treemap + node-canvas generates PNG images
-4. **Track**: Version history is committed to `data/`, enabling change detection (▲▼%)
+1. **Crawl**: GitHub Actions crawls MCP server npm packages daily and extracts tool schemas
+2. **Crawl Skills**: Fetches SKILL.md files from GitHub repos and parses description metadata
+3. **Measure**: Token counts via [Anthropic's count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting) (free, accurate)
+4. **Render**: D3.js treemap + node-canvas generates PNG images (4 images)
+5. **Track**: Version history is committed to `data/`, enabling change detection (▲▼%)
+
+Images are auto-generated daily at 09:00 KST via GitHub Actions.
 
 ## Usage
 
@@ -74,26 +87,27 @@ Tool schema token costs — the same regardless of which coding agent you use.
 # Install
 npm install
 
-# Crawl MCP servers and count tokens
-ANTHROPIC_API_KEY=sk-... npm run crawl
-
-# Generate treemap images
-npm run render
-
-# Both at once
+# Run everything: crawl MCP + crawl skills + render images
 npm run update
+
+# Or run individually
+ANTHROPIC_API_KEY=sk-... npm run crawl        # MCP servers
+GITHUB_TOKEN=ghp-... npm run crawl:skills     # Skill packs
+npm run render                                 # Generate images
 ```
 
 ## Data Sources
 
 - **MCP tool schemas**: Extracted from npm packages at runtime
+- **Skill metadata**: Parsed from SKILL.md frontmatter on GitHub
 - **Token counts**: [Anthropic count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting)
 - **Claude Code internals**: [Piebald-AI/claude-code-system-prompts](https://github.com/Piebald-AI/claude-code-system-prompts)
 - **Community reports**: [SEP-1576](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1576), [MCP Tax analysis](https://www.mmntm.net/articles/mcp-context-tax)
 
 ## Contributing
 
-- **Add an MCP server**: Edit `config/servers.json` and submit a PR
+- **Add an MCP server**: Edit [`config/servers.json`](config/servers.json) and submit a PR
+- **Add a skill pack**: Edit [`config/skills.json`](config/skills.json) and submit a PR
 - **Update agent data**: Edit `data/agents/*.json` with verified measurements
 - **Report inaccuracies**: Open an issue with `/context` command output
 
