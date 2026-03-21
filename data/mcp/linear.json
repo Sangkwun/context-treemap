@@ -1,0 +1,27 @@
+{
+  "name": "Linear MCP",
+  "npm": "linear-mcp-server",
+  "repo": "jerhadf/linear-mcp-server",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "date": "2026-03-21",
+      "tools": 6,
+      "tokens": 4500,
+      "method": "estimate",
+      "toolNames": [
+        "linear_create_issue",
+        "linear_update_issue",
+        "linear_search_issues",
+        "linear_get_user_issues",
+        "linear_add_comment",
+        "linear-server-prompt"
+      ],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}

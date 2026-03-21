@@ -1,0 +1,41 @@
+{
+  "skillPacks": [
+    {
+      "id": "ecc",
+      "name": "Everything Claude Code",
+      "repo": "affaan-m/everything-claude-code",
+      "skillsPath": "skills",
+      "stars": 93399
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers Lab",
+      "repo": "obra/superpowers-lab",
+      "skillsPath": "skills",
+      "stars": 233
+    },
+    {
+      "id": "humanizer",
+      "name": "Humanizer",
+      "repo": "blader/humanizer",
+      "skillsPath": ".claude/skills",
+      "skills": ["humanizer"],
+      "stars": 10408
+    },
+    {
+      "id": "planning-with-files",
+      "name": "Planning with Files",
+      "repo": "OthmanAdi/planning-with-files",
+      "skillsPath": ".claude/skills",
+      "stars": 16709
+    },
+    {
+      "id": "trailofbits",
+      "name": "Trail of Bits Security",
+      "repo": "trailofbits/skills",
+      "layout": "nested",
+      "pluginsPath": "plugins",
+      "stars": 3762
+    }
+  ]
+}

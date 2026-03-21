@@ -1,0 +1,22 @@
+{
+  "name": "PostgreSQL MCP",
+  "npm": "@modelcontextprotocol/server-postgres",
+  "repo": "modelcontextprotocol/servers",
+  "versions": [
+    {
+      "version": "0.6.2",
+      "date": "2026-03-21",
+      "tools": 1,
+      "tokens": 750,
+      "method": "estimate",
+      "toolNames": [
+        "query"
+      ],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}

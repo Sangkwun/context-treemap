@@ -1,0 +1,29 @@
+{
+  "name": "Firecrawl MCP",
+  "npm": "firecrawl-mcp",
+  "repo": "mendableai/firecrawl-mcp-server",
+  "versions": [
+    {
+      "version": "3.11.0",
+      "date": "2026-03-21",
+      "tools": 8,
+      "tokens": 6000,
+      "method": "estimate",
+      "toolNames": [
+        "firecrawl_scrape",
+        "firecrawl_map",
+        "firecrawl_crawl",
+        "firecrawl_batch_scrape",
+        "firecrawl_check_batch_status",
+        "firecrawl_check_crawl_status",
+        "firecrawl_search",
+        "firecrawl_extract"
+      ],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}

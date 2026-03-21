@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "crawl": "node scripts/crawl.js",
-    "crawl:agents": "node scripts/crawl-agents.js",
+    "crawl:skills": "node scripts/crawl-skills.js",
     "render": "node scripts/render-treemap.js",
-    "render:history": "node scripts/render-history.js",
-    "update": "npm run crawl && npm run render"
+    "update": "npm run crawl && npm run crawl:skills && npm run render"
   },
   "keywords": [
     "mcp",

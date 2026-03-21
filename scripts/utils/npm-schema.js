@@ -1,33 +1,37 @@
 import { execSync } from 'child_process';
-import { readFileSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 const TMP_DIR = join(process.cwd(), 'tmp');
 
 /**
- * Install an npm package and extract MCP tool schemas via tools/list RPC.
- * Falls back to parsing package source if RPC isn't available.
+ * Install an npm package and extract MCP tool schemas.
+ * Strategy: install → grep compiled source for tool name/description patterns.
  */
 export async function extractToolSchemas(npmPackage) {
-  // Ensure tmp dir
   if (!existsSync(TMP_DIR)) mkdirSync(TMP_DIR, { recursive: true });
 
   const installDir = join(TMP_DIR, 'npm-extract');
   if (!existsSync(installDir)) mkdirSync(installDir, { recursive: true });
 
   try {
-    // Get package info from npm registry
+    // Get version from npm registry
     const registryData = await fetchNpmInfo(npmPackage);
     const version = registryData?.['dist-tags']?.latest || 'unknown';
 
-    // Install the package
-    execSync(`npm install ${npmPackage}@latest --prefix "${installDir}" --no-save 2>/dev/null`, {
-      timeout: 60000,
+    // Install
+    execSync(`npm install ${npmPackage}@latest --prefix "${installDir}" --no-save 2>&1 || true`, {
+      timeout: 120000,
       stdio: 'pipe',
     });
 
-    // Try to find tool definitions in the installed package
-    const tools = await findToolDefinitions(installDir, npmPackage);
+    // Find tools
+    const tools = findToolDefinitions(installDir, npmPackage);
+
+    if (tools.length === 0) {
+      // Fallback: check if we have known tool count from config
+      return { version, tools: [], toolCount: 0, toolNames: [] };
+    }
 
     return {
       version,
@@ -36,14 +40,18 @@ export async function extractToolSchemas(npmPackage) {
       toolNames: tools.map(t => t.name),
     };
   } catch (err) {
-    console.warn(`Failed to extract schemas for ${npmPackage}: ${err.message}`);
+    console.warn(`  ⚠️  Extract failed for ${npmPackage}: ${err.message}`);
     return null;
   }
 }
 
 async function fetchNpmInfo(packageName) {
   try {
-    const res = await fetch(`https://registry.npmjs.org/${encodeURIComponent(packageName)}`);
+    // Handle scoped packages in URL
+    const encoded = packageName.startsWith('@')
+      ? `@${encodeURIComponent(packageName.slice(1))}`
+      : encodeURIComponent(packageName);
+    const res = await fetch(`https://registry.npmjs.org/${encoded}`);
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -51,55 +59,53 @@ async function fetchNpmInfo(packageName) {
   }
 }
 
-/**
- * Search installed package for MCP tool definitions.
- * MCP servers typically export tool schemas in various formats.
- */
-async function findToolDefinitions(installDir, packageName) {
+function findToolDefinitions(installDir, packageName) {
   const pkgDir = resolvePackageDir(installDir, packageName);
   if (!pkgDir) return [];
 
-  // Strategy 1: Look for common tool definition files
-  const candidates = [
-    'dist/tools.js', 'dist/tools.mjs',
-    'dist/index.js', 'dist/index.mjs',
-    'lib/tools.js', 'src/tools.ts',
-    'tools.json',
-  ];
-
-  for (const candidate of candidates) {
-    const filePath = join(pkgDir, candidate);
-    if (existsSync(filePath)) {
-      const tools = parseToolsFromFile(filePath);
-      if (tools.length > 0) return tools;
+  // Collect all JS/MJS files in dist/, lib/, src/
+  const jsFiles = [];
+  for (const subdir of ['dist', 'lib', 'build', 'src', '.']) {
+    const dir = join(pkgDir, subdir);
+    if (existsSync(dir)) {
+      collectJsFiles(dir, jsFiles, 3); // max 3 levels deep
     }
   }
 
-  // Strategy 2: Grep for tool patterns in dist files
-  try {
-    const result = execSync(
-      `grep -r '"inputSchema"\\|"input_schema"\\|"parameters"' "${pkgDir}/dist/" --include="*.js" --include="*.mjs" -l 2>/dev/null || true`,
-      { encoding: 'utf-8', timeout: 10000 }
-    ).trim();
-
-    if (result) {
-      const files = result.split('\n').filter(Boolean);
-      for (const file of files) {
-        const tools = parseToolsFromFile(file);
-        if (tools.length > 0) return tools;
+  // Parse each file for tool definitions
+  const allTools = new Map();
+  for (const file of jsFiles) {
+    const tools = parseToolsFromFile(file);
+    for (const tool of tools) {
+      if (!allTools.has(tool.name)) {
+        allTools.set(tool.name, tool);
       }
     }
-  } catch { /* ignore */ }
+  }
 
-  return [];
+  return [...allTools.values()];
+}
+
+function collectJsFiles(dir, result, depth) {
+  if (depth <= 0) return;
+  try {
+    const entries = readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (entry.name === 'node_modules') continue;
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        collectJsFiles(full, result, depth - 1);
+      } else if (/\.(js|mjs|cjs|json)$/.test(entry.name)) {
+        result.push(full);
+      }
+    }
+  } catch { /* permission error etc */ }
 }
 
 function resolvePackageDir(installDir, packageName) {
-  // Handle scoped packages
   const parts = packageName.startsWith('@')
     ? packageName.split('/')
     : [packageName];
-
   const dir = join(installDir, 'node_modules', ...parts);
   return existsSync(dir) ? dir : null;
 }
@@ -107,39 +113,45 @@ function resolvePackageDir(installDir, packageName) {
 function parseToolsFromFile(filePath) {
   try {
     const content = readFileSync(filePath, 'utf-8');
+    if (content.length > 2_000_000) return []; // skip huge files
 
-    // Try JSON first
     if (filePath.endsWith('.json')) {
-      const data = JSON.parse(content);
-      if (Array.isArray(data)) return data;
-      if (data.tools) return data.tools;
+      try {
+        const data = JSON.parse(content);
+        if (Array.isArray(data)) return data.filter(t => t.name);
+        if (data.tools) return data.tools.filter(t => t.name);
+      } catch { /* not valid JSON */ }
       return [];
     }
 
-    // Extract tool definitions from JS source
-    // Look for patterns like { name: "tool_name", description: "...", inputSchema: {...} }
-    const tools = [];
-    const toolPattern = /\{\s*name:\s*["']([^"']+)["']\s*,\s*description:\s*["']([^"']*?)["']/g;
-    let match;
-    while ((match = toolPattern.exec(content)) !== null) {
-      tools.push({
-        name: match[1],
-        description: match[2].slice(0, 200),
-      });
-    }
+    // Regex patterns for MCP tool definitions (various formats)
+    const tools = new Map();
+    const patterns = [
+      // name: "x", description: "y"
+      /\{\s*name:\s*["']([^"']+)["']\s*,\s*description:\s*["']([^"']*?)["']/g,
+      // "name": "x", "description": "y"
+      /["']name["']\s*:\s*["']([^"']+)["']\s*,\s*["']description["']\s*:\s*["']([^"']*?)["']/g,
+      // name: "x" ... description: "y" (multiline, within 500 chars)
+      /name:\s*["']([a-z_][a-z0-9_-]*)["'][^}]{0,500}?description:\s*["']([^"']{0,300})["']/gs,
+    ];
 
-    // Also try quoted property names
-    const toolPattern2 = /["']name["']\s*:\s*["']([^"']+)["']\s*,\s*["']description["']\s*:\s*["']([^"']*?)["']/g;
-    while ((match = toolPattern2.exec(content)) !== null) {
-      if (!tools.find(t => t.name === match[1])) {
-        tools.push({
-          name: match[1],
-          description: match[2].slice(0, 200),
-        });
+    for (const pattern of patterns) {
+      let match;
+      while ((match = pattern.exec(content)) !== null) {
+        const name = match[1];
+        // Filter out non-tool names
+        if (name.length < 2 || name.length > 60) continue;
+        if (/^(type|version|model|id|key|value|name|test)$/i.test(name)) continue;
+        if (!tools.has(name)) {
+          tools.set(name, {
+            name,
+            description: (match[2] || '').slice(0, 300),
+          });
+        }
       }
     }
 
-    return tools;
+    return [...tools.values()];
   } catch {
     return [];
   }

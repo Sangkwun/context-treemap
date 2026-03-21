@@ -1,0 +1,17 @@
+{
+  "name": "Humanizer",
+  "repo": "blader/humanizer",
+  "versions": [
+    {
+      "date": "2026-03-21",
+      "skillCount": 0,
+      "alwaysOnTokens": 0,
+      "skills": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "skills": 0
+      }
+    }
+  ]
+}

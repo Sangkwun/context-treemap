@@ -1,0 +1,714 @@
+{
+  "name": "Everything Claude Code",
+  "repo": "affaan-m/everything-claude-code",
+  "versions": [
+    {
+      "date": "2026-03-21",
+      "skillCount": 116,
+      "alwaysOnTokens": 4515,
+      "skills": [
+        {
+          "name": "agent-eval",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 142,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-harness-construction",
+          "alwaysOnTokens": 30,
+          "descriptionChars": 117,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agentic-engineering",
+          "alwaysOnTokens": 26,
+          "descriptionChars": 103,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ai-first-engineering",
+          "alwaysOnTokens": 26,
+          "descriptionChars": 102,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ai-regression-testing",
+          "alwaysOnTokens": 57,
+          "descriptionChars": 228,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "android-clean-architecture",
+          "alwaysOnTokens": 40,
+          "descriptionChars": 160,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "api-design",
+          "alwaysOnTokens": 39,
+          "descriptionChars": 156,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "architecture-decision-records",
+          "alwaysOnTokens": 67,
+          "descriptionChars": 267,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "article-writing",
+          "alwaysOnTokens": 78,
+          "descriptionChars": 310,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "autonomous-loops",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 133,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "backend-patterns",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 142,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "blueprint",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "bun-runtime",
+          "alwaysOnTokens": 31,
+          "descriptionChars": 123,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "carrier-relationship-management",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-api",
+          "alwaysOnTokens": 61,
+          "descriptionChars": 242,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-devfleet",
+          "alwaysOnTokens": 42,
+          "descriptionChars": 168,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "clickhouse-io",
+          "alwaysOnTokens": 35,
+          "descriptionChars": 139,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "codebase-onboarding",
+          "alwaysOnTokens": 60,
+          "descriptionChars": 239,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "coding-standards",
+          "alwaysOnTokens": 29,
+          "descriptionChars": 116,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "compose-multiplatform-patterns",
+          "alwaysOnTokens": 37,
+          "descriptionChars": 147,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "configure-ecc",
+          "alwaysOnTokens": 54,
+          "descriptionChars": 215,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-engine",
+          "alwaysOnTokens": 64,
+          "descriptionChars": 255,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-hash-cache-pattern",
+          "alwaysOnTokens": 35,
+          "descriptionChars": 138,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "context-budget",
+          "alwaysOnTokens": 47,
+          "descriptionChars": 188,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "continuous-agent-loop",
+          "alwaysOnTokens": 24,
+          "descriptionChars": 96,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "continuous-learning-v2",
+          "alwaysOnTokens": 59,
+          "descriptionChars": 235,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "continuous-learning",
+          "alwaysOnTokens": 29,
+          "descriptionChars": 113,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cost-aware-llm-pipeline",
+          "alwaysOnTokens": 33,
+          "descriptionChars": 130,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cpp-coding-standards",
+          "alwaysOnTokens": 44,
+          "descriptionChars": 176,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cpp-testing",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 144,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "crosspost",
+          "alwaysOnTokens": 64,
+          "descriptionChars": 253,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "customs-trade-compliance",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "data-scraper-agent",
+          "alwaysOnTokens": 99,
+          "descriptionChars": 393,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "database-migrations",
+          "alwaysOnTokens": 52,
+          "descriptionChars": 205,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "deep-research",
+          "alwaysOnTokens": 58,
+          "descriptionChars": 232,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "deployment-patterns",
+          "alwaysOnTokens": 42,
+          "descriptionChars": 165,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-patterns",
+          "alwaysOnTokens": 35,
+          "descriptionChars": 139,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-security",
+          "alwaysOnTokens": 40,
+          "descriptionChars": 159,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-tdd",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 134,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-verification",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 150,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dmux-workflows",
+          "alwaysOnTokens": 68,
+          "descriptionChars": 271,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "docker-patterns",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "documentation-lookup",
+          "alwaysOnTokens": 53,
+          "descriptionChars": 212,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "e2e-testing",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 133,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "energy-procurement",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "enterprise-agent-ops",
+          "alwaysOnTokens": 26,
+          "descriptionChars": 101,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "eval-harness",
+          "alwaysOnTokens": 27,
+          "descriptionChars": 106,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "exa-search",
+          "alwaysOnTokens": 51,
+          "descriptionChars": 204,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fal-ai-media",
+          "alwaysOnTokens": 69,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "flutter-dart-code-review",
+          "alwaysOnTokens": 59,
+          "descriptionChars": 233,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "foundation-models-on-device",
+          "alwaysOnTokens": 39,
+          "descriptionChars": 153,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-patterns",
+          "alwaysOnTokens": 29,
+          "descriptionChars": 116,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-slides",
+          "alwaysOnTokens": 78,
+          "descriptionChars": 311,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "golang-patterns",
+          "alwaysOnTokens": 30,
+          "descriptionChars": 120,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "golang-testing",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "inventory-demand-planning",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "investor-materials",
+          "alwaysOnTokens": 80,
+          "descriptionChars": 317,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "investor-outreach",
+          "alwaysOnTokens": 64,
+          "descriptionChars": 255,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "iterative-retrieval",
+          "alwaysOnTokens": 23,
+          "descriptionChars": 90,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "java-coding-standards",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 136,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "jpa-patterns",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 150,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-coroutines-flows",
+          "alwaysOnTokens": 35,
+          "descriptionChars": 137,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-exposed-patterns",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-ktor-patterns",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-patterns",
+          "alwaysOnTokens": 44,
+          "descriptionChars": 175,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-testing",
+          "alwaysOnTokens": 41,
+          "descriptionChars": 163,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-patterns",
+          "alwaysOnTokens": 37,
+          "descriptionChars": 145,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-security",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 144,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-tdd",
+          "alwaysOnTokens": 29,
+          "descriptionChars": 116,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-verification",
+          "alwaysOnTokens": 35,
+          "descriptionChars": 140,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "liquid-glass-design",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "logistics-exception-management",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "market-research",
+          "alwaysOnTokens": 74,
+          "descriptionChars": 294,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mcp-server-patterns",
+          "alwaysOnTokens": 41,
+          "descriptionChars": 163,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nanoclaw-repl",
+          "alwaysOnTokens": 23,
+          "descriptionChars": 92,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nextjs-turbopack",
+          "alwaysOnTokens": 28,
+          "descriptionChars": 110,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nutrient-document-processing",
+          "alwaysOnTokens": 37,
+          "descriptionChars": 145,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nuxt4-patterns",
+          "alwaysOnTokens": 35,
+          "descriptionChars": 140,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "perl-patterns",
+          "alwaysOnTokens": 28,
+          "descriptionChars": 110,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "perl-security",
+          "alwaysOnTokens": 46,
+          "descriptionChars": 181,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "perl-testing",
+          "alwaysOnTokens": 31,
+          "descriptionChars": 122,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "plankton-code-quality",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 133,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "postgres-patterns",
+          "alwaysOnTokens": 32,
+          "descriptionChars": 125,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "production-scheduling",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "project-guidelines-example",
+          "alwaysOnTokens": 20,
+          "descriptionChars": 79,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "prompt-optimizer",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "python-patterns",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 134,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "python-testing",
+          "alwaysOnTokens": 30,
+          "descriptionChars": 119,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pytorch-patterns",
+          "alwaysOnTokens": 40,
+          "descriptionChars": 157,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "quality-nonconformance",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ralphinho-rfc-pipeline",
+          "alwaysOnTokens": 27,
+          "descriptionChars": 107,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "regex-vs-llm-structured-text",
+          "alwaysOnTokens": 37,
+          "descriptionChars": 146,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "returns-reverse-logistics",
+          "alwaysOnTokens": 1,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rules-distill",
+          "alwaysOnTokens": 30,
+          "descriptionChars": 118,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rust-patterns",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 135,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rust-testing",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 149,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "search-first",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "security-review",
+          "alwaysOnTokens": 53,
+          "descriptionChars": 209,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "security-scan",
+          "alwaysOnTokens": 55,
+          "descriptionChars": 220,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-stocktake",
+          "alwaysOnTokens": 42,
+          "descriptionChars": 167,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-patterns",
+          "alwaysOnTokens": 41,
+          "descriptionChars": 161,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-security",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-tdd",
+          "alwaysOnTokens": 39,
+          "descriptionChars": 155,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-verification",
+          "alwaysOnTokens": 36,
+          "descriptionChars": 142,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "strategic-compact",
+          "alwaysOnTokens": 34,
+          "descriptionChars": 134,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-actor-persistence",
+          "alwaysOnTokens": 32,
+          "descriptionChars": 128,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-concurrency-6-2",
+          "alwaysOnTokens": 39,
+          "descriptionChars": 156,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-protocol-di-testing",
+          "alwaysOnTokens": 38,
+          "descriptionChars": 149,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swiftui-patterns",
+          "alwaysOnTokens": 41,
+          "descriptionChars": 161,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tdd-workflow",
+          "alwaysOnTokens": 43,
+          "descriptionChars": 171,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "team-builder",
+          "alwaysOnTokens": 18,
+          "descriptionChars": 69,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "verification-loop",
+          "alwaysOnTokens": 16,
+          "descriptionChars": 61,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "video-editing",
+          "alwaysOnTokens": 77,
+          "descriptionChars": 308,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "videodb",
+          "alwaysOnTokens": 146,
+          "descriptionChars": 583,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "visa-doc-translate",
+          "alwaysOnTokens": 29,
+          "descriptionChars": 113,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "x-api",
+          "alwaysOnTokens": 59,
+          "descriptionChars": 235,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "skills": 0
+      }
+    }
+  ]
+}

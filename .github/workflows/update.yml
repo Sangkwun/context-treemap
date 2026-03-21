@@ -2,7 +2,7 @@ name: Update Context Data
 
 on:
   schedule:
-    - cron: '0 9 * * 1'  # Every Monday 9:00 UTC
+    - cron: '0 0 * * *'  # Every day 09:00 KST (00:00 UTC)
   workflow_dispatch:       # Manual trigger
 
 jobs:
@@ -18,23 +18,28 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install system fonts
+      - name: Install system dependencies (canvas)
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-noto-cjk libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++
+
+      - name: Install npm dependencies
+        run: npm ci
 
       - name: Crawl MCP servers
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: npm run crawl
 
+      - name: Crawl skills
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run crawl:skills
+
       - name: Render treemap images
         run: npm run render
 
-      - name: Commit and push
+      - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
