@@ -1,0 +1,16 @@
+{
+  "name": "Claude Code",
+  "provider": "Anthropic",
+  "versions": [
+    {
+      "version": "2.1.81",
+      "date": "2026-03-20",
+      "systemPrompt": 3000,
+      "builtinTools": 16821,
+      "autocompactBuffer": 33000,
+      "responseBuffer": 8000,
+      "total": 60821,
+      "source": "Piebald-AI/claude-code-system-prompts"
+    }
+  ]
+}

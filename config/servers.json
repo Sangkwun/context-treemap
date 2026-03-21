@@ -1,0 +1,102 @@
+{
+  "servers": [
+    {
+      "id": "github",
+      "name": "GitHub MCP Server",
+      "npm": "@modelcontextprotocol/server-github",
+      "repo": "github/github-mcp-server",
+      "category": "developer"
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright MCP",
+      "npm": "@playwright/mcp",
+      "repo": "microsoft/playwright-mcp",
+      "category": "testing"
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase MCP",
+      "npm": "supabase-mcp",
+      "repo": "supabase-community/supabase-mcp",
+      "category": "database"
+    },
+    {
+      "id": "notion",
+      "name": "Notion MCP",
+      "npm": "@notionhq/notion-mcp-server",
+      "repo": "makenotion/notion-mcp-server",
+      "category": "productivity"
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry MCP",
+      "npm": "@sentry/mcp-server-sentry",
+      "repo": "getsentry/sentry-mcp",
+      "category": "monitoring"
+    },
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl MCP",
+      "npm": "firecrawl-mcp",
+      "repo": "mendableai/firecrawl-mcp-server",
+      "category": "web"
+    },
+    {
+      "id": "filesystem",
+      "name": "Filesystem MCP",
+      "npm": "@modelcontextprotocol/server-filesystem",
+      "repo": "modelcontextprotocol/servers",
+      "category": "core"
+    },
+    {
+      "id": "memory",
+      "name": "Memory MCP",
+      "npm": "@modelcontextprotocol/server-memory",
+      "repo": "modelcontextprotocol/servers",
+      "category": "core"
+    },
+    {
+      "id": "slack",
+      "name": "Slack MCP",
+      "npm": "@anthropic/slack-mcp-server",
+      "repo": "modelcontextprotocol/servers",
+      "category": "communication"
+    },
+    {
+      "id": "linear",
+      "name": "Linear MCP",
+      "npm": "linear-mcp-server",
+      "repo": "jerhadf/linear-mcp-server",
+      "category": "productivity"
+    },
+    {
+      "id": "context7",
+      "name": "Context7 MCP",
+      "npm": "@upstash/context7-mcp",
+      "repo": "upstash/context7",
+      "category": "developer"
+    },
+    {
+      "id": "figma",
+      "name": "Figma MCP",
+      "npm": "@anthropic/figma-mcp-server",
+      "repo": "GLips/Figma-Context-MCP",
+      "category": "design"
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "Sequential Thinking",
+      "npm": "@anthropic/sequential-thinking-mcp",
+      "repo": "modelcontextprotocol/servers",
+      "category": "reasoning"
+    },
+    {
+      "id": "postgres",
+      "name": "PostgreSQL MCP",
+      "npm": "@modelcontextprotocol/server-postgres",
+      "repo": "modelcontextprotocol/servers",
+      "category": "database"
+    }
+  ]
+}

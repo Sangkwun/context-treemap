@@ -1,0 +1,16 @@
+{
+  "name": "Codex",
+  "provider": "OpenAI",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "date": "2026-03-20",
+      "systemPrompt": 2500,
+      "builtinTools": 8000,
+      "autocompactBuffer": 0,
+      "responseBuffer": 8000,
+      "total": 18500,
+      "source": "openai/codex (estimated)"
+    }
+  ]
+}

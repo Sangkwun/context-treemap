@@ -1,0 +1,29 @@
+{
+  "name": "context-treemap",
+  "version": "0.1.0",
+  "description": "Track and visualize context window costs of MCP servers and coding agents",
+  "type": "module",
+  "scripts": {
+    "crawl": "node scripts/crawl.js",
+    "crawl:agents": "node scripts/crawl-agents.js",
+    "render": "node scripts/render-treemap.js",
+    "render:history": "node scripts/render-history.js",
+    "update": "npm run crawl && npm run render"
+  },
+  "keywords": [
+    "mcp",
+    "context-window",
+    "treemap",
+    "claude-code",
+    "codex",
+    "token-cost",
+    "visualization"
+  ],
+  "author": "sangkwun",
+  "license": "MIT",
+  "dependencies": {
+    "d3-hierarchy": "^3.1.2",
+    "canvas": "^2.11.2",
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

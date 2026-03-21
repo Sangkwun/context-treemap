@@ -1,0 +1,19 @@
+{
+  "date": "2026-03-22",
+  "servers": [
+    { "id": "github", "name": "GitHub MCP", "version": "0.3.4", "tools": 84, "tokens": 20444, "method": "reference", "change": { "tokens": 2100, "pct": 11.4, "tools": 3 } },
+    { "id": "playwright", "name": "Playwright", "version": "0.5.1", "tools": 56, "tokens": 15000, "method": "estimate", "change": { "tokens": 1000, "pct": 3.2, "tools": 2 } },
+    { "id": "supabase", "name": "Supabase", "version": "1.2.0", "tools": 30, "tokens": 10000, "method": "estimate", "change": { "tokens": 0, "pct": 0, "tools": 0 } },
+    { "id": "notion", "name": "Notion", "version": "0.4.2", "tools": 22, "tokens": 10000, "method": "estimate", "change": { "tokens": -500, "pct": -2.1, "tools": 0 } },
+    { "id": "firecrawl", "name": "Firecrawl", "version": "0.2.3", "tools": 14, "tokens": 6000, "method": "estimate", "change": { "tokens": 500, "pct": 8.5, "tools": 1 } },
+    { "id": "slack", "name": "Slack", "version": "0.1.5", "tools": 8, "tokens": 5000, "method": "estimate", "change": { "tokens": 0, "pct": 0, "tools": 0 } },
+    { "id": "sentry", "name": "Sentry", "version": "0.3.0", "tools": 16, "tokens": 5000, "method": "estimate", "change": { "tokens": -100, "pct": -1.3, "tools": 0 } },
+    { "id": "linear", "name": "Linear", "version": "0.1.2", "tools": 5, "tokens": 2000, "method": "estimate", "change": { "tokens": 100, "pct": 5.0, "tools": 0 } },
+    { "id": "filesystem", "name": "Filesystem", "version": "0.6.2", "tools": 13, "tokens": 1841, "method": "reference", "change": { "tokens": 0, "pct": 0, "tools": 0 } },
+    { "id": "context7", "name": "Context7", "version": "1.0.3", "tools": 2, "tokens": 1500, "method": "estimate", "change": { "tokens": 0, "pct": 0, "tools": 0 } },
+    { "id": "figma", "name": "Figma", "version": "0.1.0", "tools": 2, "tokens": 1500, "method": "estimate", "change": { "tokens": 200, "pct": 15.0, "tools": 0 } },
+    { "id": "memory", "name": "Memory", "version": "0.6.2", "tools": 9, "tokens": 975, "method": "reference", "change": { "tokens": 0, "pct": 0, "tools": 0 } },
+    { "id": "sequential-thinking", "name": "Seq. Thinking", "version": "0.6.2", "tools": 1, "tokens": 976, "method": "reference", "change": { "tokens": 0, "pct": 0, "tools": 0 } },
+    { "id": "postgres", "name": "PostgreSQL", "version": "0.6.2", "tools": 1, "tokens": 800, "method": "estimate", "change": { "tokens": 0, "pct": 0, "tools": 0 } }
+  ]
+}
