@@ -283,7 +283,8 @@ function renderSkillIndex() {
 
   for (const leaf of root.leaves()) {
     const d = leaf.data;
-    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${d.skillCount || 0} skills`;
+    const onInvoke = d.fullBodyTokens ? ` · ${formatTokens(d.fullBodyTokens)} on invoke` : '';
+    const subText = `${formatTokens(d.alwaysOnTokens)} always-on${onInvoke} · ${d.skillCount || 0} skills`;
     renderBlock(ctx, leaf, HEADER, W, H, {
       color: '#164e63',
       subText,
