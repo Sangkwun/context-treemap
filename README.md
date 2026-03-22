@@ -1,8 +1,17 @@
+<div align="center">
+
 # context-treemap
 
-[한국어](docs/README.ko.md) | [日本語](docs/README.ja.md) | [中文](docs/README.zh.md)
+**Track and visualize the context window cost of MCP servers, skill packs, and coding agents.**
 
-Track and visualize the context window cost of MCP servers, skill packs, and coding agents.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Updated Daily](https://img.shields.io/badge/Updated-Daily%2009%3A00%20KST-brightgreen.svg)](#how-it-works)
+
+[English](README.md) | [한국어](docs/README.ko.md) | [日本語](docs/README.ja.md) | [中文](docs/README.zh.md)
+
+</div>
+
+---
 
 Your 1M context window isn't unlimited. Before you type a single message, system prompts, built-in tools, MCP servers, and skills have already consumed a portion — and it adds up fast.
 
@@ -10,34 +19,51 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 
 ## Latest Snapshot
 
-### MCP Index
+<table>
+<tr>
+<td width="50%">
 
-> Tool schema token costs — the same regardless of which coding agent you use.
+**MCP Index**
+> Tool schema token costs — agent-agnostic.
 
 ![MCP Index](images/mcp-index-latest.png)
 
-### Skill Index
+</td>
+<td width="50%">
 
-> Skill packs visualized with two regions: **dark** = always-on cost (description metadata, loaded just by installing), **light** = on-invoke cost (full body, loaded only when called). The divider shows how much is "free until you use it."
+**Skill Index**
+> **Dark** = always-on cost, **Light** = on-invoke cost.
 
 ![Skill Index](images/skill-index-latest.png)
 
-### Claude Code — Context Window (1M)
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-> System + tools + MCP + skills — what's left for your conversation?
+**Claude Code — Context Window (1M)**
+> System + tools + MCP + skills
 
 ![Claude Code Context](images/claude-code-latest.png)
 
-### Codex — Context Window (1M)
+</td>
+<td width="50%">
+
+**Codex — Context Window (1M)**
 
 ![Codex Context](images/codex-latest.png)
 
+</td>
+</tr>
+</table>
+
 ## What's Tracked
 
-### MCP Servers (agent-agnostic)
+<details>
+<summary><strong>MCP Servers (agent-agnostic)</strong></summary>
 
 | Server | Tools | Tokens | % of 1M |
-|--------|-------|--------|---------|
+|--------|------:|-------:|--------:|
 | GitHub | 84 | 20,444 | 2.0% |
 | Playwright | 56 | ~15,000 | 1.5% |
 | Supabase | 30 | ~10,000 | 1.0% |
@@ -54,34 +80,40 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 | PostgreSQL | 1 | ~800 | 0.1% |
 | **Total** | **263** | **~81K** | **8.1%** |
 
-### Skill Packs (Claude Code)
+</details>
+
+<details>
+<summary><strong>Skill Packs (Claude Code)</strong></summary>
 
 Skills have two cost layers:
-- **Always-on** (description metadata): loaded into system context just by installing — this is the treemap block size
-- **On invoke** (full SKILL.md body): loaded only when the skill is called — shown in sub-text for reference
+- **Always-on** (description metadata) — loaded into system context just by installing
+- **On invoke** (full SKILL.md body) — loaded only when the skill is called
 
 | Skill Pack | Skills | Always-on | On Invoke |
-|-----------|--------|-----------|-----------|
+|-----------|-------:|----------:|----------:|
 | Everything Claude Code | 116 | 4,515 | ~143K |
 | Trail of Bits Security | 60 | 2,470 | ~82K |
 | Superpowers Lab | 4 | 196 | ~6K |
 
-### Agent System Overhead
+</details>
+
+<details>
+<summary><strong>Agent System Overhead</strong></summary>
 
 | Agent | Model | Context | System Prompt | Built-in Tools | Autocompact Buffer | Total |
-|-------|-------|---------|--------------|----------------|-------------------|-------|
+|-------|-------|--------:|--------------:|---------------:|-------------------:|------:|
 | Claude Code | Opus 4.6 | 1M | 3,000 | 16,821 | 33,000 | 52,821 (5.3%) |
 | Codex | GPT-5.4 | 1M | 2,500 | 8,000 | — | 10,500 (1.1%) |
 
+</details>
+
 ## How It Works
 
-1. **Crawl**: GitHub Actions crawls MCP server npm packages daily and extracts tool schemas
-2. **Crawl Skills**: Fetches SKILL.md files from GitHub repos and parses description metadata
-3. **Measure**: Token counts via [Anthropic's count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting) (free, accurate)
-4. **Render**: D3.js treemap + node-canvas generates PNG images (4 images)
-5. **Track**: Version history is committed to `data/`, enabling change detection (▲▼%)
-
-Images are auto-generated daily at 09:00 KST via GitHub Actions.
+1. **Crawl** — GitHub Actions crawls MCP server npm packages daily and extracts tool schemas
+2. **Crawl Skills** — Fetches SKILL.md files from GitHub repos and parses description metadata
+3. **Measure** — Token counts via [Anthropic's count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting) (free, accurate)
+4. **Render** — D3.js treemap + node-canvas generates PNG images
+5. **Track** — Version history is committed to `data/`, enabling change detection (▲▼%)
 
 ## Usage
 
@@ -100,18 +132,18 @@ npm run render                                 # Generate images
 
 ## Data Sources
 
-- **MCP tool schemas**: Extracted from npm packages at runtime
-- **Skill metadata**: Parsed from SKILL.md frontmatter on GitHub
-- **Token counts**: [Anthropic count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting)
-- **Claude Code internals**: [Piebald-AI/claude-code-system-prompts](https://github.com/Piebald-AI/claude-code-system-prompts)
-- **Community reports**: [SEP-1576](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1576), [MCP Tax analysis](https://www.mmntm.net/articles/mcp-context-tax)
+- **MCP tool schemas** — Extracted from npm packages at runtime
+- **Skill metadata** — Parsed from SKILL.md frontmatter on GitHub
+- **Token counts** — [Anthropic count_tokens API](https://docs.anthropic.com/en/docs/build-with-claude/token-counting)
+- **Claude Code internals** — [Piebald-AI/claude-code-system-prompts](https://github.com/Piebald-AI/claude-code-system-prompts)
+- **Community reports** — [SEP-1576](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1576), [MCP Tax analysis](https://www.mmntm.net/articles/mcp-context-tax)
 
 ## Contributing
 
-- **Add an MCP server**: Edit [`config/servers.json`](config/servers.json) and submit a PR
-- **Add a skill pack**: Edit [`config/skills.json`](config/skills.json) and submit a PR
-- **Update agent data**: Edit `data/agents/*.json` with verified measurements
-- **Report inaccuracies**: Open an issue with `/context` command output
+- **Add an MCP server** — Edit [`config/servers.json`](config/servers.json) and submit a PR
+- **Add a skill pack** — Edit [`config/skills.json`](config/skills.json) and submit a PR
+- **Update agent data** — Edit `data/agents/*.json` with verified measurements
+- **Report inaccuracies** — Open an issue with `/context` command output
 
 ## License
 

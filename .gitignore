@@ -3,3 +3,4 @@ node_modules/
 *.log
 tmp/
 mockup-*.png
+.DS_Store
