@@ -1,5 +1,5 @@
-import { createCanvas, registerFont } from 'canvas';
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
+import { createCanvas } from 'canvas';
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { treemap, hierarchy, treemapSquarify } from 'd3-hierarchy';
 
@@ -61,28 +61,88 @@ function setFont(ctx, size, weight = 'normal') {
   ctx.font = `${w} ${size}px "Inter", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif`;
 }
 
-/**
- * Calculate font size that fits text within block dimensions.
- * Constrained by both width and height.
- */
 function fitFontSize(ctx, text, blockW, blockH, weight = 'bold', targetRatio = 0.85, maxLines = 2) {
-  // Height constraint: name + sub-text must fit in block
   const maxByHeight = blockH / (maxLines * 1.4);
   let hi = Math.min(blockW * 0.2, maxByHeight, 56);
-
-  // Binary search for width fit
   let lo = 6;
   for (let i = 0; i < 12; i++) {
     const mid = (lo + hi) / 2;
     setFont(ctx, mid, weight);
-    const measured = ctx.measureText(text).width;
-    if (measured < blockW * targetRatio) {
+    if (ctx.measureText(text).width < blockW * targetRatio) {
       lo = mid;
     } else {
       hi = mid;
     }
   }
   return Math.max(8, Math.floor(lo));
+}
+
+// ── Shared Rendering ─────────────────────────────────────
+
+/**
+ * Render treemap header: title, subtitle, and legend boxes.
+ */
+function renderHeader(ctx, W, { title, subtitle, legend, titleSize = 30 }) {
+  ctx.fillStyle = STYLE.bg;
+  ctx.fillRect(0, 0, W, 90);
+
+  setFont(ctx, titleSize, 'bold');
+  ctx.fillStyle = STYLE.textPrimary;
+  ctx.fillText(title, 16, 42);
+
+  setFont(ctx, 13);
+  ctx.fillStyle = STYLE.textSecondary;
+  ctx.fillText(subtitle, 16, 62);
+
+  if (legend) {
+    const spacing = legend.spacing || 90;
+    const startX = W - legend.items.length * spacing;
+    legend.items.forEach(([color, label], i) => {
+      const lx = startX + i * spacing;
+      ctx.fillStyle = color;
+      roundRect(ctx, lx, 30, 12, 12, 2);
+      ctx.fill();
+      setFont(ctx, 9);
+      ctx.fillStyle = STYLE.textSecondary;
+      ctx.fillText(label, lx + 16, 40);
+    });
+  }
+}
+
+/**
+ * Render a label (name + optional sub-text) centered in a block area.
+ */
+function renderLabel(ctx, cx, cy, innerW, innerH, name, opts = {}) {
+  const { subText, textColor = STYLE.textPrimary, subColor = STYLE.textSecondary } = opts;
+
+  ctx.textAlign = 'center';
+
+  if (innerH >= 28) {
+    const nameFs = fitFontSize(ctx, name, innerW, innerH, 'bold', 0.85, 2);
+    const showSub = subText && innerH > nameFs * 1.6;
+    const subFs = Math.max(8, nameFs * 0.5);
+    const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
+    const startY = cy - totalH / 2;
+
+    setFont(ctx, nameFs, 'bold');
+    ctx.fillStyle = textColor;
+    ctx.fillText(name, cx, startY + nameFs * 0.85);
+
+    if (showSub) {
+      setFont(ctx, subFs);
+      ctx.fillStyle = subColor;
+      ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
+    }
+  } else {
+    const fs = Math.min(innerH * 0.7, fitFontSize(ctx, name, innerW, innerH, 'bold', 0.9, 1));
+    if (fs >= 7) {
+      setFont(ctx, fs, 'bold');
+      ctx.fillStyle = textColor;
+      ctx.fillText(name, cx, cy + fs * 0.35);
+    }
+  }
+
+  ctx.textAlign = 'left';
 }
 
 // ── Load Data ────────────────────────────────────────────
@@ -95,18 +155,6 @@ function loadLatestSnapshot() {
   if (files.length === 0) return null;
 
   return JSON.parse(readFileSync(join(snapshotDir, files[files.length - 1]), 'utf-8'));
-}
-
-function loadMcpHistory() {
-  const mcpDir = join(DATA_DIR, 'mcp');
-  if (!existsSync(mcpDir)) return {};
-
-  const history = {};
-  for (const file of readdirSync(mcpDir).filter(f => f.endsWith('.json'))) {
-    const id = file.replace('.json', '');
-    history[id] = JSON.parse(readFileSync(join(mcpDir, file), 'utf-8'));
-  }
-  return history;
 }
 
 function loadSkillData() {
@@ -132,18 +180,16 @@ function loadSkillData() {
 
 // ── Shared block renderer ────────────────────────────────
 
-function renderBlock(ctx, leaf, HEADER, W, H, opts = {}) {
+function renderBlock(ctx, leaf, HEADER, opts = {}) {
   const d = leaf.data;
   const x = leaf.x0, y = leaf.y0 + HEADER;
   const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
   const changePct = d.change?.pct || 0;
 
-  // Background
+  // Background + border
   ctx.fillStyle = opts.color || changeColor(changePct);
   roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
   ctx.fill();
-
-  // Border
   ctx.strokeStyle = STYLE.border;
   ctx.lineWidth = 1;
   roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
@@ -155,53 +201,33 @@ function renderBlock(ctx, leaf, HEADER, W, H, opts = {}) {
   const innerH = h - pad * 2;
   if (innerW < 15 || innerH < 10) return;
 
-  ctx.textAlign = 'center';
-  const cx = x + w / 2;
-  const cy = y + h / 2;
-
   const shortName = d.displayName || d.name;
-  const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
-
-  if (innerH >= 28) {
-    const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
-    const showSub = innerH > nameFs * 1.6;
-    const subFs = Math.max(8, nameFs * 0.5);
-    const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
-    const startY = cy - totalH / 2;
-
-    setFont(ctx, nameFs, 'bold');
-    ctx.fillStyle = opts.textColor || STYLE.textPrimary;
-    ctx.fillText(shortName, cx, startY + nameFs * 0.85);
-
-    if (showSub && opts.subText) {
-      setFont(ctx, subFs);
-      ctx.fillStyle = changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary;
-      ctx.fillText(opts.subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
-    }
-  } else {
-    const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
-    if (fs >= 7) {
-      setFont(ctx, fs, 'bold');
-      ctx.fillStyle = opts.textColor || STYLE.textPrimary;
-      ctx.fillText(shortName, cx, cy + fs * 0.35);
-    }
-  }
-
-  ctx.textAlign = 'left';
+  renderLabel(ctx, x + w / 2, y + h / 2, innerW, innerH, shortName, {
+    subText: opts.subText,
+    textColor: opts.textColor || STYLE.textPrimary,
+    subColor: changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary,
+  });
 }
 
-// ── Render MCP Index ─────────────────────────────────────
+// ── Create canvas + treemap layout helper ────────────────
 
-function renderMcpIndex(snapshot) {
-  const W = 1600, H = 900;
-  const HEADER = 90;
-  const PAD = 3;
-
+function createTreemapCanvas(W, H, HEADER, items, PAD = 3) {
   const canvas = createCanvas(W, H + HEADER);
   const ctx = canvas.getContext('2d');
 
   ctx.fillStyle = STYLE.bg;
   ctx.fillRect(0, 0, W, H + HEADER);
+
+  const root = hierarchy({ children: items.map(d => ({ ...d, value: d.value ?? d.tokens })) }).sum(d => d.value);
+  treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
+
+  return { canvas, ctx, root };
+}
+
+// ── Render MCP Index ─────────────────────────────────────
+
+function renderMcpIndex(snapshot) {
+  const W = 1600, H = 900, HEADER = 90;
 
   const servers = snapshot.servers
     .map(s => ({ ...s, displayName: s.name.replace(' MCP', '').replace(' Server', '') }))
@@ -210,41 +236,22 @@ function renderMcpIndex(snapshot) {
   const totalTokens = servers.reduce((s, x) => s + x.tokens, 0);
   const totalTools = servers.reduce((s, x) => s + x.tools, 0);
 
-  const root = hierarchy({ children: servers.map(s => ({ ...s, value: s.tokens })) }).sum(d => d.value);
-  treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
+  const { canvas, ctx, root } = createTreemapCanvas(W, H, HEADER, servers);
 
   for (const leaf of root.leaves()) {
     const d = leaf.data;
     const changePct = d.change?.pct || 0;
     const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
-    const subText = `${formatTokens(d.tokens)}  ${changeTxt}`;
-    renderBlock(ctx, leaf, HEADER, W, H, { subText });
+    renderBlock(ctx, leaf, HEADER, { subText: `${formatTokens(d.tokens)}  ${changeTxt}` });
   }
 
-  // Header
-  ctx.fillStyle = STYLE.bg;
-  ctx.fillRect(0, 0, W, HEADER);
-
-  setFont(ctx, 30, 'bold');
-  ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText('MCP Index', 16, 42);
-
-  setFont(ctx, 13);
-  ctx.fillStyle = STYLE.textSecondary;
-  ctx.fillText(
-    `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
-    16, 62
-  );
-
-  const legendX = W - 380;
-  [['#7f1d1d', '▲ 5%+'], ['#451a1a', '▲ 0~5%'], ['#1e293b', 'No change'], ['#14532d', '▼ Decrease']].forEach(([color, label], i) => {
-    const lx = legendX + i * 90;
-    ctx.fillStyle = color;
-    roundRect(ctx, lx, 30, 12, 12, 2);
-    ctx.fill();
-    setFont(ctx, 9);
-    ctx.fillStyle = STYLE.textSecondary;
-    ctx.fillText(label, lx + 16, 40);
+  renderHeader(ctx, W, {
+    title: 'MCP Index',
+    subtitle: `Total: ${totalTokens.toLocaleString()} tokens (${(totalTokens / 1000000 * 100).toFixed(1)}% of 1M)  ·  ${servers.length} servers  ·  ${totalTools} tools  ·  ${snapshot.date}`,
+    legend: {
+      spacing: 90,
+      items: [['#7f1d1d', '▲ 5%+'], ['#451a1a', '▲ 0~5%'], ['#1e293b', 'No change'], ['#14532d', '▼ Decrease']],
+    },
   });
 
   return canvas;
@@ -253,20 +260,11 @@ function renderMcpIndex(snapshot) {
 // ── Render Skill Index ───────────────────────────────────
 
 function renderSkillIndex() {
-  const W = 1600, H = 900;
-  const HEADER = 90;
-  const PAD = 3;
+  const W = 1600, H = 900, HEADER = 90;
 
-  const canvas = createCanvas(W, H + HEADER);
-  const ctx = canvas.getContext('2d');
-
-  ctx.fillStyle = STYLE.bg;
-  ctx.fillRect(0, 0, W, H + HEADER);
-
-  const skills = loadSkillData().filter(s => s.alwaysOnTokens > 0);
+  const skills = loadSkillData().filter(s => s.alwaysOnTokens > 0 || s.fullBodyTokens > 0);
   if (skills.length === 0) return null;
 
-  // Block size = alwaysOn + fullBody (total cost)
   const items = skills.map(s => ({
     ...s,
     displayName: s.name,
@@ -279,8 +277,7 @@ function renderSkillIndex() {
   const totalFull = items.reduce((s, x) => s + (x.fullBodyTokens || 0), 0);
   const totalSkills = items.reduce((s, x) => s + (x.skillCount || 0), 0);
 
-  const root = hierarchy({ children: items }).sum(d => d.value);
-  treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
+  const { canvas, ctx, root } = createTreemapCanvas(W, H, HEADER, items);
 
   for (const leaf of root.leaves()) {
     const d = leaf.data;
@@ -317,71 +314,23 @@ function renderSkillIndex() {
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.stroke();
 
-    // Labels
+    // Label
     const pad = 6;
     const innerW = w - pad * 2;
     const innerH = h - pad * 2;
     if (innerW < 15 || innerH < 10) continue;
 
-    ctx.textAlign = 'center';
-    const cx = x + w / 2;
-    const cy = y + h / 2;
-
-    const shortName = d.displayName;
     const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke · ${d.skillCount || 0} skills`;
-
-    if (innerH >= 28) {
-      const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
-      const showSub = innerH > nameFs * 1.6;
-      const subFs = Math.max(8, nameFs * 0.5);
-      const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
-      const startY = cy - totalH / 2;
-
-      setFont(ctx, nameFs, 'bold');
-      ctx.fillStyle = STYLE.textPrimary;
-      ctx.fillText(shortName, cx, startY + nameFs * 0.85);
-
-      if (showSub) {
-        setFont(ctx, subFs);
-        ctx.fillStyle = STYLE.textSecondary;
-        ctx.fillText(subText, cx, startY + nameFs * 0.85 + subFs * 1.4);
-      }
-    } else {
-      const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
-      if (fs >= 7) {
-        setFont(ctx, fs, 'bold');
-        ctx.fillStyle = STYLE.textPrimary;
-        ctx.fillText(shortName, cx, cy + fs * 0.35);
-      }
-    }
-    ctx.textAlign = 'left';
+    renderLabel(ctx, x + w / 2, y + h / 2, innerW, innerH, d.displayName, { subText });
   }
 
-  // Header
-  ctx.fillStyle = STYLE.bg;
-  ctx.fillRect(0, 0, W, HEADER);
-
-  setFont(ctx, 30, 'bold');
-  ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText('Skill Index', 16, 42);
-
-  setFont(ctx, 13);
-  ctx.fillStyle = STYLE.textSecondary;
-  ctx.fillText(
-    `Always-on: ${totalAlwaysOn.toLocaleString()} tokens  ·  On invoke: ${totalFull.toLocaleString()} tokens  ·  ${items.length} skill packs  ·  ${totalSkills} skills`,
-    16, 62
-  );
-
-  // Legend
-  const legX = W - 250;
-  [['#164e63', 'Always-on'], ['#0e3a47', 'On invoke']].forEach(([c, l], i) => {
-    const lx = legX + i * 110;
-    ctx.fillStyle = c;
-    roundRect(ctx, lx, 30, 12, 12, 2);
-    ctx.fill();
-    setFont(ctx, 9);
-    ctx.fillStyle = STYLE.textSecondary;
-    ctx.fillText(l, lx + 16, 40);
+  renderHeader(ctx, W, {
+    title: 'Skill Index',
+    subtitle: `Always-on: ${totalAlwaysOn.toLocaleString()} tokens  ·  On invoke: ${totalFull.toLocaleString()} tokens  ·  ${items.length} skill packs  ·  ${totalSkills} skills`,
+    legend: {
+      spacing: 110,
+      items: [['#164e63', 'Always-on'], ['#0e3a47', 'On invoke']],
+    },
   });
 
   return canvas;
@@ -390,33 +339,23 @@ function renderSkillIndex() {
 // ── Render Agent Context Treemap ─────────────────────────
 
 function renderAgentContext(agentName, agentData, mcpSnapshot) {
-  const W = 1600, H = 900;
-  const HEADER = 90;
-  const PAD = 3;
+  const W = 1600, H = 900, HEADER = 90;
   const TOTAL = agentData?.contextWindow || 1000000;
   const totalLabel = TOTAL >= 1000000 ? '1M' : `${(TOTAL / 1000).toFixed(0)}K`;
 
-  const canvas = createCanvas(W, H + HEADER);
-  const ctx = canvas.getContext('2d');
-
-  ctx.fillStyle = STYLE.bg;
-  ctx.fillRect(0, 0, W, H + HEADER);
-
-  // Build items: agent system + MCP servers + free space
   const items = [];
 
   // Agent system overhead
   if (agentData) {
     const latest = agentData.versions[agentData.versions.length - 1];
     if (latest.autocompactBuffer) {
-      items.push({ name: 'Autocompact Buffer', tokens: latest.autocompactBuffer, color: '#1e293b', change: 0, category: 'buffer' });
+      items.push({ name: 'Autocompact Buffer', tokens: latest.autocompactBuffer, color: '#1e293b', category: 'buffer' });
     }
     if (latest.builtinTools) {
-      items.push({ name: `Built-in Tools`, tokens: latest.builtinTools, color: '#4c1d95', change: 0, category: 'system' });
+      items.push({ name: 'Built-in Tools', tokens: latest.builtinTools, color: '#4c1d95', category: 'system' });
     }
-    // Response buffer excluded — managed internally by the agent
     if (latest.systemPrompt) {
-      items.push({ name: 'System Prompt', tokens: latest.systemPrompt, color: '#312e81', change: 0, category: 'system' });
+      items.push({ name: 'System Prompt', tokens: latest.systemPrompt, color: '#312e81', category: 'system' });
     }
   }
 
@@ -427,40 +366,32 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
         name: server.name,
         tokens: server.tokens,
         color: changeColor(server.change?.pct || 0),
-        change: server.change?.pct || 0,
         category: 'mcp',
       });
     }
   }
 
   // Skills (always-on metadata only)
-  const skills = loadSkillData();
-  for (const skill of skills) {
+  for (const skill of loadSkillData()) {
     if (skill.alwaysOnTokens > 0) {
-      items.push({
-        name: skill.name,
-        tokens: skill.alwaysOnTokens,
-        color: '#164e63',
-        change: 0,
-        category: 'skill',
-      });
+      items.push({ name: skill.name, tokens: skill.alwaysOnTokens, color: '#164e63', category: 'skill' });
     }
   }
 
   // Free space
   const used = items.reduce((s, x) => s + x.tokens, 0);
   const free = Math.max(0, TOTAL - used);
-  items.push({ name: 'Available', tokens: free, color: '#0f2e1a', change: 0, category: 'free' });
+  items.push({ name: 'Available', tokens: free, color: '#0f2e1a', category: 'free' });
 
-  // D3 treemap
-  const root = hierarchy({ children: items.map(d => ({ ...d, value: d.tokens })) }).sum(d => d.value);
-  treemap().size([W, H]).padding(PAD).tile(treemapSquarify)(root);
+  const { canvas, ctx, root } = createTreemapCanvas(W, H, HEADER, items);
 
   for (const leaf of root.leaves()) {
     const d = leaf.data;
     const x = leaf.x0, y = leaf.y0 + HEADER;
     const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
+    const isFree = d.category === 'free';
 
+    // Background + border
     ctx.fillStyle = d.color;
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.fill();
@@ -469,77 +400,30 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
     ctx.stroke();
 
-    const isFree = d.category === 'free';
-    const pct = (d.tokens / TOTAL * 100).toFixed(1);
+    // Label
     const pad = 6;
     const innerW = w - pad * 2;
     const innerH = h - pad * 2;
     if (innerW < 15 || innerH < 10) continue;
 
-    ctx.textAlign = 'center';
-    const cx = x + w / 2;
-    const cy = y + h / 2;
-
     const shortName = d.name.replace(' MCP', '').replace(' Server', '');
-
-    if (innerH >= 28) {
-      const nameFs = fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.85, 2);
-      const showSub = innerH > nameFs * 1.6;
-      const subFs = Math.max(8, nameFs * 0.5);
-      const totalH = showSub ? nameFs + subFs * 1.3 : nameFs;
-      const startY = cy - totalH / 2;
-
-      setFont(ctx, nameFs, 'bold');
-      ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
-      ctx.fillText(shortName, cx, startY + nameFs * 0.85);
-
-      if (showSub) {
-        setFont(ctx, subFs);
-        ctx.fillStyle = isFree ? '#22c55eaa' : STYLE.textSecondary;
-        ctx.fillText(`${formatTokens(d.tokens)} (${pct}%)`, cx, startY + nameFs * 0.85 + subFs * 1.4);
-      }
-    } else {
-      const fs = Math.min(innerH * 0.7, fitFontSize(ctx, shortName, innerW, innerH, 'bold', 0.9, 1));
-      if (fs >= 7) {
-        setFont(ctx, fs, 'bold');
-        ctx.fillStyle = isFree ? STYLE.green : STYLE.textPrimary;
-        ctx.fillText(shortName, cx, cy + fs * 0.35);
-      }
-    }
-
-    ctx.textAlign = 'left';
+    const pct = (d.tokens / TOTAL * 100).toFixed(1);
+    renderLabel(ctx, x + w / 2, y + h / 2, innerW, innerH, shortName, {
+      subText: `${formatTokens(d.tokens)} (${pct}%)`,
+      textColor: isFree ? STYLE.green : STYLE.textPrimary,
+      subColor: isFree ? '#22c55eaa' : STYLE.textSecondary,
+    });
   }
 
-  // Header
-  ctx.fillStyle = STYLE.bg;
-  ctx.fillRect(0, 0, W, HEADER);
-
   const freePct = (free / TOTAL * 100).toFixed(1);
-  setFont(ctx, 28, 'bold');
-  ctx.fillStyle = STYLE.textPrimary;
-  ctx.fillText(`${agentName} — Context Window (${totalLabel})`, 16, 42);
-
-  setFont(ctx, 13);
-  ctx.fillStyle = STYLE.textSecondary;
-  ctx.fillText(
-    `System: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
-    16, 60
-  );
-
-  // Category legend
-  const cats = [
-    ['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#7f1d1d', 'MCP ▲'],
-    ['#164e63', 'Skills'], ['#1e293b', 'Buffer'], ['#0f2e1a', 'Free'],
-  ];
-  const legX = W - 480;
-  cats.forEach(([c, l], i) => {
-    const lx = legX + i * 75;
-    ctx.fillStyle = c;
-    roundRect(ctx, lx, 28, 12, 12, 2);
-    ctx.fill();
-    setFont(ctx, 9);
-    ctx.fillStyle = STYLE.textSecondary;
-    ctx.fillText(l, lx + 16, 38);
+  renderHeader(ctx, W, {
+    title: `${agentName} — Context Window (${totalLabel})`,
+    titleSize: 28,
+    subtitle: `System: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
+    legend: {
+      spacing: 75,
+      items: [['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#7f1d1d', 'MCP ▲'], ['#164e63', 'Skills'], ['#1e293b', 'Buffer'], ['#0f2e1a', 'Free']],
+    },
   });
 
   return canvas;
@@ -556,15 +440,11 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
 
   const today = snapshot.date;
   const archiveDir = join(ARCHIVE_DIR, today);
-
-  const { mkdirSync } = await import('fs');
-  const { mkdirSync: mkdirSyncFn } = await import('fs');
-  if (!existsSync(archiveDir)) mkdirSyncFn(archiveDir, { recursive: true });
+  if (!existsSync(archiveDir)) mkdirSync(archiveDir, { recursive: true });
 
   // 1. MCP Index
   console.log('  Rendering MCP Index...');
-  const mcpCanvas = renderMcpIndex(snapshot);
-  const mcpBuf = mcpCanvas.toBuffer('image/png');
+  const mcpBuf = renderMcpIndex(snapshot).toBuffer('image/png');
   writeFileSync(join(IMAGES_DIR, 'mcp-index-latest.png'), mcpBuf);
   writeFileSync(join(archiveDir, 'mcp-index.png'), mcpBuf);
 
@@ -577,24 +457,22 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     writeFileSync(join(archiveDir, 'skill-index.png'), skillBuf);
   }
 
-  // 2. Claude Code
+  // 3. Claude Code
   const claudeDataPath = join(DATA_DIR, 'agents', 'claude-code.json');
   if (existsSync(claudeDataPath)) {
     console.log('  Rendering Claude Code context...');
     const claudeData = JSON.parse(readFileSync(claudeDataPath, 'utf-8'));
-    const claudeCanvas = renderAgentContext('Claude Code', claudeData, snapshot);
-    const claudeBuf = claudeCanvas.toBuffer('image/png');
+    const claudeBuf = renderAgentContext('Claude Code', claudeData, snapshot).toBuffer('image/png');
     writeFileSync(join(IMAGES_DIR, 'claude-code-latest.png'), claudeBuf);
     writeFileSync(join(archiveDir, 'claude-code.png'), claudeBuf);
   }
 
-  // 3. Codex
+  // 4. Codex
   const codexDataPath = join(DATA_DIR, 'agents', 'codex.json');
   if (existsSync(codexDataPath)) {
     console.log('  Rendering Codex context...');
     const codexData = JSON.parse(readFileSync(codexDataPath, 'utf-8'));
-    const codexCanvas = renderAgentContext('Codex', codexData, snapshot);
-    const codexBuf = codexCanvas.toBuffer('image/png');
+    const codexBuf = renderAgentContext('Codex', codexData, snapshot).toBuffer('image/png');
     writeFileSync(join(IMAGES_DIR, 'codex-latest.png'), codexBuf);
     writeFileSync(join(archiveDir, 'codex.png'), codexBuf);
   }
