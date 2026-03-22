@@ -5,9 +5,9 @@
   "versions": [
     {
       "version": "3.11.0",
-      "date": "2026-03-21",
-      "tools": 8,
-      "tokens": 6000,
+      "date": "2026-03-14",
+      "tools": 7,
+      "tokens": 5500,
       "method": "estimate",
       "toolNames": [
         "firecrawl_scrape",
@@ -23,6 +23,28 @@
         "tokens": 0,
         "pct": 0,
         "tools": 0
+      }
+    },
+    {
+      "version": "3.11.0",
+      "date": "2026-03-21",
+      "tools": 8,
+      "tokens": 6000,
+      "method": "estimate",
+      "toolNames": [
+        "firecrawl_scrape",
+        "firecrawl_map",
+        "firecrawl_crawl",
+        "firecrawl_batch_scrape",
+        "firecrawl_check_batch_status",
+        "firecrawl_check_crawl_status",
+        "firecrawl_search",
+        "firecrawl_extract"
+      ],
+      "change": {
+        "tokens": 500,
+        "pct": 9.1,
+        "tools": 1
       }
     }
   ]

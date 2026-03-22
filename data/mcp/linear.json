@@ -5,9 +5,9 @@
   "versions": [
     {
       "version": "0.1.0",
-      "date": "2026-03-21",
-      "tools": 6,
-      "tokens": 4500,
+      "date": "2026-03-14",
+      "tools": 5,
+      "tokens": 4200,
       "method": "estimate",
       "toolNames": [
         "linear_create_issue",
@@ -21,6 +21,26 @@
         "tokens": 0,
         "pct": 0,
         "tools": 0
+      }
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-03-21",
+      "tools": 6,
+      "tokens": 4500,
+      "method": "estimate",
+      "toolNames": [
+        "linear_create_issue",
+        "linear_update_issue",
+        "linear_search_issues",
+        "linear_get_user_issues",
+        "linear_add_comment",
+        "linear-server-prompt"
+      ],
+      "change": {
+        "tokens": 300,
+        "pct": 7.1,
+        "tools": 1
       }
     }
   ]

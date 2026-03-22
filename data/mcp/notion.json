@@ -5,14 +5,27 @@
   "versions": [
     {
       "version": "2.2.1",
+      "date": "2026-03-14",
+      "tools": 22,
+      "tokens": 17300,
+      "method": "estimate",
+      "toolNames": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "version": "2.2.1",
       "date": "2026-03-21",
       "tools": 22,
       "tokens": 16500,
       "method": "estimate",
       "toolNames": [],
       "change": {
-        "tokens": 0,
-        "pct": 0,
+        "tokens": -800,
+        "pct": -4.6,
         "tools": 0
       }
     }

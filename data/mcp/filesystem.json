@@ -5,6 +5,19 @@
   "versions": [
     {
       "version": "2026.1.14",
+      "date": "2026-03-14",
+      "tools": 13,
+      "tokens": 9750,
+      "method": "estimate",
+      "toolNames": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "version": "2026.1.14",
       "date": "2026-03-21",
       "tools": 13,
       "tokens": 9750,

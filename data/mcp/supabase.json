@@ -5,6 +5,27 @@
   "versions": [
     {
       "version": "1.5.0",
+      "date": "2026-03-14",
+      "tools": 7,
+      "tokens": 5250,
+      "method": "estimate",
+      "toolNames": [
+        "supabase",
+        "queryDatabase",
+        "insertData",
+        "updateData",
+        "deleteData",
+        "listTables",
+        "invokeEdgeFunction"
+      ],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "version": "1.5.0",
       "date": "2026-03-21",
       "tools": 7,
       "tokens": 5250,
