@@ -281,60 +281,18 @@ function renderSkillIndex() {
 
   for (const leaf of root.leaves()) {
     const d = leaf.data;
-    const x = leaf.x0, y = leaf.y0 + HEADER;
-    const w = leaf.x1 - leaf.x0, h = leaf.y1 - leaf.y0;
-
-    const totalTokens = d.alwaysOnTokens + (d.fullBodyTokens || 0);
-    const alwaysRatio = totalTokens > 0 ? d.alwaysOnTokens / totalTokens : 1;
-
-    // On-invoke area (lighter, full block)
-    ctx.fillStyle = '#0e3a47';
-    roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
-    ctx.fill();
-
-    // Always-on area (darker, left portion)
-    const alwaysW = Math.max(4, (w - 2) * alwaysRatio);
-    ctx.fillStyle = '#164e63';
-    roundRect(ctx, x + 1, y + 1, alwaysW, h - 2, 4);
-    ctx.fill();
-
-    // Divider line
-    if (alwaysW < w - 10 && alwaysW > 6) {
-      ctx.strokeStyle = '#0d1117';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(x + 1 + alwaysW, y + 4);
-      ctx.lineTo(x + 1 + alwaysW, y + h - 4);
-      ctx.stroke();
-    }
-
-    // Border
-    ctx.strokeStyle = STYLE.border;
-    ctx.lineWidth = 1;
-    roundRect(ctx, x + 1, y + 1, w - 2, h - 2, 4);
-    ctx.stroke();
-
-    // Label
-    const pad = 6;
-    const innerW = w - pad * 2;
-    const innerH = h - pad * 2;
-    if (innerW < 15 || innerH < 10) continue;
-
     const changePct = d.change?.pct || 0;
-    const changeTxt = changePct > 0 ? `  +${changePct}%` : changePct < 0 ? `  ${changePct}%` : '';
-    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke · ${d.skillCount || 0} skills${changeTxt}`;
-    renderLabel(ctx, x + w / 2, y + h / 2, innerW, innerH, d.displayName, {
-      subText,
-      subColor: changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary,
-    });
+    const changeTxt = changePct > 0 ? `+${changePct}%` : changePct < 0 ? `${changePct}%` : '';
+    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke · ${d.skillCount || 0} skills  ${changeTxt}`;
+    renderBlock(ctx, leaf, HEADER, { subText });
   }
 
   renderHeader(ctx, W, {
     title: 'Skill Index',
     subtitle: `Always-on: ${totalAlwaysOn.toLocaleString()} tokens  ·  On invoke: ${totalFull.toLocaleString()} tokens  ·  ${items.length} skill packs  ·  ${totalSkills} skills`,
     legend: {
-      spacing: 110,
-      items: [['#164e63', 'Always-on'], ['#0e3a47', 'On invoke']],
+      spacing: 90,
+      items: [['#7f1d1d', '▲ 5%+'], ['#451a1a', '▲ 0~5%'], ['#1e293b', 'No change'], ['#14532d', '▼ Decrease']],
     },
   });
 
