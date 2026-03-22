@@ -131,12 +131,21 @@ async function main() {
           await new Promise(r => setTimeout(r, 50));
         }
       } else {
-        const base = pack.skillsPath || 'skills';
-        const dirs = await listSkillsInRepo(pack.repo, base);
-        for (const name of dirs) {
-          skillPaths.push({ name, path: `${base}/${name}/SKILL.md` });
+        // Support single path or array of paths
+        const bases = Array.isArray(pack.skillsPath)
+          ? pack.skillsPath
+          : [pack.skillsPath || 'skills'];
+
+        for (const base of bases) {
+          const dirs = await listSkillsInRepo(pack.repo, base);
+          for (const name of dirs) {
+            skillPaths.push({ name, path: `${base}/${name}/SKILL.md` });
+          }
+          await new Promise(r => setTimeout(r, 50));
         }
-        if (dirs.length === 0) {
+
+        // Fallback if nothing found
+        if (skillPaths.length === 0) {
           const dirs2 = await listSkillsInRepo(pack.repo, '.claude/skills');
           for (const name of dirs2) {
             skillPaths.push({ name, path: `.claude/skills/${name}/SKILL.md` });

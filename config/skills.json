@@ -36,6 +36,34 @@
       "layout": "nested",
       "pluginsPath": "plugins",
       "stars": 3762
+    },
+    {
+      "id": "anthropic-frontend",
+      "name": "Anthropic Frontend Design",
+      "repo": "anthropics/skills",
+      "skillsPath": "skills",
+      "stars": 0
+    },
+    {
+      "id": "jeffallan",
+      "name": "Jeffallan Claude Skills",
+      "repo": "Jeffallan/claude-skills",
+      "skillsPath": "skills",
+      "stars": 7100
+    },
+    {
+      "id": "alirezarezvani",
+      "name": "Alireza Claude Skills",
+      "repo": "alirezarezvani/claude-skills",
+      "skillsPath": ["engineering", "engineering-team", "marketing-skill", "product-team", "project-management", "c-level-advisor", "finance", "ra-qm-team", "business-growth"],
+      "stars": 6200
+    },
+    {
+      "id": "daymade",
+      "name": "Daymade Claude Skills",
+      "repo": "daymade/claude-code-skills",
+      "skillsPath": ".",
+      "stars": 700
     }
   ]
 }
