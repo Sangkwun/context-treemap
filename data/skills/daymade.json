@@ -3,6 +3,18 @@
   "repo": "daymade/claude-code-skills",
   "versions": [
     {
+      "date": "2026-03-14",
+      "skillCount": 41,
+      "alwaysOnTokens": 3462,
+      "fullBodyTokens": 93573,
+      "skills": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "skills": 0
+      }
+    },
+    {
       "date": "2026-03-22",
       "skillCount": 44,
       "alwaysOnTokens": 3762,
@@ -318,9 +330,9 @@
         }
       ],
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "skills": 0
+        "tokens": 300,
+        "pct": 8.7,
+        "skills": 3
       }
     }
   ]
