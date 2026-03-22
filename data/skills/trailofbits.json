@@ -3,16 +3,16 @@
   "repo": "trailofbits/skills",
   "versions": [
     {
-      "date": "2026-03-21",
-      "skillCount": 0,
-      "alwaysOnTokens": 0,
+      "date": "2026-03-14",
+      "skillCount": 55,
+      "alwaysOnTokens": 2200,
+      "fullBodyTokens": 75000,
       "skills": [],
       "change": {
         "tokens": 0,
         "pct": 0,
         "skills": 0
-      },
-      "fullBodyTokens": 0
+      }
     },
     {
       "date": "2026-03-21",
@@ -441,9 +441,9 @@
         }
       ],
       "change": {
-        "tokens": 2470,
-        "pct": 0,
-        "skills": 60
+        "tokens": 270,
+        "pct": 12.3,
+        "skills": 5
       },
       "fullBodyTokens": 81752
     }

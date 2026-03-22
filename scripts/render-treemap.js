@@ -172,6 +172,7 @@ function loadSkillData() {
         fullBodyTokens: latest.fullBodyTokens || 0,
         tokens: (latest.alwaysOnTokens || 0) + (latest.fullBodyTokens || 0),
         skillCount: latest.skillCount,
+        change: latest.change || { tokens: 0, pct: 0, skills: 0 },
       });
     }
   }
@@ -270,7 +271,6 @@ function renderSkillIndex() {
     displayName: s.name,
     value: s.alwaysOnTokens + (s.fullBodyTokens || 0),
     tokens: s.alwaysOnTokens + (s.fullBodyTokens || 0),
-    change: { pct: 0 },
   }));
 
   const totalAlwaysOn = items.reduce((s, x) => s + x.alwaysOnTokens, 0);
@@ -320,8 +320,13 @@ function renderSkillIndex() {
     const innerH = h - pad * 2;
     if (innerW < 15 || innerH < 10) continue;
 
-    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke · ${d.skillCount || 0} skills`;
-    renderLabel(ctx, x + w / 2, y + h / 2, innerW, innerH, d.displayName, { subText });
+    const changePct = d.change?.pct || 0;
+    const changeTxt = changePct > 0 ? `  +${changePct}%` : changePct < 0 ? `  ${changePct}%` : '';
+    const subText = `${formatTokens(d.alwaysOnTokens)} always-on · ${formatTokens(d.fullBodyTokens || 0)} on invoke · ${d.skillCount || 0} skills${changeTxt}`;
+    renderLabel(ctx, x + w / 2, y + h / 2, innerW, innerH, d.displayName, {
+      subText,
+      subColor: changePct !== 0 ? changeBadgeColor(changePct) : STYLE.textSecondary,
+    });
   }
 
   renderHeader(ctx, W, {

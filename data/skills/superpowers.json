@@ -3,6 +3,18 @@
   "repo": "obra/superpowers-lab",
   "versions": [
     {
+      "date": "2026-03-14",
+      "skillCount": 3,
+      "alwaysOnTokens": 150,
+      "fullBodyTokens": 5000,
+      "skills": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "skills": 0
+      }
+    },
+    {
       "date": "2026-03-21",
       "skillCount": 4,
       "alwaysOnTokens": 196,
@@ -37,9 +49,9 @@
         }
       ],
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "skills": 0
+        "tokens": 46,
+        "pct": 30.7,
+        "skills": 1
       },
       "fullBodyTokens": 6232
     }

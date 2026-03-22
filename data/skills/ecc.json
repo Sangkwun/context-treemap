@@ -3,6 +3,18 @@
   "repo": "affaan-m/everything-claude-code",
   "versions": [
     {
+      "date": "2026-03-14",
+      "skillCount": 112,
+      "alwaysOnTokens": 4200,
+      "fullBodyTokens": 135000,
+      "skills": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "skills": 0
+      }
+    },
+    {
       "date": "2026-03-21",
       "skillCount": 116,
       "alwaysOnTokens": 4515,
@@ -821,9 +833,9 @@
         }
       ],
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "skills": 0
+        "tokens": 315,
+        "pct": 7.5,
+        "skills": 4
       },
       "fullBodyTokens": 142968
     }
