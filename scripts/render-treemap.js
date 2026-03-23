@@ -314,6 +314,9 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     if (latest.autocompactBuffer) {
       items.push({ name: 'Autocompact Buffer', tokens: latest.autocompactBuffer, color: '#1e293b', category: 'buffer' });
     }
+    if (latest.responseBuffer) {
+      items.push({ name: 'Response Buffer', tokens: latest.responseBuffer, color: '#1e3a5f', category: 'buffer' });
+    }
     if (latest.builtinTools) {
       items.push({ name: 'Built-in Tools', tokens: latest.builtinTools, color: '#4c1d95', category: 'system' });
     }
@@ -382,10 +385,10 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   renderHeader(ctx, W, {
     title: `${agentName} — Context Window (${totalLabel})`,
     titleSize: 28,
-    subtitle: `System: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
+    subtitle: `Used: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
     legend: {
-      spacing: 75,
-      items: [['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#7f1d1d', 'MCP ▲'], ['#164e63', 'Skills'], ['#1e293b', 'Buffer'], ['#0f2e1a', 'Free']],
+      spacing: 80,
+      items: [['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#7f1d1d', 'MCP ▲'], ['#164e63', 'Skills'], ['#1e293b', 'Autocompact'], ['#1e3a5f', 'Response'], ['#0f2e1a', 'Free']],
     },
   });
 

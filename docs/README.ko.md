@@ -18,7 +18,7 @@ MCP 서버, 스킬 팩, 코딩 에이전트의 컨텍스트 윈도우 비용을 
 
 ### Skill Index
 
-> 스킬 팩의 두 가지 비용 영역: **진한색** = always-on 비용 (설명 메타데이터, 설치만 해도 로드), **연한색** = on-invoke 비용 (본문, 호출 시에만 로드). 구분선이 "사용하기 전까지는 무료"인 영역을 보여줍니다.
+> 블록 크기 = 총 비용 (always-on + on-invoke). 색상 = 버전 변화율 (▲▼%).
 
 ![Skill Index](../images/skill-index-latest.png)
 

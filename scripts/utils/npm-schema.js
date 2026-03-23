@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { readFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
+import { readFileSync, existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
 import { join } from 'path';
 
 const TMP_DIR = join(process.cwd(), 'tmp');
@@ -12,7 +12,9 @@ export async function extractToolSchemas(npmPackage) {
   if (!existsSync(TMP_DIR)) mkdirSync(TMP_DIR, { recursive: true });
 
   const installDir = join(TMP_DIR, 'npm-extract');
-  if (!existsSync(installDir)) mkdirSync(installDir, { recursive: true });
+  // Clean install dir to avoid stale packages from previous runs
+  if (existsSync(installDir)) rmSync(installDir, { recursive: true, force: true });
+  mkdirSync(installDir, { recursive: true });
 
   try {
     // Get version from npm registry
@@ -20,7 +22,7 @@ export async function extractToolSchemas(npmPackage) {
     const version = registryData?.['dist-tags']?.latest || 'unknown';
 
     // Install
-    execSync(`npm install ${npmPackage}@latest --prefix "${installDir}" --no-save 2>&1 || true`, {
+    execSync(`npm install ${npmPackage}@latest --prefix "${installDir}" --no-save 2>&1`, {
       timeout: 120000,
       stdio: 'pipe',
     });

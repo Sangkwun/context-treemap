@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { today, ensureDirs, loadHistory, latestVersion, calcChange, saveIfChanged } from './utils/history.js';
 
@@ -32,10 +32,16 @@ async function fetchSkillDescription(repo, skillPath) {
 function parseSkillMd(content) {
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
   if (!frontmatterMatch) {
+    const desc = content.split('\n')[0].replace(/^#\s*/, '').slice(0, 200);
     return {
-      description: content.split('\n')[0].replace(/^#\s*/, '').slice(0, 200),
+      description: desc,
+      descriptionChars: desc.length,
+      descriptionTokens: Math.ceil(desc.length / 4),
       fullLength: content.length,
+      fullTokens: Math.ceil(content.length / 4),
       hasDisableModelInvocation: false,
+      userInvocable: true,
+      alwaysOnTokens: Math.ceil(desc.length / 4),
     };
   }
 
@@ -92,7 +98,7 @@ async function listSkillsInRepo(repo, basePath = 'skills') {
 }
 
 async function main() {
-  if (!readFileSync(CONFIG_PATH, 'utf-8')) {
+  if (!existsSync(CONFIG_PATH)) {
     console.log('No config/skills.json found. Skipping skill crawl.');
     return;
   }
@@ -173,9 +179,11 @@ async function main() {
         await new Promise(r => setTimeout(r, 100));
       }
 
+      const prevTotal = prev ? (prev.alwaysOnTokens || 0) + (prev.fullBodyTokens || 0) : 0;
+      const currentTotal = totalAlwaysOn + totalFullBody;
       const change = calcChange(
-        prev ? { tokens: prev.alwaysOnTokens } : null,
-        totalAlwaysOn,
+        prev ? { tokens: prevTotal } : null,
+        currentTotal,
         { skills: skillDetails.length - (prev?.skillCount || 0) },
       );
 
@@ -188,7 +196,7 @@ async function main() {
         change,
       };
 
-      const hasChanged = !prev || prev.alwaysOnTokens !== totalAlwaysOn || prev.skillCount !== skillDetails.length;
+      const hasChanged = !prev || prev.alwaysOnTokens !== totalAlwaysOn || prev.fullBodyTokens !== totalFullBody || prev.skillCount !== skillDetails.length;
       saveIfChanged(historyPath, history, entry, hasChanged);
 
       console.log(`  ✓ ${pack.name}: ${skillDetails.length} skills, ${totalAlwaysOn} always-on tokens`);

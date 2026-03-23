@@ -5,7 +5,10 @@ import { join } from 'path';
  * Get today's date as YYYY-MM-DD.
  */
 export function today() {
-  return new Date().toISOString().split('T')[0];
+  // Use KST (UTC+9) to match the daily cron schedule (00:00 UTC = 09:00 KST)
+  const now = new Date();
+  const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  return kst.toISOString().split('T')[0];
 }
 
 /**

@@ -18,7 +18,7 @@
 
 ### Skill Index
 
-> 技能包的两种成本区域可视化：**深色** = always-on 成本（描述元数据，安装即加载），**浅色** = on-invoke 成本（正文，仅在调用时加载）。分隔线显示"使用前免费"的区域。
+> 块大小 = 总成本（always-on + on-invoke）。颜色 = 版本变化率（▲▼%）。
 
 ![Skill Index](../images/skill-index-latest.png)
 

@@ -54,6 +54,14 @@ async function main() {
           console.log(`  ⚠️  ${server.name}: no tools found, no fallback`);
           continue;
         }
+      } else if (server.knownTools) {
+        // Extraction failed (null) but knownTools configured — use estimate
+        console.log(`  ⚠️  ${server.name}: crawl failed, using knownTools estimate`);
+        version = prev?.version || 'unknown';
+        toolCount = server.knownTools;
+        tokens = toolCount * 750;
+        method = 'estimate';
+        toolNames = prev?.toolNames || [];
       } else if (prev) {
         console.log(`  ⚠️  ${server.name}: crawl failed, carrying forward`);
         toolCount = prev.tools;

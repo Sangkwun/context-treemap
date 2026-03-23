@@ -32,7 +32,7 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 <td width="50%">
 
 **Skill Index**
-> **Dark** = always-on cost, **Light** = on-invoke cost.
+> Block size = total cost (always-on + on-invoke). Color = version change (▲▼%).
 
 ![Skill Index](images/skill-index-latest.png)
 
