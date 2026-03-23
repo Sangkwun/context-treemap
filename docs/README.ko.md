@@ -30,6 +30,8 @@ MCP 서버, 스킬 팩, 코딩 에이전트의 컨텍스트 윈도우 비용을 
 
 ### Codex 컨텍스트 윈도우 (1M)
 
+> 시스템 + 도구 + MCP + 스킬
+
 ![Codex Context](../images/codex-latest.png)
 
 ## 추적 대상

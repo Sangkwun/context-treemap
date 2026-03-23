@@ -50,6 +50,7 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 <td width="50%">
 
 **Codex — Context Window (1M)**
+> System + tools + MCP + skills
 
 ![Codex Context](images/codex-latest.png)
 

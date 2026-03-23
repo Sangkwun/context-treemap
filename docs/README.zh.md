@@ -30,6 +30,8 @@
 
 ### Codex 上下文窗口 (1M)
 
+> 系统 + 工具 + MCP + 技能
+
 ![Codex Context](../images/codex-latest.png)
 
 ## 追踪对象
