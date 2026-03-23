@@ -1,0 +1,20 @@
+{
+  "name": "Slack MCP",
+  "npm": "@anthropic/slack-mcp-server",
+  "repo": "modelcontextprotocol/servers",
+  "versions": [
+    {
+      "version": "unknown",
+      "date": "2026-03-23",
+      "tools": 8,
+      "tokens": 6000,
+      "method": "estimate",
+      "toolNames": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}

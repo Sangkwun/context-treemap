@@ -1,0 +1,20 @@
+{
+  "name": "Sentry MCP",
+  "npm": "@sentry/mcp-server-sentry",
+  "repo": "getsentry/sentry-mcp",
+  "versions": [
+    {
+      "version": "unknown",
+      "date": "2026-03-23",
+      "tools": 16,
+      "tokens": 12000,
+      "method": "estimate",
+      "toolNames": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}

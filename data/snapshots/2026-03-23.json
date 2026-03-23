@@ -54,6 +54,19 @@
       }
     },
     {
+      "id": "sentry",
+      "name": "Sentry MCP",
+      "version": "unknown",
+      "tools": 16,
+      "tokens": 12000,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
       "id": "firecrawl",
       "name": "Firecrawl MCP",
       "version": "3.11.0",
@@ -93,6 +106,19 @@
       }
     },
     {
+      "id": "slack",
+      "name": "Slack MCP",
+      "version": "unknown",
+      "tools": 8,
+      "tokens": 6000,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
       "id": "linear",
       "name": "Linear MCP",
       "version": "0.1.0",
@@ -111,6 +137,32 @@
       "version": "2.1.4",
       "tools": 2,
       "tokens": 1500,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "figma",
+      "name": "Figma MCP",
+      "version": "unknown",
+      "tools": 2,
+      "tokens": 1500,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "Sequential Thinking",
+      "version": "unknown",
+      "tools": 1,
+      "tokens": 750,
       "method": "estimate",
       "change": {
         "tokens": 0,

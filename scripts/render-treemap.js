@@ -309,7 +309,7 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
   const items = [];
 
   // Agent system overhead
-  if (agentData) {
+  if (agentData && agentData.versions?.length > 0) {
     const latest = agentData.versions[agentData.versions.length - 1];
     if (latest.autocompactBuffer) {
       items.push({ name: 'Autocompact Buffer', tokens: latest.autocompactBuffer, color: '#1e293b', category: 'buffer' });
@@ -388,7 +388,7 @@ function renderAgentContext(agentName, agentData, mcpSnapshot) {
     subtitle: `Used: ${formatTokens(used)} (${(used / TOTAL * 100).toFixed(1)}%)  ·  Available: ${formatTokens(free)} (${freePct}%)  ·  ${mcpSnapshot?.servers?.length || 0} MCP servers  ·  ${mcpSnapshot?.date || ''}`,
     legend: {
       spacing: 80,
-      items: [['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#7f1d1d', 'MCP ▲'], ['#164e63', 'Skills'], ['#1e293b', 'Autocompact'], ['#1e3a5f', 'Response'], ['#0f2e1a', 'Free']],
+      items: [['#312e81', 'System'], ['#4c1d95', 'Tools'], ['#2d3748', 'MCP'], ['#164e63', 'Skills'], ['#1e293b', 'Autocompact'], ['#1e3a5f', 'Response'], ['#0f2e1a', 'Free']],
     },
   });
 

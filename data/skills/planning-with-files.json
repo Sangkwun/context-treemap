@@ -12,6 +12,18 @@
         "pct": 0,
         "skills": 0
       }
+    },
+    {
+      "date": "2026-03-23",
+      "skillCount": 0,
+      "alwaysOnTokens": 0,
+      "fullBodyTokens": 0,
+      "skills": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "skills": 0
+      }
     }
   ]
 }

@@ -64,21 +64,21 @@ Your 1M context window isn't unlimited. Before you type a single message, system
 
 | Server | Tools | Tokens | % of 1M |
 |--------|------:|-------:|--------:|
-| GitHub | 84 | 20,444 | 2.0% |
-| Playwright | 56 | ~15,000 | 1.5% |
-| Supabase | 30 | ~10,000 | 1.0% |
-| Notion | 22 | ~10,000 | 1.0% |
-| Firecrawl | 14 | ~6,000 | 0.6% |
-| Slack | 8 | ~5,000 | 0.5% |
-| Sentry | 16 | ~5,000 | 0.5% |
-| Linear | 5 | ~2,000 | 0.2% |
-| Filesystem | 13 | 1,841 | 0.2% |
-| Context7 | 2 | ~1,500 | 0.2% |
-| Figma | 2 | ~1,500 | 0.2% |
-| Seq. Thinking | 1 | 976 | 0.1% |
-| Memory | 9 | 975 | 0.1% |
-| PostgreSQL | 1 | ~800 | 0.1% |
-| **Total** | **263** | **~81K** | **8.1%** |
+| Playwright | 56 | 42,000 | 4.2% |
+| GitHub | 26 | 19,500 | 2.0% |
+| Notion | 22 | 16,500 | 1.7% |
+| Sentry | 16 | 12,000 | 1.2% |
+| Filesystem | 13 | 9,750 | 1.0% |
+| Memory | 9 | 6,750 | 0.7% |
+| Firecrawl | 8 | 6,000 | 0.6% |
+| Slack | 8 | 6,000 | 0.6% |
+| Supabase | 7 | 5,250 | 0.5% |
+| Linear | 6 | 4,500 | 0.5% |
+| Context7 | 2 | 1,500 | 0.2% |
+| Figma | 2 | 1,500 | 0.2% |
+| Seq. Thinking | 1 | 750 | 0.1% |
+| PostgreSQL | 1 | 750 | 0.1% |
+| **Total** | **177** | **~133K** | **13.3%** |
 
 </details>
 
@@ -91,19 +91,23 @@ Skills have two cost layers:
 
 | Skill Pack | Skills | Always-on | On Invoke |
 |-----------|-------:|----------:|----------:|
-| Everything Claude Code | 116 | 4,515 | ~143K |
-| Trail of Bits Security | 60 | 2,470 | ~82K |
-| Superpowers Lab | 4 | 196 | ~6K |
+| Alireza Claude Skills | 165 | 14,419 | ~379K |
+| Everything Claude Code | 118 | 4,639 | ~287K |
+| Trail of Bits Security | 60 | 2,470 | ~170K |
+| Daymade Claude Skills | 45 | 3,879 | ~112K |
+| Jeffallan Claude Skills | 66 | 7,247 | ~82K |
+| Anthropic Frontend Design | 17 | 1,690 | ~44K |
+| Superpowers Lab | 4 | 196 | ~5K |
 
 </details>
 
 <details>
 <summary><strong>Agent System Overhead</strong></summary>
 
-| Agent | Model | Context | System Prompt | Built-in Tools | Autocompact Buffer | Total |
-|-------|-------|--------:|--------------:|---------------:|-------------------:|------:|
-| Claude Code | Opus 4.6 | 1M | 3,000 | 16,821 | 33,000 | 52,821 (5.3%) |
-| Codex | GPT-5.4 | 1M | 2,500 | 8,000 | — | 10,500 (1.1%) |
+| Agent | Model | Context | System Prompt | Built-in Tools | Autocompact | Response Buffer | Total |
+|-------|-------|--------:|--------------:|---------------:|------------:|----------------:|------:|
+| Claude Code | Opus 4.6 | 1M | 3,000 | 16,821 | 33,000 | 8,000 | 60,821 (6.1%) |
+| Codex | GPT-5.4 | 1M | 2,500 | 8,000 | — | 100,000 | 110,500 (11.1%) |
 
 </details>
 

@@ -54,6 +54,47 @@
         "skills": 1
       },
       "fullBodyTokens": 6232
+    },
+    {
+      "date": "2026-03-23",
+      "skillCount": 4,
+      "alwaysOnTokens": 196,
+      "fullBodyTokens": 5406,
+      "skills": [
+        {
+          "name": "finding-duplicate-functions",
+          "alwaysOnTokens": 63,
+          "fullTokens": 1121,
+          "descriptionChars": 252,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mcp-cli",
+          "alwaysOnTokens": 37,
+          "fullTokens": 2259,
+          "descriptionChars": 146,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "slack-messaging",
+          "alwaysOnTokens": 38,
+          "fullTokens": 832,
+          "descriptionChars": 151,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "using-tmux-for-interactive-commands",
+          "alwaysOnTokens": 58,
+          "fullTokens": 1194,
+          "descriptionChars": 230,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": -826,
+        "pct": -12.9,
+        "skills": 0
+      }
     }
   ]
 }

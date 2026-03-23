@@ -179,6 +179,13 @@ async function main() {
         await new Promise(r => setTimeout(r, 100));
       }
 
+      // Carry forward if crawl returned significantly fewer skills than before
+      // (likely a partial GitHub API failure, not a real repo change)
+      if (prev && prev.skillCount > 0 && skillDetails.length < prev.skillCount * 0.5) {
+        console.log(`  ⚠️  ${pack.name}: got ${skillDetails.length} skills vs ${prev.skillCount} previous — likely partial failure, carrying forward`);
+        continue;
+      }
+
       const prevTotal = prev ? (prev.alwaysOnTokens || 0) + (prev.fullBodyTokens || 0) : 0;
       const currentTotal = totalAlwaysOn + totalFullBody;
       const change = calcChange(

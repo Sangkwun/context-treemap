@@ -1,0 +1,20 @@
+{
+  "name": "Sequential Thinking",
+  "npm": "@anthropic/sequential-thinking-mcp",
+  "repo": "modelcontextprotocol/servers",
+  "versions": [
+    {
+      "version": "unknown",
+      "date": "2026-03-23",
+      "tools": 1,
+      "tokens": 750,
+      "method": "estimate",
+      "toolNames": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}
