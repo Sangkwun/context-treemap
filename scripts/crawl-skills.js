@@ -186,13 +186,20 @@ async function main() {
         continue;
       }
 
-      const prevTotal = prev ? (prev.alwaysOnTokens || 0) + (prev.fullBodyTokens || 0) : 0;
-      const currentTotal = totalAlwaysOn + totalFullBody;
-      const change = calcChange(
-        prev ? { tokens: prevTotal } : null,
-        currentTotal,
-        { skills: skillDetails.length - (prev?.skillCount || 0) },
-      );
+      const hasChanged = !prev || prev.alwaysOnTokens !== totalAlwaysOn || prev.fullBodyTokens !== totalFullBody || prev.skillCount !== skillDetails.length;
+
+      let change;
+      if (hasChanged) {
+        const prevTotal = prev ? (prev.alwaysOnTokens || 0) + (prev.fullBodyTokens || 0) : 0;
+        const currentTotal = totalAlwaysOn + totalFullBody;
+        change = calcChange(
+          prev ? { tokens: prevTotal } : null,
+          currentTotal,
+          { skills: skillDetails.length - (prev?.skillCount || 0) },
+        );
+      } else {
+        change = prev.change || { tokens: 0, pct: 0, skills: 0 };
+      }
 
       const entry = {
         date,
@@ -202,8 +209,6 @@ async function main() {
         skills: skillDetails,
         change,
       };
-
-      const hasChanged = !prev || prev.alwaysOnTokens !== totalAlwaysOn || prev.fullBodyTokens !== totalFullBody || prev.skillCount !== skillDetails.length;
       saveIfChanged(historyPath, history, entry, hasChanged);
 
       console.log(`  ✓ ${pack.name}: ${skillDetails.length} skills, ${totalAlwaysOn} always-on tokens`);

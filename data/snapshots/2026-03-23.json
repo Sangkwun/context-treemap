@@ -9,9 +9,9 @@
       "tokens": 19500,
       "method": "estimate",
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "tools": 0
+        "tokens": 2100,
+        "pct": 12.1,
+        "tools": 3
       }
     },
     {
@@ -22,9 +22,9 @@
       "tokens": 42000,
       "method": "estimate",
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "tools": 0
+        "tokens": 3000,
+        "pct": 7.7,
+        "tools": 2
       }
     },
     {
@@ -48,8 +48,8 @@
       "tokens": 16500,
       "method": "estimate",
       "change": {
-        "tokens": 0,
-        "pct": 0,
+        "tokens": -800,
+        "pct": -4.6,
         "tools": 0
       }
     },
@@ -74,9 +74,9 @@
       "tokens": 6000,
       "method": "estimate",
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "tools": 0
+        "tokens": 500,
+        "pct": 9.1,
+        "tools": 1
       }
     },
     {
@@ -126,9 +126,9 @@
       "tokens": 4500,
       "method": "estimate",
       "change": {
-        "tokens": 0,
-        "pct": 0,
-        "tools": 0
+        "tokens": 300,
+        "pct": 7.1,
+        "tools": 1
       }
     },
     {

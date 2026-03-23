@@ -74,10 +74,12 @@ async function main() {
         continue;
       }
 
-      const change = calcChange(prev, tokens, { tools: prev ? toolCount - prev.tools : 0 });
+      const hasChanged = !prev || prev.version !== version || prev.tokens !== tokens || prev.tools !== toolCount;
+      const change = hasChanged
+        ? calcChange(prev, tokens, { tools: prev ? toolCount - prev.tools : 0 })
+        : (prev.change || { tokens: 0, pct: 0, tools: 0 });
 
       const entry = { version, date, tools: toolCount, tokens, method, toolNames, change };
-      const hasChanged = !prev || prev.version !== version || prev.tokens !== tokens || prev.tools !== toolCount;
       saveIfChanged(historyPath, history, entry, hasChanged);
 
       const arrow = change.pct > 0 ? `▲ +${change.pct}%` : change.pct < 0 ? `▼ ${change.pct}%` : '—';
