@@ -2636,6 +2636,1174 @@
         "pct": -8.4,
         "skills": -41
       }
+    },
+    {
+      "date": "2026-03-24",
+      "skillCount": 165,
+      "alwaysOnTokens": 14621,
+      "fullBodyTokens": 378652,
+      "skills": [
+        {
+          "name": "agent-designer",
+          "alwaysOnTokens": 39,
+          "fullTokens": 2986,
+          "descriptionChars": 155,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-workflow-designer",
+          "alwaysOnTokens": 6,
+          "fullTokens": 575,
+          "descriptionChars": 23,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agenthub",
+          "alwaysOnTokens": 105,
+          "fullTokens": 1815,
+          "descriptionChars": 420,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "api-design-reviewer",
+          "alwaysOnTokens": 5,
+          "fullTokens": 2972,
+          "descriptionChars": 19,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "api-test-suite-builder",
+          "alwaysOnTokens": 31,
+          "fullTokens": 1520,
+          "descriptionChars": 123,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "autoresearch-agent",
+          "alwaysOnTokens": 136,
+          "fullTokens": 2868,
+          "descriptionChars": 542,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "changelog-generator",
+          "alwaysOnTokens": 5,
+          "fullTokens": 1223,
+          "descriptionChars": 19,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ci-cd-pipeline-builder",
+          "alwaysOnTokens": 6,
+          "fullTokens": 1170,
+          "descriptionChars": 22,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "codebase-onboarding",
+          "alwaysOnTokens": 5,
+          "fullTokens": 563,
+          "descriptionChars": 19,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "database-designer",
+          "alwaysOnTokens": 38,
+          "fullTokens": 914,
+          "descriptionChars": 149,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "database-schema-designer",
+          "alwaysOnTokens": 33,
+          "fullTokens": 1812,
+          "descriptionChars": 129,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dependency-auditor",
+          "alwaysOnTokens": 5,
+          "fullTokens": 3079,
+          "descriptionChars": 18,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "docker-development",
+          "alwaysOnTokens": 119,
+          "fullTokens": 2726,
+          "descriptionChars": 476,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "env-secrets-manager",
+          "alwaysOnTokens": 6,
+          "fullTokens": 482,
+          "descriptionChars": 21,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "git-worktree-manager",
+          "alwaysOnTokens": 5,
+          "fullTokens": 1652,
+          "descriptionChars": 20,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "helm-chart-builder",
+          "alwaysOnTokens": 107,
+          "fullTokens": 3609,
+          "descriptionChars": 426,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "interview-system-designer",
+          "alwaysOnTokens": 102,
+          "fullTokens": 451,
+          "descriptionChars": 408,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mcp-server-builder",
+          "alwaysOnTokens": 5,
+          "fullTokens": 1416,
+          "descriptionChars": 18,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "migration-architect",
+          "alwaysOnTokens": 5,
+          "fullTokens": 4233,
+          "descriptionChars": 19,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "monorepo-navigator",
+          "alwaysOnTokens": 5,
+          "fullTokens": 1108,
+          "descriptionChars": 18,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "observability-designer",
+          "alwaysOnTokens": 9,
+          "fullTokens": 3271,
+          "descriptionChars": 33,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "performance-profiler",
+          "alwaysOnTokens": 5,
+          "fullTokens": 1227,
+          "descriptionChars": 20,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pr-review-expert",
+          "alwaysOnTokens": 34,
+          "fullTokens": 2900,
+          "descriptionChars": 136,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rag-architect",
+          "alwaysOnTokens": 42,
+          "fullTokens": 3870,
+          "descriptionChars": 166,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "release-manager",
+          "alwaysOnTokens": 33,
+          "fullTokens": 3979,
+          "descriptionChars": 132,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "runbook-generator",
+          "alwaysOnTokens": 5,
+          "fullTokens": 440,
+          "descriptionChars": 17,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-security-auditor",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1671,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-tester",
+          "alwaysOnTokens": 3,
+          "fullTokens": 4097,
+          "descriptionChars": 12,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tech-debt-tracker",
+          "alwaysOnTokens": 80,
+          "fullTokens": 1010,
+          "descriptionChars": 317,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "terraform-patterns",
+          "alwaysOnTokens": 112,
+          "fullTokens": 3624,
+          "descriptionChars": 445,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "a11y-audit",
+          "alwaysOnTokens": 85,
+          "fullTokens": 10290,
+          "descriptionChars": 338,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "aws-solution-architect",
+          "alwaysOnTokens": 76,
+          "fullTokens": 2429,
+          "descriptionChars": 302,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-reviewer",
+          "alwaysOnTokens": 77,
+          "fullTokens": 1088,
+          "descriptionChars": 307,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "email-template-builder",
+          "alwaysOnTokens": 6,
+          "fullTokens": 3714,
+          "descriptionChars": 22,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "epic-design",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3795,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "google-workspace-cli",
+          "alwaysOnTokens": 81,
+          "fullTokens": 2495,
+          "descriptionChars": 324,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "incident-commander",
+          "alwaysOnTokens": 6,
+          "fullTokens": 3849,
+          "descriptionChars": 24,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ms365-tenant-manager",
+          "alwaysOnTokens": 119,
+          "fullTokens": 2179,
+          "descriptionChars": 476,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "playwright-pro",
+          "alwaysOnTokens": 87,
+          "fullTokens": 1174,
+          "descriptionChars": 345,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "self-improving-agent",
+          "alwaysOnTokens": 104,
+          "fullTokens": 1464,
+          "descriptionChars": 415,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-architect",
+          "alwaysOnTokens": 115,
+          "fullTokens": 2601,
+          "descriptionChars": 460,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-backend",
+          "alwaysOnTokens": 120,
+          "fullTokens": 2408,
+          "descriptionChars": 480,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-computer-vision",
+          "alwaysOnTokens": 114,
+          "fullTokens": 3105,
+          "descriptionChars": 454,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-data-engineer",
+          "alwaysOnTokens": 102,
+          "fullTokens": 1379,
+          "descriptionChars": 407,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-data-scientist",
+          "alwaysOnTokens": 187,
+          "fullTokens": 2079,
+          "descriptionChars": 746,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-devops",
+          "alwaysOnTokens": 88,
+          "fullTokens": 1944,
+          "descriptionChars": 350,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-frontend",
+          "alwaysOnTokens": 69,
+          "fullTokens": 2645,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-fullstack",
+          "alwaysOnTokens": 119,
+          "fullTokens": 1913,
+          "descriptionChars": 476,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-ml-engineer",
+          "alwaysOnTokens": 137,
+          "fullTokens": 2080,
+          "descriptionChars": 545,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-prompt-engineer",
+          "alwaysOnTokens": 88,
+          "fullTokens": 2743,
+          "descriptionChars": 352,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-qa",
+          "alwaysOnTokens": 138,
+          "fullTokens": 1997,
+          "descriptionChars": 549,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-secops",
+          "alwaysOnTokens": 161,
+          "fullTokens": 2951,
+          "descriptionChars": 642,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-security",
+          "alwaysOnTokens": 104,
+          "fullTokens": 3662,
+          "descriptionChars": 416,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "stripe-integration-expert",
+          "alwaysOnTokens": 7,
+          "fullTokens": 3585,
+          "descriptionChars": 25,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tdd-guide",
+          "alwaysOnTokens": 136,
+          "fullTokens": 1184,
+          "descriptionChars": 543,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tech-stack-evaluator",
+          "alwaysOnTokens": 68,
+          "fullTokens": 1006,
+          "descriptionChars": 271,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ab-test-setup",
+          "alwaysOnTokens": 86,
+          "fullTokens": 2238,
+          "descriptionChars": 341,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ad-creative",
+          "alwaysOnTokens": 109,
+          "fullTokens": 2643,
+          "descriptionChars": 435,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ai-seo",
+          "alwaysOnTokens": 127,
+          "fullTokens": 3824,
+          "descriptionChars": 505,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "analytics-tracking",
+          "alwaysOnTokens": 167,
+          "fullTokens": 3371,
+          "descriptionChars": 666,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "app-store-optimization",
+          "alwaysOnTokens": 133,
+          "fullTokens": 3986,
+          "descriptionChars": 532,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "brand-guidelines",
+          "alwaysOnTokens": 117,
+          "fullTokens": 1177,
+          "descriptionChars": 467,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "campaign-analytics",
+          "alwaysOnTokens": 77,
+          "fullTokens": 1938,
+          "descriptionChars": 308,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "churn-prevention",
+          "alwaysOnTokens": 126,
+          "fullTokens": 2585,
+          "descriptionChars": 501,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cold-email",
+          "alwaysOnTokens": 152,
+          "fullTokens": 3309,
+          "descriptionChars": 605,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "competitor-alternatives",
+          "alwaysOnTokens": 140,
+          "fullTokens": 2476,
+          "descriptionChars": 557,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-creator",
+          "alwaysOnTokens": 129,
+          "fullTokens": 538,
+          "descriptionChars": 516,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-humanizer",
+          "alwaysOnTokens": 118,
+          "fullTokens": 3325,
+          "descriptionChars": 469,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-production",
+          "alwaysOnTokens": 114,
+          "fullTokens": 2438,
+          "descriptionChars": 454,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-strategy",
+          "alwaysOnTokens": 93,
+          "fullTokens": 1287,
+          "descriptionChars": 370,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "copy-editing",
+          "alwaysOnTokens": 81,
+          "fullTokens": 3856,
+          "descriptionChars": 323,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "copywriting",
+          "alwaysOnTokens": 98,
+          "fullTokens": 2295,
+          "descriptionChars": 392,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "email-sequence",
+          "alwaysOnTokens": 91,
+          "fullTokens": 1308,
+          "descriptionChars": 363,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "form-cro",
+          "alwaysOnTokens": 110,
+          "fullTokens": 1880,
+          "descriptionChars": 440,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "free-tool-strategy",
+          "alwaysOnTokens": 116,
+          "fullTokens": 2892,
+          "descriptionChars": 463,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "launch-strategy",
+          "alwaysOnTokens": 99,
+          "fullTokens": 940,
+          "descriptionChars": 394,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketing-context",
+          "alwaysOnTokens": 103,
+          "fullTokens": 1602,
+          "descriptionChars": 412,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketing-demand-acquisition",
+          "alwaysOnTokens": 150,
+          "fullTokens": 2173,
+          "descriptionChars": 598,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketing-ideas",
+          "alwaysOnTokens": 86,
+          "fullTokens": 1851,
+          "descriptionChars": 342,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketing-ops",
+          "alwaysOnTokens": 89,
+          "fullTokens": 2188,
+          "descriptionChars": 353,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketing-psychology",
+          "alwaysOnTokens": 90,
+          "fullTokens": 1567,
+          "descriptionChars": 358,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketing-strategy-pmm",
+          "alwaysOnTokens": 135,
+          "fullTokens": 2888,
+          "descriptionChars": 539,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "onboarding-cro",
+          "alwaysOnTokens": 104,
+          "fullTokens": 2036,
+          "descriptionChars": 413,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "page-cro",
+          "alwaysOnTokens": 125,
+          "fullTokens": 2149,
+          "descriptionChars": 500,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "paid-ads",
+          "alwaysOnTokens": 95,
+          "fullTokens": 2995,
+          "descriptionChars": 379,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "paywall-upgrade-cro",
+          "alwaysOnTokens": 126,
+          "fullTokens": 1835,
+          "descriptionChars": 501,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "popup-cro",
+          "alwaysOnTokens": 95,
+          "fullTokens": 1811,
+          "descriptionChars": 377,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pricing-strategy",
+          "alwaysOnTokens": 161,
+          "fullTokens": 3313,
+          "descriptionChars": 644,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "programmatic-seo",
+          "alwaysOnTokens": 90,
+          "fullTokens": 2425,
+          "descriptionChars": 358,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "prompt-engineer-toolkit",
+          "alwaysOnTokens": 118,
+          "fullTokens": 1111,
+          "descriptionChars": 471,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "referral-program",
+          "alwaysOnTokens": 107,
+          "fullTokens": 3290,
+          "descriptionChars": 428,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "schema-markup",
+          "alwaysOnTokens": 133,
+          "fullTokens": 2722,
+          "descriptionChars": 530,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "seo-audit",
+          "alwaysOnTokens": 88,
+          "fullTokens": 1406,
+          "descriptionChars": 350,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "signup-flow-cro",
+          "alwaysOnTokens": 97,
+          "fullTokens": 2142,
+          "descriptionChars": 388,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "site-architecture",
+          "alwaysOnTokens": 149,
+          "fullTokens": 3289,
+          "descriptionChars": 594,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "social-content",
+          "alwaysOnTokens": 99,
+          "fullTokens": 2665,
+          "descriptionChars": 396,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "social-media-analyzer",
+          "alwaysOnTokens": 73,
+          "fullTokens": 1969,
+          "descriptionChars": 292,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "social-media-manager",
+          "alwaysOnTokens": 123,
+          "fullTokens": 2107,
+          "descriptionChars": 492,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "x-twitter-growth",
+          "alwaysOnTokens": 117,
+          "fullTokens": 1997,
+          "descriptionChars": 467,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agile-product-owner",
+          "alwaysOnTokens": 77,
+          "fullTokens": 2772,
+          "descriptionChars": 305,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-to-prd",
+          "alwaysOnTokens": 1,
+          "fullTokens": 4638,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "competitive-teardown",
+          "alwaysOnTokens": 175,
+          "fullTokens": 1901,
+          "descriptionChars": 698,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "experiment-designer",
+          "alwaysOnTokens": 44,
+          "fullTokens": 727,
+          "descriptionChars": 174,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "landing-page-generator",
+          "alwaysOnTokens": 164,
+          "fullTokens": 2455,
+          "descriptionChars": 656,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-analytics",
+          "alwaysOnTokens": 40,
+          "fullTokens": 844,
+          "descriptionChars": 160,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-discovery",
+          "alwaysOnTokens": 41,
+          "fullTokens": 776,
+          "descriptionChars": 161,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-manager-toolkit",
+          "alwaysOnTokens": 72,
+          "fullTokens": 2428,
+          "descriptionChars": 286,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-strategist",
+          "alwaysOnTokens": 124,
+          "fullTokens": 1680,
+          "descriptionChars": 493,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "research-summarizer",
+          "alwaysOnTokens": 109,
+          "fullTokens": 2207,
+          "descriptionChars": 436,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "roadmap-communicator",
+          "alwaysOnTokens": 37,
+          "fullTokens": 598,
+          "descriptionChars": 147,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "saas-scaffolder",
+          "alwaysOnTokens": 119,
+          "fullTokens": 2445,
+          "descriptionChars": 475,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ui-design-system",
+          "alwaysOnTokens": 69,
+          "fullTokens": 2597,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ux-researcher-designer",
+          "alwaysOnTokens": 65,
+          "fullTokens": 2890,
+          "descriptionChars": 258,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "atlassian-admin",
+          "alwaysOnTokens": 115,
+          "fullTokens": 2910,
+          "descriptionChars": 460,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "atlassian-templates",
+          "alwaysOnTokens": 78,
+          "fullTokens": 2374,
+          "descriptionChars": 312,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "confluence-expert",
+          "alwaysOnTokens": 138,
+          "fullTokens": 2148,
+          "descriptionChars": 552,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "jira-expert",
+          "alwaysOnTokens": 75,
+          "fullTokens": 2155,
+          "descriptionChars": 299,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "scrum-master",
+          "alwaysOnTokens": 165,
+          "fullTokens": 2168,
+          "descriptionChars": 660,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "senior-pm",
+          "alwaysOnTokens": 186,
+          "fullTokens": 3942,
+          "descriptionChars": 744,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-protocol",
+          "alwaysOnTokens": 70,
+          "fullTokens": 3294,
+          "descriptionChars": 279,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "board-deck-builder",
+          "alwaysOnTokens": 73,
+          "fullTokens": 1715,
+          "descriptionChars": 290,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "board-meeting",
+          "alwaysOnTokens": 100,
+          "fullTokens": 1162,
+          "descriptionChars": 399,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ceo-advisor",
+          "alwaysOnTokens": 101,
+          "fullTokens": 1858,
+          "descriptionChars": 402,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cfo-advisor",
+          "alwaysOnTokens": 104,
+          "fullTokens": 1626,
+          "descriptionChars": 415,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "change-management",
+          "alwaysOnTokens": 123,
+          "fullTokens": 2683,
+          "descriptionChars": 492,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "chief-of-staff",
+          "alwaysOnTokens": 65,
+          "fullTokens": 1273,
+          "descriptionChars": 260,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "chro-advisor",
+          "alwaysOnTokens": 93,
+          "fullTokens": 1623,
+          "descriptionChars": 369,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ciso-advisor",
+          "alwaysOnTokens": 119,
+          "fullTokens": 1609,
+          "descriptionChars": 475,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cmo-advisor",
+          "alwaysOnTokens": 97,
+          "fullTokens": 1933,
+          "descriptionChars": 388,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "company-os",
+          "alwaysOnTokens": 135,
+          "fullTokens": 2467,
+          "descriptionChars": 538,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "competitive-intel",
+          "alwaysOnTokens": 89,
+          "fullTokens": 1903,
+          "descriptionChars": 356,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "context-engine",
+          "alwaysOnTokens": 61,
+          "fullTokens": 951,
+          "descriptionChars": 242,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "coo-advisor",
+          "alwaysOnTokens": 92,
+          "fullTokens": 1426,
+          "descriptionChars": 368,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cpo-advisor",
+          "alwaysOnTokens": 108,
+          "fullTokens": 2081,
+          "descriptionChars": 430,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cro-advisor",
+          "alwaysOnTokens": 106,
+          "fullTokens": 2022,
+          "descriptionChars": 424,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cs-onboard",
+          "alwaysOnTokens": 59,
+          "fullTokens": 1034,
+          "descriptionChars": 235,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cto-advisor",
+          "alwaysOnTokens": 107,
+          "fullTokens": 2787,
+          "descriptionChars": 427,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "culture-architect",
+          "alwaysOnTokens": 117,
+          "fullTokens": 1961,
+          "descriptionChars": 465,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "decision-logger",
+          "alwaysOnTokens": 88,
+          "fullTokens": 1076,
+          "descriptionChars": 352,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "executive-mentor",
+          "alwaysOnTokens": 83,
+          "fullTokens": 1622,
+          "descriptionChars": 331,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "founder-coach",
+          "alwaysOnTokens": 137,
+          "fullTokens": 3334,
+          "descriptionChars": 545,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "internal-narrative",
+          "alwaysOnTokens": 122,
+          "fullTokens": 2464,
+          "descriptionChars": 485,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "intl-expansion",
+          "alwaysOnTokens": 65,
+          "fullTokens": 1020,
+          "descriptionChars": 258,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ma-playbook",
+          "alwaysOnTokens": 60,
+          "fullTokens": 906,
+          "descriptionChars": 237,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "org-health-diagnostic",
+          "alwaysOnTokens": 84,
+          "fullTokens": 1896,
+          "descriptionChars": 336,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "scenario-war-room",
+          "alwaysOnTokens": 82,
+          "fullTokens": 1843,
+          "descriptionChars": 325,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "strategic-alignment",
+          "alwaysOnTokens": 126,
+          "fullTokens": 2165,
+          "descriptionChars": 501,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "financial-analyst",
+          "alwaysOnTokens": 108,
+          "fullTokens": 1481,
+          "descriptionChars": 431,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "saas-metrics-coach",
+          "alwaysOnTokens": 42,
+          "fullTokens": 1350,
+          "descriptionChars": 168,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "capa-officer",
+          "alwaysOnTokens": 81,
+          "fullTokens": 3521,
+          "descriptionChars": 324,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fda-consultant-specialist",
+          "alwaysOnTokens": 85,
+          "fullTokens": 2393,
+          "descriptionChars": 339,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "gdpr-dsgvo-expert",
+          "alwaysOnTokens": 70,
+          "fullTokens": 1887,
+          "descriptionChars": 278,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "information-security-manager-iso27001",
+          "alwaysOnTokens": 86,
+          "fullTokens": 2809,
+          "descriptionChars": 341,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "isms-audit-expert",
+          "alwaysOnTokens": 157,
+          "fullTokens": 1701,
+          "descriptionChars": 628,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mdr-745-specialist",
+          "alwaysOnTokens": 68,
+          "fullTokens": 2320,
+          "descriptionChars": 272,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "qms-audit-expert",
+          "alwaysOnTokens": 69,
+          "fullTokens": 2269,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "quality-documentation-manager",
+          "alwaysOnTokens": 81,
+          "fullTokens": 3349,
+          "descriptionChars": 323,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "quality-manager-qmr",
+          "alwaysOnTokens": 62,
+          "fullTokens": 4347,
+          "descriptionChars": 247,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "quality-manager-qms-iso13485",
+          "alwaysOnTokens": 137,
+          "fullTokens": 3865,
+          "descriptionChars": 546,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "regulatory-affairs-head",
+          "alwaysOnTokens": 192,
+          "fullTokens": 4624,
+          "descriptionChars": 768,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "risk-management-specialist",
+          "alwaysOnTokens": 104,
+          "fullTokens": 3684,
+          "descriptionChars": 413,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "contract-and-proposal-writer",
+          "alwaysOnTokens": 7,
+          "fullTokens": 3301,
+          "descriptionChars": 26,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "customer-success-manager",
+          "alwaysOnTokens": 139,
+          "fullTokens": 2077,
+          "descriptionChars": 554,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "revenue-operations",
+          "alwaysOnTokens": 104,
+          "fullTokens": 2243,
+          "descriptionChars": 415,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "sales-engineer",
+          "alwaysOnTokens": 146,
+          "fullTokens": 2183,
+          "descriptionChars": 582,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 193,
+        "pct": 0,
+        "skills": 0
+      }
     }
   ]
 }
