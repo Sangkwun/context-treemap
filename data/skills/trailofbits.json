@@ -997,6 +997,446 @@
         "pct": 353.7,
         "skills": 45
       }
+    },
+    {
+      "date": "2026-03-26",
+      "skillCount": 61,
+      "alwaysOnTokens": 2563,
+      "fullBodyTokens": 174322,
+      "skills": [
+        {
+          "name": "agentic-actions-auditor",
+          "alwaysOnTokens": 143,
+          "fullTokens": 5216,
+          "descriptionChars": 571,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ask-questions-if-underspecified",
+          "alwaysOnTokens": 18,
+          "fullTokens": 964,
+          "descriptionChars": 72,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "audit-context-building",
+          "alwaysOnTokens": 31,
+          "fullTokens": 2400,
+          "descriptionChars": 123,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "algorand-vulnerability-scanner",
+          "alwaysOnTokens": 56,
+          "fullTokens": 2140,
+          "descriptionChars": 221,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "audit-prep-assistant",
+          "alwaysOnTokens": 66,
+          "fullTokens": 2333,
+          "descriptionChars": 262,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cairo-vulnerability-scanner",
+          "alwaysOnTokens": 55,
+          "fullTokens": 2347,
+          "descriptionChars": 218,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-maturity-assessor",
+          "alwaysOnTokens": 84,
+          "fullTokens": 1672,
+          "descriptionChars": 333,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cosmos-vulnerability-scanner",
+          "alwaysOnTokens": 51,
+          "fullTokens": 2426,
+          "descriptionChars": 204,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "guidelines-advisor",
+          "alwaysOnTokens": 79,
+          "fullTokens": 2030,
+          "descriptionChars": 316,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "secure-workflow-guide",
+          "alwaysOnTokens": 74,
+          "fullTokens": 1547,
+          "descriptionChars": 293,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "solana-vulnerability-scanner",
+          "alwaysOnTokens": 50,
+          "fullTokens": 2741,
+          "descriptionChars": 198,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "substrate-vulnerability-scanner",
+          "alwaysOnTokens": 51,
+          "fullTokens": 2314,
+          "descriptionChars": 202,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "token-integration-analyzer",
+          "alwaysOnTokens": 103,
+          "fullTokens": 2999,
+          "descriptionChars": 409,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ton-vulnerability-scanner",
+          "alwaysOnTokens": 52,
+          "fullTokens": 2864,
+          "descriptionChars": 205,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "burpsuite-project-parser",
+          "alwaysOnTokens": 69,
+          "fullTokens": 3031,
+          "descriptionChars": 274,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-in-chrome-troubleshooting",
+          "alwaysOnTokens": 46,
+          "fullTokens": 2508,
+          "descriptionChars": 182,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "constant-time-analysis",
+          "alwaysOnTokens": 77,
+          "fullTokens": 2389,
+          "descriptionChars": 306,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "interpreting-culture-index",
+          "alwaysOnTokens": 109,
+          "fullTokens": 3365,
+          "descriptionChars": 436,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "debug-buttercup",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2325,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "devcontainer-setup",
+          "alwaysOnTokens": 65,
+          "fullTokens": 1879,
+          "descriptionChars": 258,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "differential-review",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1520,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dimensional-analysis",
+          "alwaysOnTokens": 93,
+          "fullTokens": 4343,
+          "descriptionChars": 370,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dwarf-expert",
+          "alwaysOnTokens": 67,
+          "fullTokens": 1125,
+          "descriptionChars": 266,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "entry-point-analyzer",
+          "alwaysOnTokens": 131,
+          "fullTokens": 2242,
+          "descriptionChars": 521,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "firebase-apk-scanner",
+          "alwaysOnTokens": 0,
+          "fullTokens": 1577,
+          "descriptionChars": 329,
+          "hasDisableModelInvocation": true
+        },
+        {
+          "name": "fp-check",
+          "alwaysOnTokens": 42,
+          "fullTokens": 1552,
+          "descriptionChars": 166,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "git-cleanup",
+          "alwaysOnTokens": 0,
+          "fullTokens": 2992,
+          "descriptionChars": 137,
+          "hasDisableModelInvocation": true
+        },
+        {
+          "name": "insecure-defaults",
+          "alwaysOnTokens": 60,
+          "fullTokens": 1218,
+          "descriptionChars": 237,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "let-fate-decide",
+          "alwaysOnTokens": 116,
+          "fullTokens": 1251,
+          "descriptionChars": 461,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "modern-python",
+          "alwaysOnTokens": 40,
+          "fullTokens": 2431,
+          "descriptionChars": 159,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "property-based-testing",
+          "alwaysOnTokens": 72,
+          "fullTokens": 1431,
+          "descriptionChars": 287,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "seatbelt-sandboxer",
+          "alwaysOnTokens": 39,
+          "fullTokens": 2964,
+          "descriptionChars": 153,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "second-opinion",
+          "alwaysOnTokens": 62,
+          "fullTokens": 2389,
+          "descriptionChars": 245,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "semgrep-rule-creator",
+          "alwaysOnTokens": 45,
+          "fullTokens": 1751,
+          "descriptionChars": 179,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "semgrep-rule-variant-creator",
+          "alwaysOnTokens": 58,
+          "fullTokens": 1914,
+          "descriptionChars": 231,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "sharp-edges",
+          "alwaysOnTokens": 94,
+          "fullTokens": 2741,
+          "descriptionChars": 376,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-improver",
+          "alwaysOnTokens": 104,
+          "fullTokens": 1343,
+          "descriptionChars": 414,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "spec-to-code-compliance",
+          "alwaysOnTokens": 60,
+          "fullTokens": 2614,
+          "descriptionChars": 238,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "codeql",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3648,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "sarif-parsing",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3669,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "semgrep",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2272,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "supply-chain-risk-auditor",
+          "alwaysOnTokens": 46,
+          "fullTokens": 1372,
+          "descriptionChars": 182,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "address-sanitizer",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2768,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "aflpp",
+          "alwaysOnTokens": 1,
+          "fullTokens": 4389,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "atheris",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3562,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cargo-fuzz",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2827,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "constant-time-testing",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5102,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "coverage-analysis",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5124,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fuzzing-dictionary",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2372,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fuzzing-obstacles",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3825,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "harness-writing",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5184,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "libafl",
+          "alwaysOnTokens": 1,
+          "fullTokens": 4177,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "libfuzzer",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5937,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ossfuzz",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3980,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ruzzy",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2943,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "testing-handbook-generator",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3363,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "wycheproof",
+          "alwaysOnTokens": 1,
+          "fullTokens": 4784,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "variant-analysis",
+          "alwaysOnTokens": 64,
+          "fullTokens": 1335,
+          "descriptionChars": 253,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "designing-workflow-skills",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3254,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "yara-rule-authoring",
+          "alwaysOnTokens": 1,
+          "fullTokens": 6447,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "zeroize-audit",
+          "alwaysOnTokens": 69,
+          "fullTokens": 5100,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 4436,
+        "pct": 2.6,
+        "skills": 1
+      }
     }
   ]
 }
