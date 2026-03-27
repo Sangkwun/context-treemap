@@ -1,0 +1,187 @@
+{
+  "date": "2026-03-27",
+  "servers": [
+    {
+      "id": "github",
+      "name": "GitHub MCP Server",
+      "version": "2025.4.8",
+      "tools": 26,
+      "tokens": 19500,
+      "method": "estimate",
+      "change": {
+        "tokens": 2100,
+        "pct": 12.1,
+        "tools": 3
+      }
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright MCP",
+      "version": "0.0.68",
+      "tools": 56,
+      "tokens": 42000,
+      "method": "estimate",
+      "change": {
+        "tokens": 3000,
+        "pct": 7.7,
+        "tools": 2
+      }
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase MCP",
+      "version": "1.5.0",
+      "tools": 7,
+      "tokens": 5250,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "notion",
+      "name": "Notion MCP",
+      "version": "2.2.1",
+      "tools": 22,
+      "tokens": 16500,
+      "method": "estimate",
+      "change": {
+        "tokens": -800,
+        "pct": -4.6,
+        "tools": 0
+      }
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry MCP",
+      "version": "unknown",
+      "tools": 16,
+      "tokens": 12000,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl MCP",
+      "version": "3.11.0",
+      "tools": 8,
+      "tokens": 6000,
+      "method": "estimate",
+      "change": {
+        "tokens": 500,
+        "pct": 9.1,
+        "tools": 1
+      }
+    },
+    {
+      "id": "filesystem",
+      "name": "Filesystem MCP",
+      "version": "2026.1.14",
+      "tools": 13,
+      "tokens": 9750,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "memory",
+      "name": "Memory MCP",
+      "version": "2026.1.26",
+      "tools": 9,
+      "tokens": 6750,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "slack",
+      "name": "Slack MCP",
+      "version": "unknown",
+      "tools": 8,
+      "tokens": 6000,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "linear",
+      "name": "Linear MCP",
+      "version": "0.1.0",
+      "tools": 6,
+      "tokens": 4500,
+      "method": "estimate",
+      "change": {
+        "tokens": 300,
+        "pct": 7.1,
+        "tools": 1
+      }
+    },
+    {
+      "id": "context7",
+      "name": "Context7 MCP",
+      "version": "2.1.4",
+      "tools": 2,
+      "tokens": 1500,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "figma",
+      "name": "Figma MCP",
+      "version": "unknown",
+      "tools": 2,
+      "tokens": 1500,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "Sequential Thinking",
+      "version": "unknown",
+      "tools": 1,
+      "tokens": 750,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    },
+    {
+      "id": "postgres",
+      "name": "PostgreSQL MCP",
+      "version": "0.6.2",
+      "tools": 1,
+      "tokens": 750,
+      "method": "estimate",
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
+    }
+  ]
+}
