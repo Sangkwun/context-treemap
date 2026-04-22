@@ -16014,6 +16014,1300 @@
         "pct": 0,
         "skills": 0
       }
+    },
+    {
+      "date": "2026-04-22",
+      "skillCount": 183,
+      "alwaysOnTokens": 8000,
+      "fullBodyTokens": 374265,
+      "skills": [
+        {
+          "name": "accessibility",
+          "alwaysOnTokens": 20,
+          "fullTokens": 1536,
+          "descriptionChars": 79,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-eval",
+          "alwaysOnTokens": 36,
+          "fullTokens": 970,
+          "descriptionChars": 142,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-harness-construction",
+          "alwaysOnTokens": 30,
+          "fullTokens": 454,
+          "descriptionChars": 117,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-introspection-debugging",
+          "alwaysOnTokens": 33,
+          "fullTokens": 1328,
+          "descriptionChars": 129,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-payment-x402",
+          "alwaysOnTokens": 46,
+          "fullTokens": 1742,
+          "descriptionChars": 184,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agent-sort",
+          "alwaysOnTokens": 72,
+          "fullTokens": 1393,
+          "descriptionChars": 286,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "agentic-engineering",
+          "alwaysOnTokens": 26,
+          "fullTokens": 392,
+          "descriptionChars": 103,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ai-first-engineering",
+          "alwaysOnTokens": 26,
+          "fullTokens": 293,
+          "descriptionChars": 102,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ai-regression-testing",
+          "alwaysOnTokens": 57,
+          "fullTokens": 2773,
+          "descriptionChars": 228,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "android-clean-architecture",
+          "alwaysOnTokens": 40,
+          "fullTokens": 2120,
+          "descriptionChars": 160,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "api-connector-builder",
+          "alwaysOnTokens": 46,
+          "fullTokens": 591,
+          "descriptionChars": 183,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "api-design",
+          "alwaysOnTokens": 39,
+          "fullTokens": 3219,
+          "descriptionChars": 156,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "architecture-decision-records",
+          "alwaysOnTokens": 67,
+          "fullTokens": 1674,
+          "descriptionChars": 267,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "article-writing",
+          "alwaysOnTokens": 78,
+          "fullTokens": 637,
+          "descriptionChars": 310,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "automation-audit-ops",
+          "alwaysOnTokens": 56,
+          "fullTokens": 968,
+          "descriptionChars": 223,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "autonomous-agent-harness",
+          "alwaysOnTokens": 93,
+          "fullTokens": 2176,
+          "descriptionChars": 372,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "autonomous-loops",
+          "alwaysOnTokens": 34,
+          "fullTokens": 5729,
+          "descriptionChars": 133,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "backend-patterns",
+          "alwaysOnTokens": 36,
+          "fullTokens": 3409,
+          "descriptionChars": 142,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "benchmark",
+          "alwaysOnTokens": 30,
+          "fullTokens": 537,
+          "descriptionChars": 117,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "blueprint",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1165,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "brand-voice",
+          "alwaysOnTokens": 63,
+          "fullTokens": 833,
+          "descriptionChars": 252,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "browser-qa",
+          "alwaysOnTokens": 31,
+          "fullTokens": 601,
+          "descriptionChars": 124,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "bun-runtime",
+          "alwaysOnTokens": 31,
+          "fullTokens": 605,
+          "descriptionChars": 123,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "canary-watch",
+          "alwaysOnTokens": 26,
+          "fullTokens": 569,
+          "descriptionChars": 103,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "carrier-relationship-management",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5747,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ck",
+          "alwaysOnTokens": 62,
+          "fullTokens": 1092,
+          "descriptionChars": 246,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-api",
+          "alwaysOnTokens": 61,
+          "fullTokens": 2062,
+          "descriptionChars": 242,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-devfleet",
+          "alwaysOnTokens": 42,
+          "fullTokens": 1382,
+          "descriptionChars": 168,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "click-path-audit",
+          "alwaysOnTokens": 90,
+          "fullTokens": 1871,
+          "descriptionChars": 359,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "clickhouse-io",
+          "alwaysOnTokens": 35,
+          "fullTokens": 2559,
+          "descriptionChars": 139,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-tour",
+          "alwaysOnTokens": 58,
+          "fullTokens": 1608,
+          "descriptionChars": 232,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "codebase-onboarding",
+          "alwaysOnTokens": 60,
+          "fullTokens": 1964,
+          "descriptionChars": 239,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "coding-standards",
+          "alwaysOnTokens": 45,
+          "fullTokens": 3088,
+          "descriptionChars": 178,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "compose-multiplatform-patterns",
+          "alwaysOnTokens": 37,
+          "fullTokens": 1970,
+          "descriptionChars": 147,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "configure-ecc",
+          "alwaysOnTokens": 54,
+          "fullTokens": 3879,
+          "descriptionChars": 215,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "connections-optimizer",
+          "alwaysOnTokens": 80,
+          "fullTokens": 1271,
+          "descriptionChars": 317,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-engine",
+          "alwaysOnTokens": 64,
+          "fullTokens": 1012,
+          "descriptionChars": 255,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "content-hash-cache-pattern",
+          "alwaysOnTokens": 35,
+          "fullTokens": 1347,
+          "descriptionChars": 138,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "context-budget",
+          "alwaysOnTokens": 47,
+          "fullTokens": 1264,
+          "descriptionChars": 188,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "continuous-agent-loop",
+          "alwaysOnTokens": 24,
+          "fullTokens": 231,
+          "descriptionChars": 96,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "continuous-learning-v2",
+          "alwaysOnTokens": 59,
+          "fullTokens": 3070,
+          "descriptionChars": 235,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "continuous-learning",
+          "alwaysOnTokens": 29,
+          "fullTokens": 927,
+          "descriptionChars": 113,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cost-aware-llm-pipeline",
+          "alwaysOnTokens": 33,
+          "fullTokens": 1378,
+          "descriptionChars": 130,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "council",
+          "alwaysOnTokens": 44,
+          "fullTokens": 1527,
+          "descriptionChars": 174,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cpp-coding-standards",
+          "alwaysOnTokens": 44,
+          "fullTokens": 5510,
+          "descriptionChars": 176,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cpp-testing",
+          "alwaysOnTokens": 36,
+          "fullTokens": 2236,
+          "descriptionChars": 144,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "crosspost",
+          "alwaysOnTokens": 64,
+          "fullTokens": 783,
+          "descriptionChars": 253,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "csharp-testing",
+          "alwaysOnTokens": 31,
+          "fullTokens": 2109,
+          "descriptionChars": 124,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "customer-billing-ops",
+          "alwaysOnTokens": 72,
+          "fullTokens": 982,
+          "descriptionChars": 286,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "customs-trade-compliance",
+          "alwaysOnTokens": 1,
+          "fullTokens": 7063,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dart-flutter-patterns",
+          "alwaysOnTokens": 68,
+          "fullTokens": 3877,
+          "descriptionChars": 271,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dashboard-builder",
+          "alwaysOnTokens": 46,
+          "fullTokens": 515,
+          "descriptionChars": 184,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "data-scraper-agent",
+          "alwaysOnTokens": 99,
+          "fullTokens": 5835,
+          "descriptionChars": 393,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "database-migrations",
+          "alwaysOnTokens": 54,
+          "fullTokens": 2887,
+          "descriptionChars": 213,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "deep-research",
+          "alwaysOnTokens": 58,
+          "fullTokens": 1071,
+          "descriptionChars": 232,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "defi-amm-security",
+          "alwaysOnTokens": 52,
+          "fullTokens": 1119,
+          "descriptionChars": 208,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "deployment-patterns",
+          "alwaysOnTokens": 42,
+          "fullTokens": 2684,
+          "descriptionChars": 165,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "design-system",
+          "alwaysOnTokens": 28,
+          "fullTokens": 572,
+          "descriptionChars": 112,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-patterns",
+          "alwaysOnTokens": 35,
+          "fullTokens": 5156,
+          "descriptionChars": 139,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-security",
+          "alwaysOnTokens": 40,
+          "fullTokens": 3897,
+          "descriptionChars": 159,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-tdd",
+          "alwaysOnTokens": 34,
+          "fullTokens": 5184,
+          "descriptionChars": 134,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-verification",
+          "alwaysOnTokens": 38,
+          "fullTokens": 2794,
+          "descriptionChars": 150,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dmux-workflows",
+          "alwaysOnTokens": 68,
+          "fullTokens": 1499,
+          "descriptionChars": 271,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "docker-patterns",
+          "alwaysOnTokens": 36,
+          "fullTokens": 2013,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "documentation-lookup",
+          "alwaysOnTokens": 53,
+          "fullTokens": 1157,
+          "descriptionChars": 212,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dotnet-patterns",
+          "alwaysOnTokens": 38,
+          "fullTokens": 2253,
+          "descriptionChars": 151,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "e2e-testing",
+          "alwaysOnTokens": 34,
+          "fullTokens": 1938,
+          "descriptionChars": 133,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ecc-tools-cost-audit",
+          "alwaysOnTokens": 51,
+          "fullTokens": 1555,
+          "descriptionChars": 203,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "email-ops",
+          "alwaysOnTokens": 56,
+          "fullTokens": 790,
+          "descriptionChars": 224,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "energy-procurement",
+          "alwaysOnTokens": 1,
+          "fullTokens": 7288,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "enterprise-agent-ops",
+          "alwaysOnTokens": 26,
+          "fullTokens": 260,
+          "descriptionChars": 101,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "eval-harness",
+          "alwaysOnTokens": 27,
+          "fullTokens": 1573,
+          "descriptionChars": 106,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "evm-token-decimals",
+          "alwaysOnTokens": 50,
+          "fullTokens": 887,
+          "descriptionChars": 199,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "exa-search",
+          "alwaysOnTokens": 51,
+          "fullTokens": 782,
+          "descriptionChars": 204,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fal-ai-media",
+          "alwaysOnTokens": 69,
+          "fullTokens": 1644,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "finance-billing-ops",
+          "alwaysOnTokens": 64,
+          "fullTokens": 876,
+          "descriptionChars": 254,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "flutter-dart-code-review",
+          "alwaysOnTokens": 59,
+          "fullTokens": 5668,
+          "descriptionChars": 233,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "foundation-models-on-device",
+          "alwaysOnTokens": 39,
+          "fullTokens": 1981,
+          "descriptionChars": 153,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-design",
+          "alwaysOnTokens": 54,
+          "fullTokens": 888,
+          "descriptionChars": 215,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-patterns",
+          "alwaysOnTokens": 29,
+          "fullTokens": 3650,
+          "descriptionChars": 116,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-slides",
+          "alwaysOnTokens": 78,
+          "fullTokens": 1545,
+          "descriptionChars": 311,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "gan-style-harness",
+          "alwaysOnTokens": 39,
+          "fullTokens": 2863,
+          "descriptionChars": 153,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "gateguard",
+          "alwaysOnTokens": 61,
+          "fullTokens": 1057,
+          "descriptionChars": 244,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "git-workflow",
+          "alwaysOnTokens": 45,
+          "fullTokens": 3681,
+          "descriptionChars": 180,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "github-ops",
+          "alwaysOnTokens": 82,
+          "fullTokens": 1062,
+          "descriptionChars": 327,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "golang-patterns",
+          "alwaysOnTokens": 30,
+          "fullTokens": 3435,
+          "descriptionChars": 120,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "golang-testing",
+          "alwaysOnTokens": 38,
+          "fullTokens": 4106,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "google-workspace-ops",
+          "alwaysOnTokens": 65,
+          "fullTokens": 601,
+          "descriptionChars": 258,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "healthcare-cdss-patterns",
+          "alwaysOnTokens": 52,
+          "fullTokens": 2232,
+          "descriptionChars": 205,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "healthcare-emr-patterns",
+          "alwaysOnTokens": 53,
+          "fullTokens": 1526,
+          "descriptionChars": 210,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "healthcare-eval-harness",
+          "alwaysOnTokens": 56,
+          "fullTokens": 1828,
+          "descriptionChars": 224,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "healthcare-phi-compliance",
+          "alwaysOnTokens": 56,
+          "fullTokens": 1294,
+          "descriptionChars": 224,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "hexagonal-architecture",
+          "alwaysOnTokens": 49,
+          "fullTokens": 2784,
+          "descriptionChars": 194,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "hipaa-compliance",
+          "alwaysOnTokens": 54,
+          "fullTokens": 826,
+          "descriptionChars": 214,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "hookify-rules",
+          "alwaysOnTokens": 46,
+          "fullTokens": 826,
+          "descriptionChars": 183,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "inventory-demand-planning",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5907,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "investor-materials",
+          "alwaysOnTokens": 80,
+          "fullTokens": 587,
+          "descriptionChars": 317,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "investor-outreach",
+          "alwaysOnTokens": 64,
+          "fullTokens": 582,
+          "descriptionChars": 255,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "iterative-retrieval",
+          "alwaysOnTokens": 23,
+          "fullTokens": 1516,
+          "descriptionChars": 90,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "java-coding-standards",
+          "alwaysOnTokens": 34,
+          "fullTokens": 915,
+          "descriptionChars": 136,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "jira-integration",
+          "alwaysOnTokens": 48,
+          "fullTokens": 2169,
+          "descriptionChars": 191,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "jpa-patterns",
+          "alwaysOnTokens": 38,
+          "fullTokens": 1086,
+          "descriptionChars": 150,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "knowledge-ops",
+          "alwaysOnTokens": 62,
+          "fullTokens": 1610,
+          "descriptionChars": 245,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-coroutines-flows",
+          "alwaysOnTokens": 35,
+          "fullTokens": 1875,
+          "descriptionChars": 137,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-exposed-patterns",
+          "alwaysOnTokens": 38,
+          "fullTokens": 5447,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-ktor-patterns",
+          "alwaysOnTokens": 36,
+          "fullTokens": 4745,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-patterns",
+          "alwaysOnTokens": 44,
+          "fullTokens": 4653,
+          "descriptionChars": 175,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-testing",
+          "alwaysOnTokens": 41,
+          "fullTokens": 5112,
+          "descriptionChars": 163,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-patterns",
+          "alwaysOnTokens": 37,
+          "fullTokens": 2548,
+          "descriptionChars": 145,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-plugin-discovery",
+          "alwaysOnTokens": 41,
+          "fullTokens": 1532,
+          "descriptionChars": 162,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-security",
+          "alwaysOnTokens": 36,
+          "fullTokens": 1810,
+          "descriptionChars": 144,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-tdd",
+          "alwaysOnTokens": 29,
+          "fullTokens": 1816,
+          "descriptionChars": 116,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-verification",
+          "alwaysOnTokens": 35,
+          "fullTokens": 1012,
+          "descriptionChars": 140,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "lead-intelligence",
+          "alwaysOnTokens": 81,
+          "fullTokens": 2718,
+          "descriptionChars": 323,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "liquid-glass-design",
+          "alwaysOnTokens": 36,
+          "fullTokens": 2204,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "llm-trading-agent-security",
+          "alwaysOnTokens": 50,
+          "fullTokens": 1047,
+          "descriptionChars": 197,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "logistics-exception-management",
+          "alwaysOnTokens": 1,
+          "fullTokens": 4052,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "manim-video",
+          "alwaysOnTokens": 64,
+          "fullTokens": 647,
+          "descriptionChars": 254,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "market-research",
+          "alwaysOnTokens": 74,
+          "fullTokens": 469,
+          "descriptionChars": 294,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mcp-server-patterns",
+          "alwaysOnTokens": 41,
+          "fullTokens": 960,
+          "descriptionChars": 163,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "messages-ops",
+          "alwaysOnTokens": 53,
+          "fullTokens": 655,
+          "descriptionChars": 211,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nanoclaw-repl",
+          "alwaysOnTokens": 23,
+          "fullTokens": 177,
+          "descriptionChars": 92,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nestjs-patterns",
+          "alwaysOnTokens": 39,
+          "fullTokens": 1500,
+          "descriptionChars": 153,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nextjs-turbopack",
+          "alwaysOnTokens": 28,
+          "fullTokens": 498,
+          "descriptionChars": 110,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nodejs-keccak256",
+          "alwaysOnTokens": 49,
+          "fullTokens": 638,
+          "descriptionChars": 196,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nutrient-document-processing",
+          "alwaysOnTokens": 37,
+          "fullTokens": 1419,
+          "descriptionChars": 145,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nuxt4-patterns",
+          "alwaysOnTokens": 35,
+          "fullTokens": 1112,
+          "descriptionChars": 140,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "openclaw-persona-forge",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1458,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "opensource-pipeline",
+          "alwaysOnTokens": 58,
+          "fullTokens": 1666,
+          "descriptionChars": 230,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "perl-patterns",
+          "alwaysOnTokens": 28,
+          "fullTokens": 2812,
+          "descriptionChars": 110,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "perl-security",
+          "alwaysOnTokens": 46,
+          "fullTokens": 3373,
+          "descriptionChars": 181,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "perl-testing",
+          "alwaysOnTokens": 31,
+          "fullTokens": 2723,
+          "descriptionChars": 122,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "plankton-code-quality",
+          "alwaysOnTokens": 34,
+          "fullTokens": 1911,
+          "descriptionChars": 133,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "postgres-patterns",
+          "alwaysOnTokens": 32,
+          "fullTokens": 906,
+          "descriptionChars": 125,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-capability",
+          "alwaysOnTokens": 75,
+          "fullTokens": 1016,
+          "descriptionChars": 299,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-lens",
+          "alwaysOnTokens": 43,
+          "fullTokens": 714,
+          "descriptionChars": 169,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "production-scheduling",
+          "alwaysOnTokens": 1,
+          "fullTokens": 6944,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "project-flow-ops",
+          "alwaysOnTokens": 69,
+          "fullTokens": 700,
+          "descriptionChars": 276,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "prompt-optimizer",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3616,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "python-patterns",
+          "alwaysOnTokens": 34,
+          "fullTokens": 4098,
+          "descriptionChars": 134,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "python-testing",
+          "alwaysOnTokens": 30,
+          "fullTokens": 4647,
+          "descriptionChars": 119,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pytorch-patterns",
+          "alwaysOnTokens": 40,
+          "fullTokens": 2860,
+          "descriptionChars": 157,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "quality-nonconformance",
+          "alwaysOnTokens": 1,
+          "fullTokens": 7388,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ralphinho-rfc-pipeline",
+          "alwaysOnTokens": 27,
+          "fullTokens": 338,
+          "descriptionChars": 107,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "regex-vs-llm-structured-text",
+          "alwaysOnTokens": 37,
+          "fullTokens": 1542,
+          "descriptionChars": 146,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "remotion-video-creation",
+          "alwaysOnTokens": 38,
+          "fullTokens": 813,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "repo-scan",
+          "alwaysOnTokens": 1,
+          "fullTokens": 901,
+          "descriptionChars": 4,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "research-ops",
+          "alwaysOnTokens": 51,
+          "fullTokens": 834,
+          "descriptionChars": 204,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "returns-reverse-logistics",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5993,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rules-distill",
+          "alwaysOnTokens": 30,
+          "fullTokens": 2276,
+          "descriptionChars": 118,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rust-patterns",
+          "alwaysOnTokens": 34,
+          "fullTokens": 3259,
+          "descriptionChars": 135,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rust-testing",
+          "alwaysOnTokens": 38,
+          "fullTokens": 2853,
+          "descriptionChars": 149,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "safety-guard",
+          "alwaysOnTokens": 29,
+          "fullTokens": 441,
+          "descriptionChars": 115,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "santa-method",
+          "alwaysOnTokens": 32,
+          "fullTokens": 2984,
+          "descriptionChars": 125,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "search-first",
+          "alwaysOnTokens": 36,
+          "fullTokens": 1368,
+          "descriptionChars": 141,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "security-bounty-hunter",
+          "alwaysOnTokens": 46,
+          "fullTokens": 812,
+          "descriptionChars": 182,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "security-review",
+          "alwaysOnTokens": 53,
+          "fullTokens": 2992,
+          "descriptionChars": 209,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "security-scan",
+          "alwaysOnTokens": 55,
+          "fullTokens": 1045,
+          "descriptionChars": 220,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "seo",
+          "alwaysOnTokens": 67,
+          "fullTokens": 998,
+          "descriptionChars": 266,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-comply",
+          "alwaysOnTokens": 60,
+          "fullTokens": 509,
+          "descriptionChars": 239,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-stocktake",
+          "alwaysOnTokens": 42,
+          "fullTokens": 1888,
+          "descriptionChars": 167,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "social-graph-ranker",
+          "alwaysOnTokens": 66,
+          "fullTokens": 950,
+          "descriptionChars": 264,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-patterns",
+          "alwaysOnTokens": 41,
+          "fullTokens": 2422,
+          "descriptionChars": 161,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-security",
+          "alwaysOnTokens": 38,
+          "fullTokens": 1951,
+          "descriptionChars": 152,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-tdd",
+          "alwaysOnTokens": 39,
+          "fullTokens": 891,
+          "descriptionChars": 155,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "springboot-verification",
+          "alwaysOnTokens": 36,
+          "fullTokens": 1401,
+          "descriptionChars": 142,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "strategic-compact",
+          "alwaysOnTokens": 34,
+          "fullTokens": 1258,
+          "descriptionChars": 134,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-actor-persistence",
+          "alwaysOnTokens": 32,
+          "fullTokens": 1148,
+          "descriptionChars": 128,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-concurrency-6-2",
+          "alwaysOnTokens": 39,
+          "fullTokens": 1941,
+          "descriptionChars": 156,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-protocol-di-testing",
+          "alwaysOnTokens": 38,
+          "fullTokens": 1447,
+          "descriptionChars": 149,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swiftui-patterns",
+          "alwaysOnTokens": 41,
+          "fullTokens": 1679,
+          "descriptionChars": 161,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tdd-workflow",
+          "alwaysOnTokens": 43,
+          "fullTokens": 3177,
+          "descriptionChars": 171,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "team-builder",
+          "alwaysOnTokens": 18,
+          "fullTokens": 1731,
+          "descriptionChars": 69,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "terminal-ops",
+          "alwaysOnTokens": 50,
+          "fullTokens": 683,
+          "descriptionChars": 200,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "token-budget-advisor",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1285,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ui-demo",
+          "alwaysOnTokens": 61,
+          "fullTokens": 3739,
+          "descriptionChars": 241,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "unified-notifications-ops",
+          "alwaysOnTokens": 56,
+          "fullTokens": 1332,
+          "descriptionChars": 222,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "verification-loop",
+          "alwaysOnTokens": 16,
+          "fullTokens": 592,
+          "descriptionChars": 61,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "video-editing",
+          "alwaysOnTokens": 77,
+          "fullTokens": 2337,
+          "descriptionChars": 308,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "videodb",
+          "alwaysOnTokens": 146,
+          "fullTokens": 3352,
+          "descriptionChars": 583,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "visa-doc-translate",
+          "alwaysOnTokens": 29,
+          "fullTokens": 913,
+          "descriptionChars": 113,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "workspace-surface-audit",
+          "alwaysOnTokens": 78,
+          "fullTokens": 1194,
+          "descriptionChars": 312,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "x-api",
+          "alwaysOnTokens": 59,
+          "fullTokens": 1541,
+          "descriptionChars": 235,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 25,
+        "pct": 0,
+        "skills": 0
+      }
     }
   ]
 }
