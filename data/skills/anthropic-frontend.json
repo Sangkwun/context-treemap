@@ -805,6 +805,138 @@
         "pct": 2,
         "skills": 0
       }
+    },
+    {
+      "date": "2026-04-24",
+      "skillCount": 17,
+      "alwaysOnTokens": 1802,
+      "fullBodyTokens": 47121,
+      "skills": [
+        {
+          "name": "algorithmic-art",
+          "alwaysOnTokens": 81,
+          "fullTokens": 4832,
+          "descriptionChars": 324,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "brand-guidelines",
+          "alwaysOnTokens": 59,
+          "fullTokens": 479,
+          "descriptionChars": 236,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "canvas-design",
+          "alwaysOnTokens": 73,
+          "fullTokens": 2892,
+          "descriptionChars": 289,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "claude-api",
+          "alwaysOnTokens": 186,
+          "fullTokens": 7974,
+          "descriptionChars": 744,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "doc-coauthoring",
+          "alwaysOnTokens": 107,
+          "fullTokens": 3836,
+          "descriptionChars": 428,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "docx",
+          "alwaysOnTokens": 197,
+          "fullTokens": 4796,
+          "descriptionChars": 785,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-design",
+          "alwaysOnTokens": 100,
+          "fullTokens": 989,
+          "descriptionChars": 399,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "internal-comms",
+          "alwaysOnTokens": 83,
+          "fullTokens": 275,
+          "descriptionChars": 329,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mcp-builder",
+          "alwaysOnTokens": 70,
+          "fullTokens": 2177,
+          "descriptionChars": 277,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pdf",
+          "alwaysOnTokens": 110,
+          "fullTokens": 1878,
+          "descriptionChars": 437,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pptx",
+          "alwaysOnTokens": 174,
+          "fullTokens": 2086,
+          "descriptionChars": 694,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "alwaysOnTokens": 80,
+          "fullTokens": 8156,
+          "descriptionChars": 319,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "slack-gif-creator",
+          "alwaysOnTokens": 57,
+          "fullTokens": 1882,
+          "descriptionChars": 226,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "theme-factory",
+          "alwaysOnTokens": 66,
+          "fullTokens": 695,
+          "descriptionChars": 262,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "web-artifacts-builder",
+          "alwaysOnTokens": 72,
+          "fullTokens": 674,
+          "descriptionChars": 288,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "webapp-testing",
+          "alwaysOnTokens": 51,
+          "fullTokens": 894,
+          "descriptionChars": 204,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "xlsx",
+          "alwaysOnTokens": 236,
+          "fullTokens": 2606,
+          "descriptionChars": 943,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 6,
+        "pct": 0,
+        "skills": 0
+      }
     }
   ]
 }
