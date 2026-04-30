@@ -963,6 +963,481 @@
         "pct": 0.1,
         "skills": 0
       }
+    },
+    {
+      "date": "2026-04-30",
+      "skillCount": 66,
+      "alwaysOnTokens": 7247,
+      "fullBodyTokens": 83782,
+      "skills": [
+        {
+          "name": "angular-architect",
+          "alwaysOnTokens": 101,
+          "fullTokens": 1301,
+          "descriptionChars": 402,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "api-designer",
+          "alwaysOnTokens": 51,
+          "fullTokens": 1785,
+          "descriptionChars": 203,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "architecture-designer",
+          "alwaysOnTokens": 128,
+          "fullTokens": 942,
+          "descriptionChars": 509,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "atlassian-mcp",
+          "alwaysOnTokens": 94,
+          "fullTokens": 1097,
+          "descriptionChars": 376,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "chaos-engineer",
+          "alwaysOnTokens": 120,
+          "fullTokens": 1483,
+          "descriptionChars": 479,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cli-developer",
+          "alwaysOnTokens": 83,
+          "fullTokens": 969,
+          "descriptionChars": 329,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cloud-architect",
+          "alwaysOnTokens": 101,
+          "fullTokens": 1594,
+          "descriptionChars": 402,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-documenter",
+          "alwaysOnTokens": 95,
+          "fullTokens": 1181,
+          "descriptionChars": 379,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "code-reviewer",
+          "alwaysOnTokens": 172,
+          "fullTokens": 1020,
+          "descriptionChars": 685,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cpp-pro",
+          "alwaysOnTokens": 96,
+          "fullTokens": 925,
+          "descriptionChars": 384,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "csharp-developer",
+          "alwaysOnTokens": 112,
+          "fullTokens": 1060,
+          "descriptionChars": 445,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "database-optimizer",
+          "alwaysOnTokens": 76,
+          "fullTokens": 1309,
+          "descriptionChars": 304,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "debugging-wizard",
+          "alwaysOnTokens": 99,
+          "fullTokens": 736,
+          "descriptionChars": 396,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "devops-engineer",
+          "alwaysOnTokens": 148,
+          "fullTokens": 1232,
+          "descriptionChars": 589,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "django-expert",
+          "alwaysOnTokens": 114,
+          "fullTokens": 1288,
+          "descriptionChars": 456,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "dotnet-core-expert",
+          "alwaysOnTokens": 50,
+          "fullTokens": 1110,
+          "descriptionChars": 197,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "embedded-systems",
+          "alwaysOnTokens": 74,
+          "fullTokens": 1364,
+          "descriptionChars": 296,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fastapi-expert",
+          "alwaysOnTokens": 111,
+          "fullTokens": 1509,
+          "descriptionChars": 442,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "feature-forge",
+          "alwaysOnTokens": 101,
+          "fullTokens": 883,
+          "descriptionChars": 403,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fine-tuning-expert",
+          "alwaysOnTokens": 131,
+          "fullTokens": 1408,
+          "descriptionChars": 522,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "flutter-expert",
+          "alwaysOnTokens": 54,
+          "fullTokens": 1261,
+          "descriptionChars": 216,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fullstack-guardian",
+          "alwaysOnTokens": 232,
+          "fullTokens": 1071,
+          "descriptionChars": 926,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "game-developer",
+          "alwaysOnTokens": 133,
+          "fullTokens": 1196,
+          "descriptionChars": 531,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "golang-pro",
+          "alwaysOnTokens": 121,
+          "fullTokens": 1035,
+          "descriptionChars": 482,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "graphql-architect",
+          "alwaysOnTokens": 50,
+          "fullTokens": 1113,
+          "descriptionChars": 200,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "java-architect",
+          "alwaysOnTokens": 92,
+          "fullTokens": 1234,
+          "descriptionChars": 366,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "javascript-pro",
+          "alwaysOnTokens": 95,
+          "fullTokens": 1009,
+          "descriptionChars": 378,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kotlin-specialist",
+          "alwaysOnTokens": 112,
+          "fullTokens": 1278,
+          "descriptionChars": 447,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "kubernetes-specialist",
+          "alwaysOnTokens": 106,
+          "fullTokens": 1778,
+          "descriptionChars": 424,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "laravel-specialist",
+          "alwaysOnTokens": 115,
+          "fullTokens": 1858,
+          "descriptionChars": 459,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "legacy-modernizer",
+          "alwaysOnTokens": 100,
+          "fullTokens": 1316,
+          "descriptionChars": 398,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "mcp-developer",
+          "alwaysOnTokens": 97,
+          "fullTokens": 1221,
+          "descriptionChars": 386,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "microservices-architect",
+          "alwaysOnTokens": 102,
+          "fullTokens": 1482,
+          "descriptionChars": 408,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ml-pipeline",
+          "alwaysOnTokens": 151,
+          "fullTokens": 1520,
+          "descriptionChars": 604,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "monitoring-expert",
+          "alwaysOnTokens": 135,
+          "fullTokens": 1288,
+          "descriptionChars": 537,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nestjs-expert",
+          "alwaysOnTokens": 131,
+          "fullTokens": 1684,
+          "descriptionChars": 521,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "nextjs-developer",
+          "alwaysOnTokens": 123,
+          "fullTokens": 1151,
+          "descriptionChars": 492,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "pandas-pro",
+          "alwaysOnTokens": 114,
+          "fullTokens": 1283,
+          "descriptionChars": 455,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "php-pro",
+          "alwaysOnTokens": 119,
+          "fullTokens": 1312,
+          "descriptionChars": 475,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "playwright-expert",
+          "alwaysOnTokens": 107,
+          "fullTokens": 1191,
+          "descriptionChars": 425,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "postgres-pro",
+          "alwaysOnTokens": 53,
+          "fullTokens": 1294,
+          "descriptionChars": 211,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "prompt-engineer",
+          "alwaysOnTokens": 127,
+          "fullTokens": 1200,
+          "descriptionChars": 508,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "python-pro",
+          "alwaysOnTokens": 102,
+          "fullTokens": 1325,
+          "descriptionChars": 408,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rag-architect",
+          "alwaysOnTokens": 104,
+          "fullTokens": 1708,
+          "descriptionChars": 416,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rails-expert",
+          "alwaysOnTokens": 127,
+          "fullTokens": 1149,
+          "descriptionChars": 505,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "react-expert",
+          "alwaysOnTokens": 97,
+          "fullTokens": 1110,
+          "descriptionChars": 385,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "react-native-expert",
+          "alwaysOnTokens": 124,
+          "fullTokens": 1404,
+          "descriptionChars": 495,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "rust-engineer",
+          "alwaysOnTokens": 153,
+          "fullTokens": 1254,
+          "descriptionChars": 609,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "salesforce-developer",
+          "alwaysOnTokens": 86,
+          "fullTokens": 1671,
+          "descriptionChars": 344,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "secure-code-guardian",
+          "alwaysOnTokens": 149,
+          "fullTokens": 1502,
+          "descriptionChars": 594,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "security-reviewer",
+          "alwaysOnTokens": 122,
+          "fullTokens": 952,
+          "descriptionChars": 487,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "shopify-expert",
+          "alwaysOnTokens": 151,
+          "fullTokens": 1514,
+          "descriptionChars": 603,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "spark-engineer",
+          "alwaysOnTokens": 106,
+          "fullTokens": 1409,
+          "descriptionChars": 422,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "spec-miner",
+          "alwaysOnTokens": 144,
+          "fullTokens": 899,
+          "descriptionChars": 574,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "spring-boot-engineer",
+          "alwaysOnTokens": 109,
+          "fullTokens": 1608,
+          "descriptionChars": 433,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "sql-pro",
+          "alwaysOnTokens": 138,
+          "fullTokens": 1065,
+          "descriptionChars": 551,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "sre-engineer",
+          "alwaysOnTokens": 96,
+          "fullTokens": 1488,
+          "descriptionChars": 381,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "swift-expert",
+          "alwaysOnTokens": 116,
+          "fullTokens": 1257,
+          "descriptionChars": 463,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "terraform-engineer",
+          "alwaysOnTokens": 85,
+          "fullTokens": 1102,
+          "descriptionChars": 339,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "test-master",
+          "alwaysOnTokens": 139,
+          "fullTokens": 954,
+          "descriptionChars": 553,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "the-fool",
+          "alwaysOnTokens": 48,
+          "fullTokens": 1392,
+          "descriptionChars": 191,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "typescript-pro",
+          "alwaysOnTokens": 83,
+          "fullTokens": 1181,
+          "descriptionChars": 329,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "vue-expert-js",
+          "alwaysOnTokens": 144,
+          "fullTokens": 1279,
+          "descriptionChars": 574,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "vue-expert",
+          "alwaysOnTokens": 115,
+          "fullTokens": 842,
+          "descriptionChars": 460,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "websocket-engineer",
+          "alwaysOnTokens": 46,
+          "fullTokens": 1434,
+          "descriptionChars": 182,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "wordpress-pro",
+          "alwaysOnTokens": 137,
+          "fullTokens": 1312,
+          "descriptionChars": 547,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 1540,
+        "pct": 1.7,
+        "skills": 0
+      }
     }
   ]
 }
