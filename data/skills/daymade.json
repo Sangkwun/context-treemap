@@ -5546,6 +5546,264 @@
         "pct": -2.1,
         "skills": 0
       }
+    },
+    {
+      "date": "2026-05-25",
+      "skillCount": 35,
+      "alwaysOnTokens": 4003,
+      "fullBodyTokens": 100365,
+      "skills": [
+        {
+          "name": "capture-screen",
+          "alwaysOnTokens": 80,
+          "fullTokens": 2288,
+          "descriptionChars": 319,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cli-demo-generator",
+          "alwaysOnTokens": 141,
+          "fullTokens": 1531,
+          "descriptionChars": 561,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cloudflare-troubleshooting",
+          "alwaysOnTokens": 80,
+          "fullTokens": 2370,
+          "descriptionChars": 320,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "competitors-analysis",
+          "alwaysOnTokens": 83,
+          "fullTokens": 1191,
+          "descriptionChars": 330,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "debugging-network-issues",
+          "alwaysOnTokens": 239,
+          "fullTokens": 3802,
+          "descriptionChars": 954,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "deep-research",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5668,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "douban-skill",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1028,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "excel-automation",
+          "alwaysOnTokens": 85,
+          "fullTokens": 2508,
+          "descriptionChars": 339,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fact-checker",
+          "alwaysOnTokens": 89,
+          "fullTokens": 2025,
+          "descriptionChars": 355,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "feishu-doc-scraper",
+          "alwaysOnTokens": 232,
+          "fullTokens": 3148,
+          "descriptionChars": 926,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "financial-data-collector",
+          "alwaysOnTokens": 150,
+          "fullTokens": 1259,
+          "descriptionChars": 597,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "gangtise-copilot",
+          "alwaysOnTokens": 82,
+          "fullTokens": 5413,
+          "descriptionChars": 328,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "github-contributor",
+          "alwaysOnTokens": 188,
+          "fullTokens": 4265,
+          "descriptionChars": 749,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "github-ops",
+          "alwaysOnTokens": 82,
+          "fullTokens": 1491,
+          "descriptionChars": 326,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "i18n-expert",
+          "alwaysOnTokens": 94,
+          "fullTokens": 1212,
+          "descriptionChars": 376,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "developing-ios-apps",
+          "alwaysOnTokens": 175,
+          "fullTokens": 3119,
+          "descriptionChars": 700,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ima-copilot",
+          "alwaysOnTokens": 231,
+          "fullTokens": 3011,
+          "descriptionChars": 921,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "llm-icon-finder",
+          "alwaysOnTokens": 60,
+          "fullTokens": 762,
+          "descriptionChars": 239,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "macos-cleaner",
+          "alwaysOnTokens": 76,
+          "fullTokens": 8873,
+          "descriptionChars": 301,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-analysis",
+          "alwaysOnTokens": 105,
+          "fullTokens": 2177,
+          "descriptionChars": 418,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "prompt-optimizer",
+          "alwaysOnTokens": 115,
+          "fullTokens": 1845,
+          "descriptionChars": 460,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "promptfoo-evaluation",
+          "alwaysOnTokens": 94,
+          "fullTokens": 2916,
+          "descriptionChars": 373,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "qa-expert",
+          "alwaysOnTokens": 130,
+          "fullTokens": 2463,
+          "descriptionChars": 518,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "repomix-safe-mixer",
+          "alwaysOnTokens": 66,
+          "fullTokens": 1882,
+          "descriptionChars": 263,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "repomix-unmixer",
+          "alwaysOnTokens": 71,
+          "fullTokens": 1983,
+          "descriptionChars": 284,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "scrapling-skill",
+          "alwaysOnTokens": 79,
+          "fullTokens": 1325,
+          "descriptionChars": 316,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "slides-creator",
+          "alwaysOnTokens": 76,
+          "fullTokens": 5188,
+          "descriptionChars": 301,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "teams-channel-post-writer",
+          "alwaysOnTokens": 150,
+          "fullTokens": 1025,
+          "descriptionChars": 598,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "terraform-skill",
+          "alwaysOnTokens": 204,
+          "fullTokens": 2232,
+          "descriptionChars": 813,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tunnel-doctor",
+          "alwaysOnTokens": 270,
+          "fullTokens": 11917,
+          "descriptionChars": 1077,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "twitter-reader",
+          "alwaysOnTokens": 109,
+          "fullTokens": 899,
+          "descriptionChars": 433,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ui-designer",
+          "alwaysOnTokens": 65,
+          "fullTokens": 1646,
+          "descriptionChars": 258,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "video-comparer",
+          "alwaysOnTokens": 96,
+          "fullTokens": 1250,
+          "descriptionChars": 381,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "windows-remote-desktop-connection-doctor",
+          "alwaysOnTokens": 117,
+          "fullTokens": 2063,
+          "descriptionChars": 467,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "youtube-downloader",
+          "alwaysOnTokens": 87,
+          "fullTokens": 4590,
+          "descriptionChars": 345,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 19,
+        "pct": 0,
+        "skills": 0
+      }
     }
   ]
 }
