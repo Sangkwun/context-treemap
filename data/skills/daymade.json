@@ -8309,6 +8309,376 @@
         "pct": -5,
         "skills": -3
       }
+    },
+    {
+      "date": "2026-07-10",
+      "skillCount": 51,
+      "alwaysOnTokens": 3659,
+      "fullBodyTokens": 132463,
+      "skills": [
+        {
+          "name": "auto-repo-setup",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1914,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "benchmark-due-diligence",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2224,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "bilibili-source",
+          "alwaysOnTokens": 189,
+          "fullTokens": 1425,
+          "descriptionChars": 756,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "capture-screen",
+          "alwaysOnTokens": 80,
+          "fullTokens": 2288,
+          "descriptionChars": 319,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cli-demo-generator",
+          "alwaysOnTokens": 141,
+          "fullTokens": 1531,
+          "descriptionChars": 561,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "cloudflare-troubleshooting",
+          "alwaysOnTokens": 80,
+          "fullTokens": 2430,
+          "descriptionChars": 320,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "codex-image-gallery",
+          "alwaysOnTokens": 71,
+          "fullTokens": 553,
+          "descriptionChars": 281,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "competitors-analysis",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1885,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "debugging-network-issues",
+          "alwaysOnTokens": 1,
+          "fullTokens": 7469,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "deep-research",
+          "alwaysOnTokens": 1,
+          "fullTokens": 5668,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "design-style-picker",
+          "alwaysOnTokens": 98,
+          "fullTokens": 1053,
+          "descriptionChars": 392,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "douban-skill",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1028,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "download-gemini-images",
+          "alwaysOnTokens": 90,
+          "fullTokens": 759,
+          "descriptionChars": 360,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "excel-automation",
+          "alwaysOnTokens": 85,
+          "fullTokens": 2508,
+          "descriptionChars": 339,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "fact-checker",
+          "alwaysOnTokens": 89,
+          "fullTokens": 2025,
+          "descriptionChars": 355,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "feishu-doc-scraper",
+          "alwaysOnTokens": 142,
+          "fullTokens": 3266,
+          "descriptionChars": 567,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "frontend-visual-qa",
+          "alwaysOnTokens": 1,
+          "fullTokens": 10709,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "gemini-history-analyzer",
+          "alwaysOnTokens": 95,
+          "fullTokens": 2170,
+          "descriptionChars": 380,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "github-contributor",
+          "alwaysOnTokens": 136,
+          "fullTokens": 4581,
+          "descriptionChars": 541,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "github-ops",
+          "alwaysOnTokens": 82,
+          "fullTokens": 1491,
+          "descriptionChars": 326,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "github-sensitive-data-cleanup",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2647,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "i18n-expert",
+          "alwaysOnTokens": 94,
+          "fullTokens": 1212,
+          "descriptionChars": 376,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "developing-ios-apps",
+          "alwaysOnTokens": 137,
+          "fullTokens": 3119,
+          "descriptionChars": 545,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ima-copilot",
+          "alwaysOnTokens": 1,
+          "fullTokens": 3011,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "llm-eval-harness",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2487,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "llm-icon-finder",
+          "alwaysOnTokens": 60,
+          "fullTokens": 762,
+          "descriptionChars": 239,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "llm-wiki-setup",
+          "alwaysOnTokens": 230,
+          "fullTokens": 751,
+          "descriptionChars": 919,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "local-codex",
+          "alwaysOnTokens": 133,
+          "fullTokens": 831,
+          "descriptionChars": 530,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "macos-cleaner",
+          "alwaysOnTokens": 76,
+          "fullTokens": 6376,
+          "descriptionChars": 301,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "marketplace-health-check",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1905,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "notify-wecom",
+          "alwaysOnTokens": 1,
+          "fullTokens": 429,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "openclaw-model-switch",
+          "alwaysOnTokens": 91,
+          "fullTokens": 511,
+          "descriptionChars": 361,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "openclaw",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1413,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "product-analysis",
+          "alwaysOnTokens": 105,
+          "fullTokens": 2177,
+          "descriptionChars": 418,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "prompt-optimizer",
+          "alwaysOnTokens": 115,
+          "fullTokens": 1845,
+          "descriptionChars": 460,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "promptfoo-evaluation",
+          "alwaysOnTokens": 94,
+          "fullTokens": 2916,
+          "descriptionChars": 373,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "qa-expert",
+          "alwaysOnTokens": 130,
+          "fullTokens": 2463,
+          "descriptionChars": 518,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "repomix-safe-mixer",
+          "alwaysOnTokens": 66,
+          "fullTokens": 1879,
+          "descriptionChars": 263,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "repomix-unmixer",
+          "alwaysOnTokens": 71,
+          "fullTokens": 1983,
+          "descriptionChars": 284,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "scrapling-skill",
+          "alwaysOnTokens": 79,
+          "fullTokens": 1325,
+          "descriptionChars": 316,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "setup-notifications-via-wecom",
+          "alwaysOnTokens": 1,
+          "fullTokens": 1751,
+          "descriptionChars": 2,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "slides-creator",
+          "alwaysOnTokens": 76,
+          "fullTokens": 5188,
+          "descriptionChars": 301,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "teams-channel-post-writer",
+          "alwaysOnTokens": 150,
+          "fullTokens": 1025,
+          "descriptionChars": 598,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "terraform-skill",
+          "alwaysOnTokens": 1,
+          "fullTokens": 2235,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "tunnel-doctor",
+          "alwaysOnTokens": 1,
+          "fullTokens": 13722,
+          "descriptionChars": 1,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "twitter-reader",
+          "alwaysOnTokens": 109,
+          "fullTokens": 899,
+          "descriptionChars": 433,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "ui-designer",
+          "alwaysOnTokens": 65,
+          "fullTokens": 1646,
+          "descriptionChars": 258,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "video-comparer",
+          "alwaysOnTokens": 96,
+          "fullTokens": 1250,
+          "descriptionChars": 381,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "windows-remote-desktop-connection-doctor",
+          "alwaysOnTokens": 117,
+          "fullTokens": 2140,
+          "descriptionChars": 467,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "wps-doc-scraper",
+          "alwaysOnTokens": 84,
+          "fullTokens": 998,
+          "descriptionChars": 333,
+          "hasDisableModelInvocation": false
+        },
+        {
+          "name": "youtube-downloader",
+          "alwaysOnTokens": 87,
+          "fullTokens": 4590,
+          "descriptionChars": 345,
+          "hasDisableModelInvocation": false
+        }
+      ],
+      "change": {
+        "tokens": 12600,
+        "pct": 10.2,
+        "skills": 3
+      }
     }
   ]
 }
