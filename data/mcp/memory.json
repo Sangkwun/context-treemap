@@ -41,6 +41,19 @@
         "pct": 0,
         "tools": 0
       }
+    },
+    {
+      "version": "2026.8.31",
+      "date": "2026-09-01",
+      "tools": 9,
+      "tokens": 6750,
+      "method": "estimate",
+      "toolNames": [],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
     }
   ]
 }
