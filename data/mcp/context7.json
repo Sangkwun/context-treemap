@@ -439,6 +439,21 @@
         "pct": 0,
         "tools": 0
       }
+    },
+    {
+      "version": "4.4.4",
+      "date": "2026-10-20",
+      "tools": 1,
+      "tokens": 750,
+      "method": "estimate",
+      "toolNames": [
+        "Authorization"
+      ],
+      "change": {
+        "tokens": 0,
+        "pct": 0,
+        "tools": 0
+      }
     }
   ]
 }
