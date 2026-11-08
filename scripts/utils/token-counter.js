@@ -1,6 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 
 const AVERAGE_TOKENS_PER_TOOL = 750;
+const COUNT_MODEL = 'claude-sonnet-5-5';
 
 let client = null;
 
@@ -35,22 +36,22 @@ export async function countToolTokens(tools) {
       },
     }));
 
-    const result = await anthropic.messages.count_tokens({
-      model: 'claude-sonnet-4-20250514',
+    const result = await anthropic.messages.countTokens({
+      model: COUNT_MODEL,
       messages: [{ role: 'user', content: 'test' }],
       tools: anthropicTools,
     });
 
     // Subtract base tokens (message without tools)
-    const baseResult = await anthropic.messages.count_tokens({
-      model: 'claude-sonnet-4-20250514',
+    const baseResult = await anthropic.messages.countTokens({
+      model: COUNT_MODEL,
       messages: [{ role: 'user', content: 'test' }],
     });
 
     return {
       tokens: result.input_tokens - baseResult.input_tokens,
       method: 'api',
-      model: 'claude-sonnet-4-20250514',
+      model: COUNT_MODEL,
     };
   } catch (err) {
     console.warn(`API token counting failed: ${err.message}, falling back to estimation`);
